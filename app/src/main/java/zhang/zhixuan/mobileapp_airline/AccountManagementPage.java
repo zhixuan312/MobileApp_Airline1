@@ -45,6 +45,7 @@ public class AccountManagementPage extends Activity implements View.OnClickListe
         mTabBooking.setOnClickListener(this);
         mTabProfile.setOnClickListener(this);
 
+
         // 设置默认的Fragment
         setDefaultFragment();
     }
