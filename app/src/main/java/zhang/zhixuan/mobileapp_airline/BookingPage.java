@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,20 +47,21 @@ import java.util.TimeZone;
 public class BookingPage extends Activity implements itineraryFragment.OnFragmentInteractionListener{
 
     TicketDB db;
+    MyDB dbMember;
     String inArrCity;
     private FlightEntity chosenFlight;
     private PassengerEntity passengerEntity;
     FragmentManager fragmentManager = getFragmentManager();
     FragmentTransaction fragmentTransaction;
 
-    TextView fnTV;
-    TextView snTV;
-    TextView adTV;
-    TextView emTV;
-    TextView ciTV;
-    TextView coTV;
-    TextView zcTV;
-    TextView cnTV;
+    EditText fnTV;
+    EditText snTV;
+    EditText adTV;
+    EditText emTV;
+    EditText ciTV;
+    EditText coTV;
+    EditText zcTV;
+    EditText cnTV;
     long flightId;
     String firstNP;
     String lastNP;
@@ -75,9 +78,18 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
     String contactN;
     String passportP;
     String email;
+    String emailAuto;
+    String firstNAuto;
+    String lastNAuto;
+    String addressAuto;
+    String cityAuto;
+    String countryAuto;
+    String zipCodeAuto;
+    String contactNAuto;
     double price;
-
+    LoginSessionDB dbLogin;
     Spinner spinner;
+    String loginStatus ;
 
     String referenceN;
     //for Paypal
@@ -97,7 +109,7 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
         db = new TicketDB(this);
         chosenFlight = (FlightEntity)getIntent().getSerializableExtra("chosenFlight");
         passengerEntity = (PassengerEntity)getIntent().getSerializableExtra("passenger");
-        System.out.println("new page!!!!!"+chosenFlight.getDepartureDate());
+        System.out.println("new page!!!!!" + chosenFlight.getDepartureDate());
 
 
         addListenerOnSpinnerItemSelection();
@@ -107,11 +119,57 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
         fragmentTransaction.add(R.id.bk_fl_itn, itineraryFragment);
         fragmentTransaction.commit();
 
+        checkLoginStatus();
+        if(loginStatus.equals("true"))
+            autoFillInMemberData();
 
 
         Intent intent = new Intent(this, PayPalService.class);
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
         startService(intent);
+    }
+
+    public void checkLoginStatus(){
+        dbLogin.open();
+        Cursor c = dbLogin.getAllSession();
+        if (c.moveToFirst()) {
+            do {
+                loginStatus = c.getString(1);
+                emailAuto = c.getString(2);
+
+            } while (c.moveToNext());
+        }
+        dbLogin.close();
+    }
+    public void autoFillInMemberData(){
+
+        dbMember.open();
+        Cursor c = dbMember.getMemberByEmail(emailAuto);
+
+        if(c!=null) {
+            if (c.moveToFirst()) {
+                firstNAuto = c.getString(1);
+                lastNAuto = c.getString(2);
+                addressAuto = c.getString(5);
+                countryAuto = c.getString(6);
+                cityAuto = c.getString(7);
+                zipCodeAuto = c.getString(8);
+                contactNAuto = c.getString(9);
+
+                fnTV.setText(firstNAuto, TextView.BufferType.EDITABLE);
+                snTV.setText(lastNAuto, TextView.BufferType.EDITABLE);
+                adTV.setText(addressAuto, TextView.BufferType.EDITABLE);
+                ciTV.setText(cityAuto, TextView.BufferType.EDITABLE);
+                coTV.setText(countryAuto, TextView.BufferType.EDITABLE);
+                zcTV.setText(zipCodeAuto, TextView.BufferType.EDITABLE);
+                cnTV.setText(contactNAuto, TextView.BufferType.EDITABLE);
+
+
+
+            } else
+                Toast.makeText(this, "No member found.", Toast.LENGTH_LONG).show();
+        }
+        dbLogin.close();
     }
     public void addListenerOnSpinnerItemSelection() {
         System.out.println("注意!!!!!!哈哈哈哈哈哈");
@@ -166,14 +224,14 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
     public void pay (View view) throws ParseException {
 
 
-        fnTV = (TextView)findViewById(R.id.bk_et_fn);
-        snTV = (TextView)findViewById(R.id.bk_et_sn);
-        adTV = (TextView)findViewById(R.id.bk_et_ad);
-        emTV = (TextView)findViewById(R.id.bk_et_em);
-        ciTV = (TextView)findViewById(R.id.bk_et_ci);
-        coTV = (TextView)findViewById(R.id.bk_et_co);
-        zcTV = (TextView)findViewById(R.id.bk_et_zp);
-        cnTV = (TextView)findViewById(R.id.bk_et_cn);
+        fnTV = (EditText)findViewById(R.id.bk_et_fn);
+        snTV = (EditText)findViewById(R.id.bk_et_sn);
+        adTV = (EditText)findViewById(R.id.bk_et_ad);
+        emTV = (EditText)findViewById(R.id.bk_et_em);
+        ciTV = (EditText)findViewById(R.id.bk_et_ci);
+        coTV = (EditText)findViewById(R.id.bk_et_co);
+        zcTV = (EditText)findViewById(R.id.bk_et_zp);
+        cnTV = (EditText)findViewById(R.id.bk_et_cn);
 
         flightId = chosenFlight.getId();
         firstNP = passengerEntity.getFirstName();

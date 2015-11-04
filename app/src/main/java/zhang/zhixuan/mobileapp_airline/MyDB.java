@@ -33,12 +33,11 @@ public class MyDB {
         DBHelper.close();
     }
 
-    public long insertMember(String userName, String password, String email, String contactN) {
+    public long insertMember(String userName, String password, String email) {
         ContentValues initialValues = new ContentValues();
         initialValues.put(MyDBHelper.columnName_memberUserName, userName);
         initialValues.put(MyDBHelper.columnName_memberPassword,password );
         initialValues.put(MyDBHelper.columnName_memberEmail, email);
-        initialValues.put(MyDBHelper.columnName_memberContactN, contactN);
 
         return db.insert(MyDBHelper.tableName, null, initialValues);
     }

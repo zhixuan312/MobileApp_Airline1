@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -46,6 +47,9 @@ import java.util.TimeZone;
 public class BookingTwoWayPage extends Activity implements itineraryRFragment.OnFragmentInteractionListener {
 
     TicketDB db;
+    MyDB dbMember;
+    LoginSessionDB dbLogin;
+
     String inArrCity;
     private FlightEntity chosenFlight;
     private FlightEntity chosenFlightR;
@@ -78,6 +82,15 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
     String contactN;
     String passportP;
     String email;
+    String emailAuto;
+    String firstNAuto;
+    String lastNAuto;
+    String addressAuto;
+    String cityAuto;
+    String countryAuto;
+    String zipCodeAuto;
+    String contactNAuto;
+    String loginStatus ;
     double price;
 
     Spinner spinner;
@@ -112,10 +125,55 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
         fragmentTransaction.add(R.id.bk_fl_itnR, itineraryRFragment);
         fragmentTransaction.commit();
 
+        checkLoginStatus();
+        if(loginStatus.equals("true"))
+            autoFillInMemberData();
 
         Intent intent = new Intent(this, PayPalService.class);
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
         startService(intent);
+    }
+    public void checkLoginStatus(){
+        dbLogin.open();
+        Cursor c = dbLogin.getAllSession();
+        if (c.moveToFirst()) {
+            do {
+                loginStatus = c.getString(1);
+                emailAuto = c.getString(2);
+
+            } while (c.moveToNext());
+        }
+        dbLogin.close();
+    }
+    public void autoFillInMemberData(){
+
+        dbMember.open();
+        Cursor c = dbMember.getMemberByEmail(emailAuto);
+
+        if(c!=null) {
+            if (c.moveToFirst()) {
+                firstNAuto = c.getString(1);
+                lastNAuto = c.getString(2);
+                addressAuto = c.getString(5);
+                countryAuto = c.getString(6);
+                cityAuto = c.getString(7);
+                zipCodeAuto = c.getString(8);
+                contactNAuto = c.getString(9);
+
+                fnTV.setText(firstNAuto, TextView.BufferType.EDITABLE);
+                snTV.setText(lastNAuto, TextView.BufferType.EDITABLE);
+                adTV.setText(addressAuto, TextView.BufferType.EDITABLE);
+                ciTV.setText(cityAuto, TextView.BufferType.EDITABLE);
+                coTV.setText(countryAuto, TextView.BufferType.EDITABLE);
+                zcTV.setText(zipCodeAuto, TextView.BufferType.EDITABLE);
+                cnTV.setText(contactNAuto, TextView.BufferType.EDITABLE);
+
+
+
+            } else
+                Toast.makeText(this, "No member found.", Toast.LENGTH_LONG).show();
+        }
+        dbLogin.close();
     }
 
     public void addListenerOnSpinnerItemSelection() {

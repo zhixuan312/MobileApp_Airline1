@@ -3,6 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="Logout"
+        android:onClick="logout"
+        android:layout_height="wrap_content" />
     <include
         android:id="@+id/id_ly_bottombar"
         android:layout_width="fill_parent"
@@ -16,7 +23,5 @@
         android:layout_height="fill_parent"
         android:layout_above="@id/id_ly_bottombar"
         />
-
-
 
 </RelativeLayout>

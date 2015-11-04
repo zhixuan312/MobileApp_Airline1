@@ -3,6 +3,8 @@ package zhang.zhixuan.mobileapp_airline;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,8 +17,10 @@ public class AccountManagementPage extends Activity implements View.OnClickListe
     LinearLayout mTabProfile;
     BookingFragment fBooking;
     ProfileFragment fProfile;
+    LoginSessionDB db;
+    String email;
 
-//    TextView fnTV;
+    //    TextView fnTV;
 //    TextView snTV;
 //    TextView adTV;
 //    TextView emTV;
@@ -40,16 +44,28 @@ public class AccountManagementPage extends Activity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_management_page);
+        db = new LoginSessionDB(this);
+        email = getIntent().getStringExtra("email");
+        changeLoginStatus();
         mTabBooking = (LinearLayout) findViewById(R.id.ll_mybooking);
         mTabProfile = (LinearLayout) findViewById(R.id.ll_myprofile);
         mTabBooking.setOnClickListener(this);
         mTabProfile.setOnClickListener(this);
 
-
         // 设置默认的Fragment
         setDefaultFragment();
     }
-
+    public void changeLoginStatus(){
+        db.open();
+        Cursor c = db.getAllSession();
+        if(c == null){
+            db.insertLoginSession("true", email);
+        }
+        else{
+            db.updateLoginStatus("true", email);
+        }
+        db.close();
+    }
     private void setDefaultFragment()
     {
         FragmentManager fm = getFragmentManager();
@@ -87,6 +103,23 @@ public class AccountManagementPage extends Activity implements View.OnClickListe
         // transaction.addToBackStack();
         // 事务提交
         transaction.commit();
+    }
+
+    public void logout(){
+        changeLogoutStatus();
+        Intent intent = new Intent(this, LoginPage.class);
+        startActivity(intent);
+    }
+    public void changeLogoutStatus(){
+        db.open();
+        Cursor c = db.getAllSession();
+        if(c == null){
+            db.insertLoginSession("false", email);
+        }
+        else{
+            db.updateLoginStatus("false", email);
+        }
+        db.close();
     }
 
     @Override
