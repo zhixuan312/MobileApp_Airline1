@@ -31,5 +31,5 @@ dependencies {
     compile 'com.github.vajro:MaterialDesignLibrary:1.6'
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     compile 'com.github.clans:fab:1.6.1'
-    compile files('C:/Users/zhang_000/AndroidStudioProjects/IS3261 Project/MobileApp_Airline04112015/MobileApp_Airline/libs/PayPalAndroidSDK-2.11.1.jar')
+    compile files('/Users/victor/Andriod/MobileApp_Airline4/libs/PayPalAndroidSDK-2.11.1.jar')
 }

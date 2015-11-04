@@ -20,7 +20,7 @@ public class LoginPage extends Activity {
     String loginPassword;
     MyDB db;
     Profile facebookProfile;
-
+    Fragment facebookFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +31,19 @@ public class LoginPage extends Activity {
         android.app.FragmentManager fragmentManager = getFragmentManager();
         android.app.FragmentTransaction fragmentTransaction;
 
-        Fragment facebookFragment = new FacebookFragment();
+         facebookFragment = new FacebookFragment();
 
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.login_fl_Facebook, facebookFragment);
         fragmentTransaction.commit();
 
         login_et_password = (EditText)findViewById(R.id.login_et_password);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        facebookFragment.onActivityResult(requestCode, resultCode, data);
     }
 
     public void login_register(View View) {

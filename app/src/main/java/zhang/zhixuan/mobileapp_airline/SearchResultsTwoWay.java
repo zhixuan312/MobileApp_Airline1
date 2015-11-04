@@ -1,5 +1,6 @@
 package zhang.zhixuan.mobileapp_airline;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -35,7 +36,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class SearchResultsTwoWay extends AppCompatActivity {
+public class SearchResultsTwoWay extends Activity {
     TextView originTV;
     TextView destinationTV;
     TextView depD;

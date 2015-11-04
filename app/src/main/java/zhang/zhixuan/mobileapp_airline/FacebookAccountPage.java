@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -13,7 +14,7 @@ import com.facebook.login.widget.ProfilePictureView;
 public class FacebookAccountPage extends Activity {
 
     TextView facebookAccount_tv_profile;
-
+    Fragment facebookFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +23,7 @@ public class FacebookAccountPage extends Activity {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction;
 
-        Fragment facebookFragment = new FacebookFragment();
+        facebookFragment= new FacebookFragment();
 
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.facebookAccount_fl_facebook, facebookFragment);
@@ -37,6 +38,12 @@ public class FacebookAccountPage extends Activity {
 
         profilePictureView.setProfileId(profile.getId());
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        facebookFragment.onActivityResult(requestCode, resultCode, data);
     }
 
 

@@ -1,11 +1,12 @@
 package zhang.zhixuan.mobileapp_airline;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class WebCheckIn extends AppCompatActivity {
+public class WebCheckIn extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

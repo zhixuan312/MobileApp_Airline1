@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Login"
+            android:text="Account"
             android:textColor="#ffffff"
             android:textSize="25sp"
             android:gravity="center"
@@ -33,6 +33,12 @@
             android:layout_centerVertical="true"
             />
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -40,14 +46,13 @@
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:orientation="vertical"
-            android:layout_below="@+id/login_bar"
             >
             <com.rengwuxian.materialedittext.MaterialEditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="User ID"
                 android:maxLines="1"
-                app:met_primaryColor= "#f4c20d"
+                app:met_primaryColor= "#424242"
                 android:textSize="15sp"
                 android:id="@+id/login_et_id"
                 app:met_floatingLabel="highlight"
@@ -67,7 +72,7 @@
                 android:textSize="15sp"
                 android:id="@+id/login_et_password"
                 android:inputType="textPassword"
-                app:met_primaryColor= "#f4c20d"
+                app:met_primaryColor= "#424242"
                 app:met_floatingLabel="highlight"
                 app:met_floatingLabelText = "Password"
                 android:hint="Password"
@@ -112,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:text="save"
-                android:background="#424242"
+                android:background="#3cba54"
                 materialdesign:check="true"
                 android:layout_centerVertical="true"
                 />
@@ -131,19 +136,12 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/login_divideLine1"
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/login_relative_input"
-            android:background="#424242"
-            android:layout_marginTop="20dp"/>
-        <TextView
             android:id="@+id/login_tv_or"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:layout_below="@+id/login_divideLine1"
+            android:layout_below="@+id/login_relative_input"
             android:text="OR"
             android:textSize="20sp"
             android:textColor="#424242"/>
@@ -153,9 +151,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/login_fl_Facebook"
             android:layout_below="@+id/login_tv_or"
-            android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true">
         </FrameLayout>
+    </RelativeLayout>
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/login_float_menu"
@@ -166,8 +164,8 @@
         android:paddingBottom="5dp"
         android:paddingRight="10dp"
         fab:menu_colorNormal="#db3236"
-        fab:menu_colorPressed="#db3236"
-        fab:menu_colorRipple="#db3236"
+        fab:menu_colorPressed="#581416"
+        fab:menu_colorRipple="#581416"
         fab:menu_fab_size="normal"
         fab:menu_icon="@drawable/airplane"
         fab:menu_shadowColor="#66000000"
@@ -183,8 +181,8 @@
             android:onClick="main_float_account"
             android:src="@drawable/account"
             app:fab_colorNormal="#3cba54"
-            app:fab_colorPressed="#3cba54"
-            app:fab_colorRipple="#3cba54"
+            app:fab_colorPressed="#184a22"
+            app:fab_colorRipple="#184a22"
             app:fab_shadowColor="#66000000"
             app:fab_shadowRadius="4dp"
             app:fab_shadowXOffset="1dp"
@@ -198,7 +196,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="main_float_checkIn"
-            android:src="@drawable/search_icon"
+            android:src="@drawable/airplane"
             app:fab_colorNormal="#1E88E5"
             app:fab_colorPressed="#1E88E5"
             app:fab_colorRipple="#1E88E5"
@@ -217,8 +215,8 @@
             android:onClick="main_float_checkIn"
             android:src="@drawable/checkin"
             app:fab_colorNormal="#f4c20d"
-            app:fab_colorPressed="#f4c20d"
-            app:fab_colorRipple="#f4c20d"
+            app:fab_colorPressed="#624e05"
+            app:fab_colorRipple="#624e05"
             app:fab_shadowColor="#66000000"
             app:fab_shadowRadius="4dp"
             app:fab_shadowXOffset="1dp"

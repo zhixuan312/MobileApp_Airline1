@@ -4,35 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_blue">
+    >
 
     <RelativeLayout
-        android:id="@+id/main_rl_background"
         android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="#1E88E5"
+        android:id="@+id/login_bar"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Search"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:src="@drawable/airplane"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/registration_background"
-        android:padding="25dp">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        android:layout_below="@+id/login_bar">
 
             <ImageView
                 android:id="@+id/main_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/logonew" />
+                android:background="@drawable/merlionlogo2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"/>
 
             <ScrollView
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/main_logo"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                >
 
                 <RelativeLayout
                     android:layout_width="fill_parent"
@@ -52,7 +75,8 @@
                             android:buttonTint="#1E88E5"
                             android:checked="true"
                             android:onClick="main_radioBtn_roundTrip"
-                            android:text="Round Trip" />
+                            android:text="Round Trip"
+                            android:textColor="#424242"/>
 
                         <RadioButton
                             android:id="@+id/main_radioBtn_oneWay"
@@ -62,7 +86,8 @@
                             android:buttonTint="#1E88E5"
                             android:checked="false"
                             android:onClick="main_radioBtn_oneWay"
-                            android:text="One Way" />
+                            android:text="One Way"
+                            android:textColor="#424242"/>
 
                     </RadioGroup>
 
@@ -77,7 +102,7 @@
                         app:met_floatingLabel="highlight"
                         app:met_floatingLabelText="From"
                         app:met_maxCharacters="20"
-                        app:met_primaryColor="#f4c20d"
+                        app:met_primaryColor="#424242"
                         app:met_textColorHint="#1E88E5"
                         app:met_underlineColor="#1E88E5" />
 
@@ -92,7 +117,7 @@
                         app:met_floatingLabel="highlight"
                         app:met_floatingLabelText="To"
                         app:met_maxCharacters="20"
-                        app:met_primaryColor="#f4c20d"
+                        app:met_primaryColor="#424242"
                         app:met_textColorHint="#1E88E5"
                         app:met_underlineColor="#1E88E5" />
 
@@ -109,7 +134,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Depart"
-                            android:textColor="#f4c20d" />
+                            android:textColor="#424242" />
 
                         <TextView
                             android:id="@+id/main_destination"
@@ -117,7 +142,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Return"
-                            android:textColor="#f4c20d" />
+                            android:textColor="#424242" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -162,7 +187,8 @@
                         android:checked="false"
                         android:onClick="main_checkBox"
                         android:text="More options"
-                        android:textAllCaps="false" />
+                        android:textAllCaps="false"
+                        android:buttonTint="#1E88E5"/>
 
                     <RelativeLayout
                         android:id="@+id/main_rl_moreOption"
@@ -181,37 +207,46 @@
                                 android:id="@+id/firstClass"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:text="First Class" />
+                                android:text="First Class"
+                                android:buttonTint="#1E88E5"
+                                android:textColor="#424242"/>
 
                             <RadioButton
                                 android:id="@+id/businessClass"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Business Class" />
+                                android:text="Business Class"
+                                android:buttonTint="#1E88E5"
+                                android:textColor="#424242"/>
 
                             <RadioButton
                                 android:id="@+id/premiumEconomyClass"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Premium Economy Class" />
+                                android:text="Premium Economy Class"
+                                android:buttonTint="#1E88E5"
+                                android:textColor="#424242"/>
 
                             <RadioButton
                                 android:id="@+id/economyClass"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Economy Class" />
+                                android:text="Economy Class"
+                                android:buttonTint="#1E88E5"
+                                android:textColor="#424242"/>
 
                             <RadioButton
                                 android:id="@+id/allClasses"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:text="All Cabin Class" />
+                                android:text="All Cabin Class"
+                                android:buttonTint="#1E88E5"
+                                android:textColor="#424242"/>
                         </RadioGroup>
                     </RelativeLayout>
                 </RelativeLayout>
             </ScrollView>
-        </LinearLayout>
-    </RelativeLayout>
+
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/main_float_menu"
@@ -222,8 +257,8 @@
         android:paddingBottom="5dp"
         android:paddingRight="10dp"
         fab:menu_colorNormal="#db3236"
-        fab:menu_colorPressed="#db3236"
-        fab:menu_colorRipple="#db3236"
+        fab:menu_colorPressed="#581416"
+        fab:menu_colorRipple="#581416"
         fab:menu_fab_size="normal"
         fab:menu_icon="@drawable/airplane"
         fab:menu_shadowColor="#66000000"
@@ -239,8 +274,8 @@
             android:onClick="main_float_account"
             android:src="@drawable/account"
             app:fab_colorNormal="#3cba54"
-            app:fab_colorPressed="#3cba54"
-            app:fab_colorRipple="#3cba54"
+            app:fab_colorPressed="#184a22"
+            app:fab_colorRipple="#184a22"
             app:fab_shadowColor="#66000000"
             app:fab_shadowRadius="4dp"
             app:fab_shadowXOffset="1dp"
@@ -273,8 +308,8 @@
             android:onClick="main_float_checkIn"
             android:src="@drawable/checkin"
             app:fab_colorNormal="#f4c20d"
-            app:fab_colorPressed="#f4c20d"
-            app:fab_colorRipple="#f4c20d"
+            app:fab_colorPressed="#624e05"
+            app:fab_colorRipple="#624e05"
             app:fab_shadowColor="#66000000"
             app:fab_shadowRadius="4dp"
             app:fab_shadowXOffset="1dp"
@@ -284,4 +319,5 @@
             fab:fab_label="Check In" />
 
     </com.github.clans.fab.FloatingActionMenu>
+    </RelativeLayout>
 </RelativeLayout>

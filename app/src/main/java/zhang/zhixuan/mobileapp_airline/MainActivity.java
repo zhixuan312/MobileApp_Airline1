@@ -1,5 +1,6 @@
 package zhang.zhixuan.mobileapp_airline;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
@@ -21,7 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private int year_R,month_R,day_R;
     private int year_D,month_D,day_D;
