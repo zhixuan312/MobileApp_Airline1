@@ -31,7 +31,7 @@ public class LoginPage extends Activity {
         android.app.FragmentManager fragmentManager = getFragmentManager();
         android.app.FragmentTransaction fragmentTransaction;
 
-         facebookFragment = new FacebookFragment();
+        facebookFragment = new FacebookFragment();
 
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.login_fl_Facebook, facebookFragment);
@@ -105,4 +105,3 @@ public class LoginPage extends Activity {
         startActivity(intent);
     }
 }
-
