@@ -53,6 +53,7 @@ public class AccountManagementPage extends Activity implements View.OnClickListe
         mTabProfile.setOnClickListener(this);
 
         // 设置默认的Fragment
+        //test github
         setDefaultFragment();
     }
     public void changeLoginStatus(){

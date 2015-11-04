@@ -32,6 +32,8 @@ public class bookingConfirmationPage extends Activity {
         cfm_rn.setText("Your Booking Reference Number: \n"+referenceN+"\n and you can look for your booking records in your own account: \n"+ticket[3]);
     }
 
+    //test github
+
     public String[] getRecord(String email){
         db.open();
         Cursor c = db.getMemberByEmail(email);
