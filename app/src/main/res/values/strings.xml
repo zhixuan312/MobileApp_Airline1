@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">MobileApp_Airline</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_date_picker">DatePicker</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_search_results">SearchResults</string>
+    <string name="title_activity_detail_page">DetailPage</string>
+    <string name="promotion">Best Promotion</string>
+    <string name="facebook_app_id">981005805292455</string>
+    <color name="black">#333300</color>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_booking_page">BookingPage</string>
+    <string name="title_activity_booking_confirmation_page">bookingConfirmationPage</string>
+    <string name="title_activity_passenger_page">PassengerPage</string>
+    <string name="title_prompt">Choose a title</string>
+    <string-array name="title">
+        <item>Dr</item>
+        <item>Mdm</item>
+        <item>Miss</item>
+        <item>Mr</item>
+        <item>Mrs</item>
+        <item>Ms</item>
+        <item>Mstr</item>
+        <item>Prof</item>
+    </string-array>
+    <string name="title_activity_search_results_two_way">SearchResultsTwoWay</string>
+    <drawable name="clr_default">#ff6501</drawable>
+    <drawable name="clr_selected">#a44100</drawable>
+    <string name="title_activity_detail_two_way_page">DetailTwoWayPage</string>
+    <string name="title_activity_booking_two_way_page">BookingTwoWayPage</string>
+    <string name="title_activity_passenger_two_way_page">PassengerTwoWayPage</string>
+    <string name="title_activity_account_management_page">AccountManagementPage</string>
+    <string name="title_activity_web_check_in">WebCheckIn</string>
+</resources>

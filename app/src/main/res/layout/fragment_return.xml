@@ -1,0 +1,47 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="zhang.zhixuan.mobileapp_airline.ReturnFragment">
+    <RelativeLayout
+        android:id="@+id/detail_relative_inbound"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_relative_outbound">
+
+        <TextView
+            android:id="@+id/detail_tv_inbound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inbound"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/detail_tv_inDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Tue Oct 20 2015"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/detail_relative_divideLine2"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/detail_tv_inbound"
+            android:background="#000000" />
+
+        <TextView
+            android:id="@+id/detail_inboundContent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/detail_relative_divideLine2"
+            android:text="Text"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
+
+</FrameLayout>

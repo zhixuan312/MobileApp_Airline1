@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="zhang.zhixuan.mobileapp_airline.BookingFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fb_tv_bookingTitle"
+        android:text="Booking Records waiting to be checked in: " />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fb_lv_bookingCI"
+        android:layout_below="@+id/fb_tv_bookingTitle"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fb_lv_bookingCI"
+        android:id="@+id/fb_tv_bookingTitle2"
+        android:text="Booking Records that already checked in: " />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fb_lv_bookingHistory"
+        android:layout_below="@+id/fb_tv_bookingTitle2"/>
+
+
+
+</RelativeLayout>

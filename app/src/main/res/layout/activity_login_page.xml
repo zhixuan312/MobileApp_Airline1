@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="zhang.zhixuan.mobileapp_airline.LoginPage">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="#3cba54"
+        android:id="@+id/login_bar"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Login"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:src="@drawable/account"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_linear_inputs"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:orientation="vertical"
+            android:layout_below="@+id/login_bar"
+            >
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="User ID"
+                android:maxLines="1"
+                app:met_primaryColor= "#f4c20d"
+                android:textSize="15sp"
+                android:id="@+id/login_et_id"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText = "User ID"
+                app:met_underlineColor= "#424242"
+                app:met_minCharacters ="6"
+                app:met_maxCharacters = "20"
+                app:met_textColorHint = "#424242"
+                android:backgroundTint="#424242"
+                app:met_errorColor="#3cba54"
+                />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textSize="15sp"
+                android:id="@+id/login_et_password"
+                android:inputType="textPassword"
+                app:met_primaryColor= "#f4c20d"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText = "Password"
+                android:hint="Password"
+                app:met_underlineColor= "#424242"
+                android:backgroundTint="#424242"
+                app:met_textColorHint = "#424242"
+                app:met_minCharacters ="6"
+                app:met_maxCharacters = "20"
+                app:met_errorColor="#3cba54"
+                />
+
+        </LinearLayout>
+
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/login_loginBtn"
+            android:layout_width="fill_parent"
+            android:layout_alignRight="@+id/login_linear_inputs"
+            android:layout_alignLeft="@+id/login_linear_inputs"
+            android:layout_height="55dp"
+            android:background="#3cba54"
+            android:paddingTop="5dp"
+            android:text="Login"
+            android:textSize="6sp"
+            android:textAlignment="center"
+            android:layout_below="@+id/login_linear_inputs"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:onClick="login"/>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_relative_input"
+            android:layout_alignRight="@+id/login_linear_inputs"
+            android:layout_alignLeft="@+id/login_linear_inputs"
+            android:layout_below="@+id/login_loginBtn"
+            >
+
+            <com.gc.materialdesign.views.CheckBox
+                android:id="@+id/login_autoSavePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="save"
+                android:background="#424242"
+                materialdesign:check="true"
+                android:layout_centerVertical="true"
+                />
+
+            <com.gc.materialdesign.views.ButtonFlat
+                android:id="@+id/login_btn_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#3cba54"
+                android:text="Register"
+                android:layout_alignParentRight="true"
+                android:textAllCaps="false"
+                android:onClick="login_register"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/login_divideLine1"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/login_relative_input"
+            android:background="#424242"
+            android:layout_marginTop="20dp"/>
+        <TextView
+            android:id="@+id/login_tv_or"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/login_divideLine1"
+            android:text="OR"
+            android:textSize="20sp"
+            android:textColor="#424242"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_fl_Facebook"
+            android:layout_below="@+id/login_tv_or"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+        </FrameLayout>
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/login_float_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:paddingBottom="5dp"
+        android:paddingRight="10dp"
+        fab:menu_colorNormal="#db3236"
+        fab:menu_colorPressed="#db3236"
+        fab:menu_colorRipple="#db3236"
+        fab:menu_fab_size="normal"
+        fab:menu_icon="@drawable/airplane"
+        fab:menu_shadowColor="#66000000"
+        fab:menu_shadowRadius="4dp"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="3dp"
+        fab:menu_showShadow="true">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/login_float_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_account"
+            android:src="@drawable/account"
+            app:fab_colorNormal="#3cba54"
+            app:fab_colorPressed="#3cba54"
+            app:fab_colorRipple="#3cba54"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Account" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/login_float_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_checkIn"
+            android:src="@drawable/search_icon"
+            app:fab_colorNormal="#1E88E5"
+            app:fab_colorPressed="#1E88E5"
+            app:fab_colorRipple="#1E88E5"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Search" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/login_float_checkIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_checkIn"
+            android:src="@drawable/checkin"
+            app:fab_colorNormal="#f4c20d"
+            app:fab_colorPressed="#f4c20d"
+            app:fab_colorRipple="#f4c20d"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Check In" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+</RelativeLayout>
+

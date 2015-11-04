@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_blue"
+    tools:context="zhang.zhixuan.mobileapp_airline.bookingConfirmationPage">
+
+
+    <RelativeLayout
+        android:id="@+id/login_rl_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/registration_background"
+        android:padding="25dp">
+
+        <TextView
+            android:id="@+id/cfm_tv_df1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Congratulations!"
+            android:layout_centerHorizontal="true"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/cfm_tv_df2"
+            android:layout_below="@+id/cfm_tv_df1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You Have Successfully Made the Booking. \n" />
+
+        <TextView
+            android:id="@+id/cfm_tv_df3"
+            android:layout_below="@+id/cfm_tv_df2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The record has been updated in your personal account." />
+
+        <TextView
+            android:layout_marginTop="25dp"
+            android:id="@+id/cfm_rn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cfm_tv_df3" />
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="zhang.zhixuan.mobileapp_airline" >
+
+    <uses-sdk tools:overrideLibrary="com.gc.materialdesign" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <application
+        android:name=".MyApplicationFacebook"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SearchResults"
+            android:label="@string/title_activity_search_results"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="zhang.zhixuan.mobileapp_airline.MainActivity" />
+        </activity>
+        <activity
+            android:name=".DetailPage"
+            android:label="@string/title_activity_detail_page"
+            android:parentActivityName=".SearchResults"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="zhang.zhixuan.mobileapp_airline.SearchResults" />
+        </activity>
+        <activity android:name=".LoginPage" />
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <receiver android:name=".PersistentReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".PromotionPage"
+            android:label="@string/promotion"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity android:name=".RegisterPage" >
+        </activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps" >
+        </activity>
+
+        <service
+            android:name="com.paypal.android.sdk.payments.PayPalService"
+            android:exported="false" />
+
+        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PayPalFuturePaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentConsentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentInfoActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PayPalProfileSharingActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.ProfileSharingConsentActivity" />
+        <activity
+            android:name="io.card.payment.CardIOActivity"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity android:name="io.card.payment.DataEntryActivity" />
+        <activity android:name=".FacebookAccountPage" >
+        </activity>
+        <activity
+            android:name=".BookingPage"
+            android:label="@string/title_activity_booking_page" >
+        </activity>
+        <activity
+            android:name=".bookingConfirmationPage"
+            android:label="@string/title_activity_booking_confirmation_page" >
+        </activity>
+        <activity
+            android:name=".PassengerPage"
+            android:label="@string/title_activity_passenger_page" >
+        </activity>
+        <activity
+            android:name=".SearchResultsTwoWay"
+            android:label="@string/title_activity_search_results_two_way" >
+        </activity>
+        <activity
+            android:name=".DetailTwoWayPage"
+            android:label="@string/title_activity_detail_two_way_page" >
+        </activity>
+        <activity
+            android:name=".BookingTwoWayPage"
+            android:label="@string/title_activity_booking_two_way_page" >
+        </activity>
+        <activity
+            android:name=".PassengerTwoWayPage"
+            android:label="@string/title_activity_passenger_two_way_page" >
+        </activity>
+        <activity
+            android:name=".AccountManagementPage"
+            android:label="@string/title_activity_account_management_page" >
+        </activity>
+        <activity
+            android:name=".WebCheckIn"
+            android:label="@string/title_activity_web_check_in" >
+        </activity>
+    </application>
+
+</manifest>
