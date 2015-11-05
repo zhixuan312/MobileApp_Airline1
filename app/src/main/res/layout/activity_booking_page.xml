@@ -51,7 +51,7 @@
             <FrameLayout
                 android:id="@+id/bk_fl_itn"
                 android:layout_width="fill_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -263,7 +263,7 @@
                     android:text="Pay"
                     android:onClick="pay"
                     android:layout_marginBottom="20dp"
-                   />
+                    />
 
                 <TextView
                     android:layout_width="match_parent"

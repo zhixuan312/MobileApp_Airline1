@@ -105,7 +105,6 @@
             android:background="#3cba54"
             android:paddingTop="5dp"
             android:text="Login"
-            android:textSize="6sp"
             android:textAlignment="center"
             android:layout_below="@+id/login_linear_inputs"
             android:layout_marginTop="12dp"

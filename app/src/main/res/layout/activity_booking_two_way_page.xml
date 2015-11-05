@@ -49,7 +49,7 @@
             android:orientation="vertical">
 
             <FrameLayout
-                android:id="@+id/bk_fl_itn"
+                android:id="@+id/bk_fl_itnR"
                 android:layout_width="fill_parent"
                 android:layout_height="200dp"
                 android:layout_marginBottom="10dp"
@@ -83,7 +83,7 @@
                     android:layout_marginBottom="10dp"/>
 
                 <Spinner
-                    android:id="@+id/bk_sp_title"
+                    android:id="@+id/bk_sp_titleR"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#1E88E5"
