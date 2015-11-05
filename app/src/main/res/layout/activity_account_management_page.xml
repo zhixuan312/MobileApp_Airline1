@@ -3,25 +3,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-
-    <Button
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="Logout"
-        android:onClick="logout"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:id="@+id/am_rl"
+        android:elevation="5dp"
+        android:background="#3cba54">
     <include
         android:id="@+id/id_ly_bottombar"
         android:layout_width="fill_parent"
         android:layout_height="55dp"
-        android:layout_alignParentBottom="true"
-        layout="@layout/bottombar" />
+        layout="@layout/bottombar"
+        />
+    </RelativeLayout>
 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/am_rl"
+        android:layout_centerHorizontal="true">
     <FrameLayout
         android:id="@+id/id_content"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@id/id_ly_bottombar"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/am_rl"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="5dp"
         />
-
+    </ScrollView>
 </RelativeLayout>

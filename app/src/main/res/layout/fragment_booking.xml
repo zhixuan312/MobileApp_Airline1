@@ -15,7 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fb_lv_bookingCI"
-        android:layout_below="@+id/fb_tv_bookingTitle"/>
+        android:layout_below="@+id/fb_tv_bookingTitle"
+        android:scrollbars="none"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -28,7 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fb_lv_bookingHistory"
-        android:layout_below="@+id/fb_tv_bookingTitle2"/>
+        android:layout_below="@+id/fb_tv_bookingTitle2"
+        android:scrollbars="none"/>
 
 
 
