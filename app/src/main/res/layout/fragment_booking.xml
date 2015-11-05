@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="zhang.zhixuan.mobileapp_airline.BookingFragment">
+    tools:context="zhang.zhixuan.mobileapp_airline.BookingFragment"
+    android:background="#E8F5E9">
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
@@ -12,7 +13,8 @@
         android:paddingRight="10dp"
         android:id="@+id/booking_rl1"
         android:layout_margin="15dp"
-        android:elevation="5dp">
+        android:elevation="5dp"
+        android:background="#ffffff">
 
         <TextView
             android:layout_marginTop="10dp"
@@ -31,6 +33,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:background="#ffffff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
