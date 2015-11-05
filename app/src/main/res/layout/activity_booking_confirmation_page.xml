@@ -1,51 +1,152 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_blue"
+    android:background="#E8F5E9"
     tools:context="zhang.zhixuan.mobileapp_airline.bookingConfirmationPage">
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/login_float_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:paddingBottom="5dp"
+        android:paddingRight="10dp"
+        fab:menu_colorNormal="#db3236"
+        fab:menu_colorPressed="#581416"
+        fab:menu_colorRipple="#581416"
+        fab:menu_fab_size="normal"
+        fab:menu_icon="@drawable/airplane"
+        fab:menu_shadowColor="#66000000"
+        fab:menu_shadowRadius="4dp"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="3dp"
+        fab:menu_showShadow="true"
+        android:elevation="11dp">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/login_float_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_account"
+            android:src="@drawable/account"
+            app:fab_colorNormal="#3cba54"
+            app:fab_colorPressed="#184a22"
+            app:fab_colorRipple="#184a22"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Account" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/login_float_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_checkIn"
+            android:src="@drawable/airplane"
+            app:fab_colorNormal="#1E88E5"
+            app:fab_colorPressed="#1E88E5"
+            app:fab_colorRipple="#1E88E5"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Search" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/login_float_checkIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_checkIn"
+            android:src="@drawable/checkin"
+            app:fab_colorNormal="#f4c20d"
+            app:fab_colorPressed="#624e05"
+            app:fab_colorRipple="#624e05"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Check In" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+    <RelativeLayout
+        android:id="@+id/login_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#3cba54"
+        android:elevation="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="Account"
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/account" />
+    </RelativeLayout>
 
 
     <RelativeLayout
         android:id="@+id/login_rl_white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/registration_background"
-        android:padding="25dp">
+        android:layout_below="@+id/login_bar"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:background="#ffffff"
+        android:elevation="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:padding="10dp">
 
         <TextView
+            android:layout_marginTop="30dp"
             android:id="@+id/cfm_tv_df1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Congratulations!"
             android:layout_centerHorizontal="true"
-            android:textSize="25sp"
-            android:textStyle="bold"/>
+            android:text="Congratulations!"
+            android:textSize="30sp"
+            android:layout_marginBottom="20dp"
+            />
 
         <TextView
-            android:layout_marginTop="15dp"
-            android:id="@+id/cfm_tv_df2"
-            android:layout_below="@+id/cfm_tv_df1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="You Have Successfully Made the Booking. \n" />
-
-        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:id="@+id/cfm_tv_df3"
-            android:layout_below="@+id/cfm_tv_df2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="The record has been updated in your personal account." />
+            android:layout_below="@+id/cfm_tv_df1"
+            android:text="You have successfully made the booking. The record has been updated in your personal account." />
 
         <TextView
-            android:layout_marginTop="25dp"
             android:id="@+id/cfm_rn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/cfm_tv_df3" />
+            android:layout_below="@+id/cfm_tv_df3"
+            android:layout_marginTop="25dp" />
 
     </RelativeLayout>
+
 </RelativeLayout>
