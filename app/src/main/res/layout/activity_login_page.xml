@@ -61,17 +61,17 @@
                 android:layout_height="wrap_content"
                 android:hint="User ID"
                 android:maxLines="1"
-                app:met_primaryColor= "#424242"
+                app:met_primaryColor= "#3cba54"
                 android:textSize="15sp"
                 android:id="@+id/login_et_id"
                 app:met_floatingLabel="highlight"
                 app:met_floatingLabelText = "User ID"
-                app:met_underlineColor= "#424242"
+                app:met_underlineColor= "#3cba54"
                 app:met_minCharacters ="6"
                 app:met_maxCharacters = "20"
                 app:met_textColorHint = "#424242"
-                android:backgroundTint="#424242"
-                app:met_errorColor="#3cba54"
+                android:backgroundTint="#3cba54"
+                app:met_errorColor="#424242"
                 />
 
             <com.rengwuxian.materialedittext.MaterialEditText
@@ -81,16 +81,16 @@
                 android:textSize="15sp"
                 android:id="@+id/login_et_password"
                 android:inputType="textPassword"
-                app:met_primaryColor= "#424242"
+                app:met_primaryColor= "#3cba54"
                 app:met_floatingLabel="highlight"
                 app:met_floatingLabelText = "Password"
                 android:hint="Password"
-                app:met_underlineColor= "#424242"
-                android:backgroundTint="#424242"
+                app:met_underlineColor= "#3cba54"
+                android:backgroundTint="#3cba54"
                 app:met_textColorHint = "#424242"
                 app:met_minCharacters ="6"
                 app:met_maxCharacters = "20"
-                app:met_errorColor="#3cba54"
+                app:met_errorColor="#424242"
                 />
 
         </LinearLayout>
