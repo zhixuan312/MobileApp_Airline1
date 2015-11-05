@@ -4,249 +4,264 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="#E3F2FD">
 
     <RelativeLayout
+        android:id="@+id/login_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal"
         android:background="#1E88E5"
-        android:id="@+id/login_bar"
-        >
+        android:elevation="5dp"
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
             android:text="Search"
             android:textColor="#ffffff"
-            android:textSize="25sp"
-            android:gravity="center"
-            android:layout_marginLeft="20dp"
-            />
+            android:textSize="25sp" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:src="@drawable/airplane"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
             android:layout_centerVertical="true"
-            />
+            android:layout_marginRight="10dp"
+            android:src="@drawable/airplane" />
     </RelativeLayout>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_below="@+id/login_bar">
+        android:layout_below="@+id/login_bar"
+        android:layout_centerHorizontal="true"
+        >
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+
 
             <ImageView
                 android:id="@+id/main_logo"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/merlionlogo2"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"/>
+                android:layout_marginTop="15dp"
+                android:background="@drawable/merlionlogo2"
+                android:elevation="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"/>
 
-            <ScrollView
+
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:background="#ffffff"
+                android:padding="10dp"
+                android:elevation="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
                 android:layout_below="@+id/main_logo"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                >
+                android:layout_marginBottom="10dp">
+
+                <RadioGroup
+                    android:id="@+id/main_radioGrp1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/main_radioBtn_roundTrip"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="#1E88E5"
+                        android:checked="true"
+                        android:onClick="main_radioBtn_roundTrip"
+                        android:text="Round Trip"
+                        android:textColor="#424242" />
+
+                    <RadioButton
+                        android:id="@+id/main_radioBtn_oneWay"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="#1E88E5"
+                        android:checked="false"
+                        android:onClick="main_radioBtn_oneWay"
+                        android:text="One Way"
+                        android:textColor="#424242" />
+
+                </RadioGroup>
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/main_eT_from"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/main_radioGrp1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="#1E88E5"
+                    android:hint="From"
+                    android:maxLines="1"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelText="From"
+                    app:met_maxCharacters="20"
+                    app:met_primaryColor="#424242"
+                    app:met_textColorHint="#1E88E5"
+                    app:met_underlineColor="#1E88E5" />
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/main_eT_to"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/main_eT_from"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="#1E88E5"
+                    android:hint="To"
+                    android:maxLines="1"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelText="To"
+                    app:met_maxCharacters="20"
+                    app:met_primaryColor="#424242"
+                    app:met_textColorHint="#1E88E5"
+                    app:met_underlineColor="#1E88E5" />
+
+                <LinearLayout
+                    android:id="@+id/main_lL1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/main_eT_to"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/main_origin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Depart"
+                        android:textColor="#424242" />
+
+                    <TextView
+                        android:id="@+id/main_destination"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Return"
+                        android:textColor="#424242" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/main_lL2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/main_lL1"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <com.gc.materialdesign.views.ButtonFlat
+                        android:id="@+id/main_btn_departDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:onClick="main_btn_pickDate"
+                        android:text="Pick a date" />
+
+                    <com.gc.materialdesign.views.ButtonFlat
+                        android:id="@+id/main_btn_returnDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:onClick="main_btn_pickDate"
+                        android:text="Pick a date" />
+                </LinearLayout>
+
+                <com.gc.materialdesign.views.ButtonRectangle
+                    android:id="@+id/main_btn_search"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/main_lL2"
+                    android:onClick="main_btn_search"
+                    android:text="Search" />
+
+                <CheckBox
+                    android:id="@+id/main_cb_moreOption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/main_btn_search"
+                    android:buttonTint="#1E88E5"
+                    android:checked="false"
+                    android:onClick="main_checkBox"
+                    android:text="More options"
+                    android:textAllCaps="false" />
 
                 <RelativeLayout
+                    android:id="@+id/main_rl_moreOption"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/main_cb_moreOption"
+                    android:visibility="gone">
 
                     <RadioGroup
-                        android:id="@+id/main_radioGrp1"
+                        android:id="@+id/main_rg_bcs"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <RadioButton
-                            android:id="@+id/main_radioBtn_roundTrip"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#1E88E5"
-                            android:checked="true"
-                            android:onClick="main_radioBtn_roundTrip"
-                            android:text="Round Trip"
-                            android:textColor="#424242"/>
-
-                        <RadioButton
-                            android:id="@+id/main_radioBtn_oneWay"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:buttonTint="#1E88E5"
-                            android:checked="false"
-                            android:onClick="main_radioBtn_oneWay"
-                            android:text="One Way"
-                            android:textColor="#424242"/>
-
-                    </RadioGroup>
-
-                    <com.rengwuxian.materialedittext.MaterialEditText
-                        android:id="@+id/main_eT_from"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/main_radioGrp1"
-                        android:backgroundTint="#1E88E5"
-                        android:hint="From"
-                        android:maxLines="1"
-                        app:met_floatingLabel="highlight"
-                        app:met_floatingLabelText="From"
-                        app:met_maxCharacters="20"
-                        app:met_primaryColor="#424242"
-                        app:met_textColorHint="#1E88E5"
-                        app:met_underlineColor="#1E88E5" />
-
-                    <com.rengwuxian.materialedittext.MaterialEditText
-                        android:id="@+id/main_eT_to"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/main_eT_from"
-                        android:backgroundTint="#1E88E5"
-                        android:hint="To"
-                        android:maxLines="1"
-                        app:met_floatingLabel="highlight"
-                        app:met_floatingLabelText="To"
-                        app:met_maxCharacters="20"
-                        app:met_primaryColor="#424242"
-                        app:met_textColorHint="#1E88E5"
-                        app:met_underlineColor="#1E88E5" />
-
-                    <LinearLayout
-                        android:id="@+id/main_lL1"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/main_eT_to"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/main_origin"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Depart"
-                            android:textColor="#424242" />
-
-                        <TextView
-                            android:id="@+id/main_destination"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Return"
-                            android:textColor="#424242" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/main_lL2"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/main_lL1"
-                        android:orientation="horizontal">
-
-                        <com.gc.materialdesign.views.ButtonFlat
-                            android:id="@+id/main_btn_departDate"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="left"
-                            android:onClick="main_btn_pickDate"
-                            android:text="Pick a date" />
-
-                        <com.gc.materialdesign.views.ButtonFlat
-                            android:id="@+id/main_btn_returnDate"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="left"
-                            android:onClick="main_btn_pickDate"
-                            android:text="Pick a date" />
-                    </LinearLayout>
-
-                    <com.gc.materialdesign.views.ButtonRectangle
-                        android:id="@+id/main_btn_search"
-                        android:layout_width="fill_parent"
-                        android:layout_height="50dp"
-                        android:layout_below="@+id/main_lL2"
-                        android:onClick="main_btn_search"
-                        android:text="Search" />
-
-                    <CheckBox
-                        android:id="@+id/main_cb_moreOption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/main_btn_search"
-                        android:checked="false"
-                        android:onClick="main_checkBox"
-                        android:text="More options"
-                        android:textAllCaps="false"
-                        android:buttonTint="#1E88E5"/>
-
-                    <RelativeLayout
-                        android:id="@+id/main_rl_moreOption"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/main_cb_moreOption"
-                        android:visibility="gone">
-
-                        <RadioGroup
-                            android:id="@+id/main_rg_bcs"
+                            android:id="@+id/firstClass"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:buttonTint="#1E88E5"
+                            android:text="First Class"
+                            android:textColor="#424242" />
 
-                            <RadioButton
-                                android:id="@+id/firstClass"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:text="First Class"
-                                android:buttonTint="#1E88E5"
-                                android:textColor="#424242"/>
+                        <RadioButton
+                            android:id="@+id/businessClass"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#1E88E5"
+                            android:text="Business Class"
+                            android:textColor="#424242" />
 
-                            <RadioButton
-                                android:id="@+id/businessClass"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Business Class"
-                                android:buttonTint="#1E88E5"
-                                android:textColor="#424242"/>
+                        <RadioButton
+                            android:id="@+id/premiumEconomyClass"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#1E88E5"
+                            android:text="Premium Economy Class"
+                            android:textColor="#424242" />
 
-                            <RadioButton
-                                android:id="@+id/premiumEconomyClass"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Premium Economy Class"
-                                android:buttonTint="#1E88E5"
-                                android:textColor="#424242"/>
+                        <RadioButton
+                            android:id="@+id/economyClass"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#1E88E5"
+                            android:text="Economy Class"
+                            android:textColor="#424242" />
 
-                            <RadioButton
-                                android:id="@+id/economyClass"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Economy Class"
-                                android:buttonTint="#1E88E5"
-                                android:textColor="#424242"/>
-
-                            <RadioButton
-                                android:id="@+id/allClasses"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:text="All Cabin Class"
-                                android:buttonTint="#1E88E5"
-                                android:textColor="#424242"/>
-                        </RadioGroup>
-                    </RelativeLayout>
+                        <RadioButton
+                            android:id="@+id/allClasses"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#1E88E5"
+                            android:text="All Cabin Class"
+                            android:textColor="#424242" />
+                    </RadioGroup>
                 </RelativeLayout>
-            </ScrollView>
-
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/main_float_menu"
@@ -254,6 +269,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:elevation="11dp"
         android:paddingBottom="5dp"
         android:paddingRight="10dp"
         fab:menu_colorNormal="#db3236"
@@ -319,5 +335,4 @@
             fab:fab_label="Check In" />
 
     </com.github.clans.fab.FloatingActionMenu>
-    </RelativeLayout>
 </RelativeLayout>

@@ -6,7 +6,8 @@
     xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="zhang.zhixuan.mobileapp_airline.LoginPage">
+    tools:context="zhang.zhixuan.mobileapp_airline.LoginPage"
+    android:background="#E8F5E9">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,6 +15,7 @@
         android:orientation="horizontal"
         android:background="#3cba54"
         android:id="@+id/login_bar"
+        android:elevation="5dp"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -37,7 +39,13 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_marginTop="15dp"
+        android:elevation="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="#ffffff"
+        android:layout_below="@+id/login_bar"
+        >
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -172,7 +180,8 @@
         fab:menu_shadowRadius="4dp"
         fab:menu_shadowXOffset="1dp"
         fab:menu_shadowYOffset="3dp"
-        fab:menu_showShadow="true">
+        fab:menu_showShadow="true"
+        android:elevation="11dp">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/login_float_account"
