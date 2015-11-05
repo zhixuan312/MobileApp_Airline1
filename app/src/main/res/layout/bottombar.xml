@@ -5,35 +5,35 @@
     android:orientation="horizontal">
 
 
-  <LinearLayout
-      android:layout_width="0dp"
-      android:layout_weight="1"
-        android:id="@+id/ll_mybooking"
-      android:layout_height="match_parent"
-      >
-      <TextView
-      android:gravity="center"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-          android:textColor="#ffffff"
-      android:text="My Booking"
-          android:textSize="25sp"/>
-
-  </LinearLayout>
-
     <LinearLayout
+        android:id="@+id/ll_mybooking"
         android:layout_width="0dp"
-        android:layout_weight="1"
-        android:id="@+id/ll_myprofile"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
         <TextView
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="My Booking"
             android:textColor="#ffffff"
-        android:text="My Profile"
-            android:textSize="25sp"/>
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_myprofile"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="My Profile"
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
 
     </LinearLayout>
 

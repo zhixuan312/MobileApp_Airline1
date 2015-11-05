@@ -5,33 +5,59 @@
     tools:context="zhang.zhixuan.mobileapp_airline.BookingFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/fb_tv_bookingTitle"
-        android:text="Booking Records waiting to be checked in: " />
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:id="@+id/booking_rl1"
+        android:layout_margin="15dp"
+        android:elevation="5dp">
 
-    <ListView
-        android:layout_width="match_parent"
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/fb_tv_bookingTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Booking Records waiting to be checked in: " />
+
+        <ListView
+            android:id="@+id/fb_lv_bookingCI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_below="@+id/fb_tv_bookingTitle"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/fb_lv_bookingCI"
-        android:layout_below="@+id/fb_tv_bookingTitle"
-        android:scrollbars="none"/>
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:id="@+id/booking_rl2"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:elevation="5dp"
+        android:layout_below="@+id/booking_rl1">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/fb_lv_bookingCI"
-        android:id="@+id/fb_tv_bookingTitle2"
-        android:text="Booking Records that already checked in: " />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/fb_tv_bookingTitle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Booking Records that already checked in: " />
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/fb_lv_bookingHistory"
-        android:layout_below="@+id/fb_tv_bookingTitle2"
-        android:scrollbars="none"/>
 
+        <ListView
+            android:layout_below="@+id/fb_tv_bookingTitle2"
+            android:id="@+id/fb_lv_bookingHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none" />
+    </RelativeLayout>
 
 
 </RelativeLayout>
