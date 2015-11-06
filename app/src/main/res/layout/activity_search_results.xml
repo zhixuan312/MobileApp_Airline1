@@ -35,17 +35,18 @@
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_below="@+id/login_bar"
         android:layout_centerHorizontal="true">
 
-        <LinearLayout
-            android:id="@+id/sr_ll1"
+        <RelativeLayout
+            android:id="@+id/sr_ll"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="fill_parent"
+            >
 
             <LinearLayout
+                android:id="@+id/ll0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -57,31 +58,42 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/sr_ll2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="70dp"
                     android:orientation="horizontal">
 
                     <TextView
+                        android:layout_marginLeft="15dp"
                         android:id="@+id/sr_tv_ori"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="new test" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="new test"
+                        android:textSize="23sp"
+                        android:layout_centerVertical="true"/>
 
                     <TextView
+                        android:textSize="23sp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="15dp"
                         android:id="@+id/sr_tv_dest"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="new text"
-
+                        android:layout_centerVertical="true"
                         />
-                </LinearLayout>
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/search_page_icon_blue"/>
+                </RelativeLayout>
 
                 <LinearLayout
                     android:id="@+id/sr_ll3"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/sr_ll1"
@@ -103,17 +115,18 @@
                 </LinearLayout>
             </LinearLayout>
 
-
             <ListView
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:elevation="5dp"
+                android:layout_below="@+id/ll0"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:background="#E3F2FD"
+                android:background="#ffffff"
                 android:id="@+id/sr_lv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:scrollbars="none" />
-        </LinearLayout>
+        </RelativeLayout>
     </ScrollView>
 
     <com.github.clans.fab.FloatingActionMenu
