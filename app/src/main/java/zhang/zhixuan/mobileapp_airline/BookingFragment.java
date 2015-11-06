@@ -295,10 +295,8 @@ public class BookingFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                    Intent intent = new Intent(getActivity().getApplicationContext(), WebCheckIn.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("bookingRecord",bookingRUnCheckedIn.get(Integer.parseInt(v.getTag().toString())));
-
-                    intent.putExtras(bundle);
+                    intent.putExtra("referenceN",bookingRUnCheckedIn.get(Integer.parseInt(v.getTag().toString())).referenceN);
+                    intent.putExtra("passportN",bookingRUnCheckedIn.get(Integer.parseInt(v.getTag().toString())).passport);
 //                    System.out.println("button"+flightNoChosen+"depdCHOSEN"+depDChosen);
 //                    System.out.println("getText1"+flightNoChosen.getText());
 //                    System.out.println("getText2"+depDChosen.getText());
