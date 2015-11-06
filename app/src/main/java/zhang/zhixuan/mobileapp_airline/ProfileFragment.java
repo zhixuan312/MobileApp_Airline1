@@ -1,16 +1,17 @@
 package zhang.zhixuan.mobileapp_airline;
 
 
+import android.app.Fragment;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.gc.materialdesign.views.ButtonRectangle;
 
 
 /**
@@ -36,7 +37,7 @@ public class ProfileFragment extends Fragment {
     String contactN;
     String email;
     Spinner spinner;
-    Button update;
+    ButtonRectangle update;
     MyDB db;
     public ProfileFragment() {
         // Required empty public constructor
@@ -55,7 +56,7 @@ public class ProfileFragment extends Fragment {
         coTV = (TextView)view.findViewById(R.id.pf_et_co);
         zcTV = (TextView)view.findViewById(R.id.pf_et_zp);
         cnTV = (TextView)view.findViewById(R.id.pf_et_cn);
-        update = (Button)view.findViewById(R.id.pf_btn_update);
+        update = (ButtonRectangle)view.findViewById(R.id.pf_btn_update);
         email = getActivity().getIntent().getStringExtra("email");
         db = new MyDB(getActivity().getApplicationContext());
         getMemberRecord();

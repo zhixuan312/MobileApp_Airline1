@@ -153,6 +153,10 @@
             android:name=".WebCheckIn"
             android:label="@string/title_activity_web_check_in" >
         </activity>
+        <activity
+            android:name=".WebCheckInHomePage"
+            android:label="@string/title_activity_web_check_in_home_page" >
+        </activity>
     </application>
 
 </manifest>

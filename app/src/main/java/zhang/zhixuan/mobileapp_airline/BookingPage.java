@@ -107,6 +107,7 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_page);
         db = new TicketDB(this);
+        dbLogin = new LoginSessionDB(this);
         chosenFlight = (FlightEntity)getIntent().getSerializableExtra("chosenFlight");
         passengerEntity = (PassengerEntity)getIntent().getSerializableExtra("passenger");
         System.out.println("new page!!!!!" + chosenFlight.getDepartureDate());
@@ -120,6 +121,8 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
         fragmentTransaction.commit();
 
         checkLoginStatus();
+        if(loginStatus==null)
+            loginStatus = "";
         if(loginStatus.equals("true"))
             autoFillInMemberData();
 

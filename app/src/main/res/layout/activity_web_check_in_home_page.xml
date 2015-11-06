@@ -1,0 +1,56 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="zhang.zhixuan.mobileapp_airline.WebCheckInHomePage">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/wc_tv1"
+        android:textSize="50px"
+        android:text="Welcome to Web Check In"
+        android:layout_marginTop="84dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/wc_tv2"
+        android:layout_height="wrap_content"
+        android:text="Please enter reference number and passport for check in purpose"
+        android:layout_marginTop="44dp"
+        android:layout_below="@+id/wc_tv1"
+        android:layout_centerHorizontal="true" />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Reference Number"
+        android:id="@+id/extractEditText"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Passport Number"
+        android:id="@+id/extractEditText2"
+        android:layout_below="@+id/extractEditText"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check In"
+        android:id="@+id/button"
+        android:onClick="checkIn"
+        android:layout_below="@+id/extractEditText2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="67dp" />
+
+</RelativeLayout>
