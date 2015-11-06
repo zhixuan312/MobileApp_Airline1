@@ -45,4 +45,6 @@
     <string name="title_activity_account_management_page">AccountManagementPage</string>
     <string name="title_activity_web_check_in">WebCheckIn</string>
     <string name="title_activity_web_check_in_home_page">WebCheckInHomePage</string>
+    <string name="title_activity_web_check_in_status_page">WebCheckInStatusPage</string>
+    <string name="congrat">Congratulations! You have successfully checked in online</string>
 </resources>
