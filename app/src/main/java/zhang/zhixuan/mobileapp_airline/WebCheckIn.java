@@ -2,6 +2,7 @@ package zhang.zhixuan.mobileapp_airline;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -32,6 +33,7 @@ import java.util.List;
 public class WebCheckIn extends Activity {
     String referenceN;
     String passportN;
+    TicketDB db;
     List<TicketCheckInEntity> tickets_results;
     ListView lv;
     TicketCheckInEntity chosenTicket;
@@ -41,6 +43,7 @@ public class WebCheckIn extends Activity {
         setContentView(R.layout.activity_web_check_in);
         referenceN = getIntent().getStringExtra("referenceN");
         passportN = getIntent().getStringExtra("passportN");
+        db = new TicketDB(this);
         tickets_results = new ArrayList<>();
 
         displayCheckInTickets();
@@ -284,6 +287,19 @@ public class WebCheckIn extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_web_check_in, menu);
         return true;
+    }
+
+    public void ticketCheckIn(View view){
+        db.open();
+
+        db.updateCheckedInStatus(referenceN, passportN);
+
+        db.close();
+
+        Intent intent = new Intent(this,WebCheckInStatusPage.class);
+        intent.putExtra("referenceN", referenceN);
+        intent.putExtra("passportN",passportN);
+        startActivity(intent);
     }
 
     @Override

@@ -57,11 +57,7 @@ public class TicketDB {
         return db.delete(TicketDBHelper.tableName, "1", null);    // delete all records
     }
 
-    public int updateFurniture(long id, String checkIn) {
-        ContentValues initialValues = new ContentValues();
-        initialValues.put(TicketDBHelper.columnName_CheckIn, checkIn);
-        return db.update(TicketDBHelper.tableName, initialValues, TicketDBHelper.columnName_ID + "=" + id, null);
-    }
+
 
     public Cursor getAllMembers() {
         return db.query(
@@ -162,4 +158,10 @@ public class TicketDB {
         return mCursor;
     }
 
+    public int updateCheckedInStatus(String referenceN, String passport) {
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(TicketDBHelper.columnName_CheckIn, "true");
+        return db.update(TicketDBHelper.tableName, initialValues,TicketDBHelper.columnName_referenceN+"=? and " + TicketDBHelper.columnName_passport+"=?",new String[]{referenceN+"", passport+""}
+        );
+    }
 }

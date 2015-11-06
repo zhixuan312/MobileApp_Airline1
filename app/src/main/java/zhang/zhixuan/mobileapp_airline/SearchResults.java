@@ -114,11 +114,11 @@ public class SearchResults extends Activity {
         calendar.set(Calendar.MONTH, month_D);
         calendar.set(Calendar.DAY_OF_MONTH, day_D);
         Date departureD = calendar.getTime();
-        depD.setText("Departure Date: " + simpleDateFormat.format(departureD));
+        depD.setText(simpleDateFormat.format(departureD));
         depDstr = simpleDateFormat1.format(departureD);
 
-        originTV.setText("Origin: " + originStr);
-        destinationTV.setText("Destination: "+destinationStr);
+        originTV.setText(originStr);
+        destinationTV.setText(destinationStr);
         flights_Result = new ArrayList<>();
 //        if(oneWayOrNot){
 

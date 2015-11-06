@@ -68,10 +68,6 @@ public class MyDB {
         return db.query(
                 MyDBHelper.tableName,
                 new String[]{
-                        MyDBHelper.columnName_memberID,
-                        MyDBHelper.columnName_memberFirstName,
-                        MyDBHelper.columnName_memberSecondName,
-                        MyDBHelper.columnName_memberGender,
                         MyDBHelper.columnName_memberEmail},
                 null, null, null, null, null);
     }

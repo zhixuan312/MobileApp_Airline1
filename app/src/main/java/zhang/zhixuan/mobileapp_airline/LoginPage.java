@@ -37,7 +37,7 @@ public class LoginPage extends Activity {
         fragmentTransaction.add(R.id.login_fl_Facebook, facebookFragment);
         fragmentTransaction.commit();
 
-        login_et_password = (EditText)findViewById(R.id.login_et_password);
+        login_et_password = (EditText) findViewById(R.id.login_et_password);
     }
 
     @Override
@@ -52,30 +52,34 @@ public class LoginPage extends Activity {
 
     }
 
-    public void login(View view){
-        login_et_id = (EditText)findViewById(R.id.login_et_id);
-        login_et_password = (EditText)findViewById(R.id.login_et_password);
+    public void login(View view) {
+        login_et_id = (EditText) findViewById(R.id.login_et_id);
+        login_et_password = (EditText) findViewById(R.id.login_et_password);
         loginId = login_et_id.getText().toString();
         loginPassword = login_et_password.getText().toString();
         String psw = getPassword();
-        if(!psw.equals(loginPassword)){
+        if (!psw.equals(loginPassword)) {
             Toast.makeText(this.getApplicationContext(), "Password is not correct!", Toast.LENGTH_LONG).show();
 
-        }else{
+        } else {
+
+
             Intent intent = new Intent(this, AccountManagementPage.class);
-            intent.putExtra("email",loginId);
+            intent.putExtra("email", loginId);
             startActivity(intent);
+
         }
     }
 
-    public String getPassword(){
+
+    public String getPassword() {
         db.open();
         Cursor c = db.getMemberPasswordByEmail(loginId);
         String psw1 = "";
-        if(c.moveToFirst()){
+        if (c.moveToFirst()) {
             psw1 = c.getString(1);
 
-        }else{
+        } else {
             Toast.makeText(this.getApplicationContext(), "No username found", Toast.LENGTH_LONG).show();
 
         }
@@ -84,7 +88,7 @@ public class LoginPage extends Activity {
     }
 
 
-    public void main_float_account (View view) {
+    public void main_float_account(View view) {
         facebookProfile = Profile.getCurrentProfile();
         if (facebookProfile != null) {
             Intent intent = new Intent(this, FacebookAccountPage.class);
@@ -95,13 +99,13 @@ public class LoginPage extends Activity {
         }
     }
 
-    public void main_float_checkIn (View view) {
-        Intent intent = new Intent(this,RegisterPage.class);
+    public void main_float_checkIn(View view) {
+        Intent intent = new Intent(this, RegisterPage.class);
         startActivity(intent);
     }
 
-    public void main_float_search (View view) {
-        Intent intent = new Intent(this,MainActivity.class);
+    public void main_float_search(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
