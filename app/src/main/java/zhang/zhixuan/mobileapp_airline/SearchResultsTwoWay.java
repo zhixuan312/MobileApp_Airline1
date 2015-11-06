@@ -179,7 +179,7 @@ public class SearchResultsTwoWay extends Activity {
                     flightEntity.setArrivalDate(ariD);
                     flightEntity.setPriceD(price);
                     flightEntity.setBookingClassName(bookingClassName);
-                    DecimalFormat df = new DecimalFormat("0.0");
+                    DecimalFormat df = new DecimalFormat("0.00");
                     String priceStr = df.format(price);
                     flightEntity.setPrice(priceStr);
                     flightEntity.setOrigin(origin);
@@ -299,7 +299,7 @@ public class SearchResultsTwoWay extends Activity {
                     flightEntity.setArrivalDate(ariD);
                     flightEntity.setPriceD(price);
                     flightEntity.setBookingClassName(bookingClassName);
-                    DecimalFormat df = new DecimalFormat("0.0");
+                    DecimalFormat df = new DecimalFormat("0.00");
                     String priceStr = df.format(price);
                     flightEntity.setPrice(priceStr);
                     flightEntity.setOrigin(origin);
