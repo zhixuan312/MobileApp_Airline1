@@ -221,14 +221,6 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
     public void pay(View view) throws ParseException {
 
 
-        fnTV = (TextView) findViewById(R.id.bk_et_fnR);
-        snTV = (TextView) findViewById(R.id.bk_et_snR);
-        adTV = (TextView) findViewById(R.id.bk_et_adR);
-        emTV = (TextView) findViewById(R.id.bk_et_emR);
-        ciTV = (TextView) findViewById(R.id.bk_et_ciR);
-        coTV = (TextView) findViewById(R.id.bk_et_coR);
-        zcTV = (TextView) findViewById(R.id.bk_et_zpR);
-        cnTV = (TextView) findViewById(R.id.bk_et_cnR);
 
         flightId = chosenFlight.getId();
         flightId2 = chosenFlightR.getId();

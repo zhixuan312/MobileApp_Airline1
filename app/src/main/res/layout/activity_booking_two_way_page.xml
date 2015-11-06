@@ -1,226 +1,352 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E3F2FD"
+
     tools:context="zhang.zhixuan.mobileapp_airline.BookingPage">
 
+    <RelativeLayout
+        android:id="@+id/login_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#1E88E5"
+        android:elevation="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="Search"
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/airplane" />
+    </RelativeLayout>
+
+
     <ScrollView
+        android:layout_below="@+id/login_bar"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10">
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
 
 
         <LinearLayout
-            android:id="@+id/bk_lnR"
+            android:id="@+id/bk_ln"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:scrollbars="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <FrameLayout
                 android:id="@+id/bk_fl_itnR"
                 android:layout_width="fill_parent"
-                android:layout_height="200dp">
-
-            </FrameLayout>
+                android:layout_height="200dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:background="#ffffff"
+                android:elevation="5dp"
+                android:padding="10dp"></FrameLayout>
 
             <LinearLayout
-                android:id="@+id/bk_rl_bkDetailsR"
+                android:id="@+id/bk_rl_bkDetails"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#ffffff"
+                android:elevation="5dp"
                 android:orientation="vertical"
-                >
+                android:padding="10dp">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="40px"
+                    android:layout_marginTop="20dp"
                     android:text="Contact Person Details: "
+                    android:textSize="20sp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <Spinner
+                    android:id="@+id/bk_sp_titleR"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#1E88E5"
+                    android:entries="@array/title"
+                    android:prompt="@string/title_prompt" />
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="First Name: "
+                    android:maxLines="1"
+                    app:met_primaryColor= "#1E88E5"
+                    android:textSize="15sp"
+                    android:id="@+id/bk_et_fn"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelText = "First Name: "
+                    app:met_underlineColor= "#1E88E5"
+                    app:met_maxCharacters = "30"
+                    app:met_minCharacters ="1"
+                    app:met_textColorHint = "#424242"
+                    android:backgroundTint="#1E88E5"
+                    app:met_errorColor="#424242"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_below="@+id/pf_tv_username"
+                    android:layout_marginTop="20dp"
                     />
-                <LinearLayout
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/bk_et_sn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pf_et_fn"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:backgroundTint="#1E88E5"
+                    android:hint="Last Name: "
+                    android:maxLines="1"
+                    android:textSize="15sp"
+                    app:met_errorColor="#424242"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelText="Last Name: "
+                    app:met_maxCharacters="30"
+                    app:met_minCharacters="1"
+                    app:met_primaryColor="#1E88E5"
+                    app:met_textColorHint="#424242"
+                    app:met_underlineColor="#1E88E5" />
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/bk_et_ad"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pf_et_sn"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:backgroundTint="#1E88E5"
+                    android:hint="Address: "
+                    android:maxLines="1"
+                    android:textSize="15sp"
+                    app:met_errorColor="#424242"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelText="Address: "
+                    app:met_maxCharacters="30"
+                    app:met_minCharacters="1"
+                    app:met_primaryColor="#1E88E5"
+                    app:met_textColorHint="#424242"
+                    app:met_underlineColor="#1E88E5" />
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/bk_et_co"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pf_et_ad"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:backgroundTint="#1E88E5"
+                    android:hint="Country: "
+                    android:maxLines="1"
+                    android:textSize="15sp"
+                    app:met_errorColor="#424242"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelText="Country: "
+                    app:met_maxCharacters="30"
+                    app:met_minCharacters="1"
+                    app:met_primaryColor="#1E88E5"
+                    app:met_textColorHint="#424242"
+                    app:met_underlineColor="#1E88E5" />
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/bk_et_ci"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pf_et_co"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:backgroundTint="#1E88E5"
+                    android:hint="City: "
+                    android:maxLines="1"
+                    android:textSize="15sp"
+                    app:met_errorColor="#424242"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelText="City: "
+                    app:met_maxCharacters="30"
+                    app:met_minCharacters="1"
+                    app:met_primaryColor="#1E88E5"
+                    app:met_textColorHint="#424242"
+                    app:met_underlineColor="#1E88E5" />
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/bk_et_em"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pf_et_ci"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:backgroundTint="#1E88E5"
+                    android:hint="Email: "
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:textSize="15sp"
+                    app:met_errorColor="#424242"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelText="Email: "
+                    app:met_maxCharacters="30"
+                    app:met_minCharacters="1"
+                    app:met_primaryColor="#1E88E5"
+                    app:met_textColorHint="#424242"
+                    app:met_underlineColor="#1E88E5" />
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/bk_et_zp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pf_et_ci"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:backgroundTint="#1E88E5"
+                    android:hint="ZipCode: "
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textSize="15sp"
+                    app:met_errorColor="#424242"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelText="ipCode: "
+                    app:met_maxCharacters="30"
+                    app:met_minCharacters="1"
+                    app:met_primaryColor="#1E88E5"
+                    app:met_textColorHint="#424242"
+                    app:met_underlineColor="#1E88E5" />
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/bk_et_cn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pf_et_zp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:backgroundTint="#1E88E5"
+                    android:hint="Contact: "
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:textSize="15sp"
+                    app:met_errorColor="#424242"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelText="Contact: "
+                    app:met_maxCharacters="30"
+                    app:met_minCharacters="1"
+                    app:met_primaryColor="#1E88E5"
+                    app:met_textColorHint="#424242"
+                    app:met_underlineColor="#1E88E5"
+                    />
+
+                <com.gc.materialdesign.views.ButtonRectangle
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#1E88E5"
+                    android:text="Pay"
+                    android:onClick="pay"
+                    android:layout_marginBottom="20dp"
+                    />
+
+                <TextView
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:text="Title: "
-                        android:gravity="bottom"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="match_parent" />
-                    <Spinner
-                        android:layout_weight="2.5"
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:entries="@array/title"
-                        android:prompt="@string/title_prompt"
-                        android:id="@+id/bk_sp_titleR"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:text="First Name: "
-                        android:gravity="bottom"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="match_parent" />
-                    <EditText
-                        android:id="@+id/bk_et_fnR"
-                        android:layout_width="0dp"
-                        android:layout_weight="2.5"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:text="Last Name: "
-                        android:gravity="bottom"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="match_parent" />
-                    <EditText
-                        android:id="@+id/bk_et_snR"
-                        android:layout_width="0dp"
-                        android:layout_weight="2.5"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="4dp"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:text="Address: "
-                        android:gravity="bottom"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="match_parent" />
-                    <EditText
-                        android:id="@+id/bk_et_adR"
-                        android:layout_width="0dp"
-                        android:layout_weight="2.5"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:text="Country: "
-                        android:gravity="bottom"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="match_parent" />
-                    <EditText
-                        android:id="@+id/bk_et_coR"
-                        android:layout_width="0dp"
-                        android:layout_weight="2.5"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:text="City: "
-                        android:gravity="bottom"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="match_parent" />
-                    <EditText
-                        android:id="@+id/bk_et_ciR"
-                        android:layout_width="0dp"
-                        android:layout_weight="2.5"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:text="Email: "
-                        android:gravity="bottom"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="match_parent" />
-                    <EditText
-                        android:id="@+id/bk_et_emR"
-                        android:layout_width="0dp"
-                        android:layout_weight="2.5"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:text="ZipCode: "
-                        android:gravity="bottom"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="match_parent" />
-                    <EditText
-                        android:id="@+id/bk_et_zpR"
-                        android:layout_width="0dp"
-                        android:layout_weight="2.5"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:text="Contact Number: "
-                        android:gravity="bottom"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="match_parent" />
-                    <EditText
-                        android:id="@+id/bk_et_cnR"
-                        android:layout_width="0dp"
-                        android:layout_weight="2.5"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-
-
+                    android:layout_height="200dp" />
             </LinearLayout>
 
 
-
         </LinearLayout>
+
+
     </ScrollView>
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:onClick="pay"
-        android:text="Pay" />
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/login_float_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:paddingBottom="5dp"
+        android:paddingRight="10dp"
+        fab:menu_colorNormal="#db3236"
+        fab:menu_colorPressed="#581416"
+        fab:menu_colorRipple="#581416"
+        fab:menu_fab_size="normal"
+        fab:menu_icon="@drawable/airplane"
+        fab:menu_shadowColor="#66000000"
+        fab:menu_shadowRadius="4dp"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="3dp"
+        fab:menu_showShadow="true"
+        android:elevation="11dp">
 
-</LinearLayout>
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/login_float_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_account"
+            android:src="@drawable/account"
+            app:fab_colorNormal="#3cba54"
+            app:fab_colorPressed="#184a22"
+            app:fab_colorRipple="#184a22"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Account" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/login_float_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_checkIn"
+            android:src="@drawable/airplane"
+            app:fab_colorNormal="#1E88E5"
+            app:fab_colorPressed="#1E88E5"
+            app:fab_colorRipple="#1E88E5"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Search" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/login_float_checkIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_checkIn"
+            android:src="@drawable/checkin"
+            app:fab_colorNormal="#f4c20d"
+            app:fab_colorPressed="#624e05"
+            app:fab_colorRipple="#624e05"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Check In" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+</RelativeLayout>

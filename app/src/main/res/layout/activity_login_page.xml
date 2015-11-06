@@ -6,7 +6,8 @@
     xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="zhang.zhixuan.mobileapp_airline.LoginPage">
+    tools:context="zhang.zhixuan.mobileapp_airline.LoginPage"
+    android:background="#E8F5E9">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,6 +15,7 @@
         android:orientation="horizontal"
         android:background="#3cba54"
         android:id="@+id/login_bar"
+        android:elevation="5dp"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -37,7 +39,14 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_marginTop="15dp"
+        android:elevation="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="#ffffff"
+        android:layout_below="@+id/login_bar"
+
+        >
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -48,21 +57,22 @@
             android:orientation="vertical"
             >
             <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_marginTop="20dp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="User ID"
                 android:maxLines="1"
-                app:met_primaryColor= "#424242"
+                app:met_primaryColor= "#3cba54"
                 android:textSize="15sp"
                 android:id="@+id/login_et_id"
                 app:met_floatingLabel="highlight"
                 app:met_floatingLabelText = "User ID"
-                app:met_underlineColor= "#424242"
+                app:met_underlineColor= "#3cba54"
                 app:met_minCharacters ="6"
                 app:met_maxCharacters = "20"
                 app:met_textColorHint = "#424242"
-                android:backgroundTint="#424242"
-                app:met_errorColor="#3cba54"
+                android:backgroundTint="#3cba54"
+                app:met_errorColor="#424242"
                 />
 
             <com.rengwuxian.materialedittext.MaterialEditText
@@ -72,16 +82,16 @@
                 android:textSize="15sp"
                 android:id="@+id/login_et_password"
                 android:inputType="textPassword"
-                app:met_primaryColor= "#424242"
+                app:met_primaryColor= "#3cba54"
                 app:met_floatingLabel="highlight"
                 app:met_floatingLabelText = "Password"
                 android:hint="Password"
-                app:met_underlineColor= "#424242"
-                android:backgroundTint="#424242"
+                app:met_underlineColor= "#3cba54"
+                android:backgroundTint="#3cba54"
                 app:met_textColorHint = "#424242"
                 app:met_minCharacters ="6"
                 app:met_maxCharacters = "20"
-                app:met_errorColor="#3cba54"
+                app:met_errorColor="#424242"
                 />
 
         </LinearLayout>
@@ -95,7 +105,6 @@
             android:background="#3cba54"
             android:paddingTop="5dp"
             android:text="Login"
-            android:textSize="6sp"
             android:textAlignment="center"
             android:layout_below="@+id/login_linear_inputs"
             android:layout_marginTop="12dp"
@@ -172,7 +181,8 @@
         fab:menu_shadowRadius="4dp"
         fab:menu_shadowXOffset="1dp"
         fab:menu_shadowYOffset="3dp"
-        fab:menu_showShadow="true">
+        fab:menu_showShadow="true"
+        android:elevation="11dp">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/login_float_account"

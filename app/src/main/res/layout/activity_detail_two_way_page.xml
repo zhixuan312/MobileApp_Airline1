@@ -1,52 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#E3F2FD"
     tools:context="zhang.zhixuan.mobileapp_airline.DetailPage">
+
+    <RelativeLayout
+        android:id="@+id/login_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#1E88E5"
+        android:elevation="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="Search"
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/airplane" />
+
+
+    </RelativeLayout>
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_bar"
+        android:layout_centerHorizontal="true">
 
         <LinearLayout
-            android:id="@+id/detail_linearR"
+            android:id="@+id/detail_linear"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:scrollbars="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <FrameLayout
                 android:id="@+id/detail_fl_itnR"
                 android:layout_width="fill_parent"
-                android:layout_height="200dp">
-
-            </FrameLayout>
-
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:background="#ffffff"
+                android:elevation="5dp"
+                android:padding="10dp"></FrameLayout>
             <RelativeLayout
                 android:id="@+id/detail_relative_outboundR"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/detail_frame1R">
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#ffffff"
+                android:elevation="5dp"
+                android:padding="10dp">
 
                 <TextView
+                    android:layout_marginTop="20dp"
                     android:id="@+id/detail_tv_outboundR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
                     android:text="Outbound"
                     android:textSize="20sp" />
 
                 <TextView
+                    android:layout_marginTop="20dp"
                     android:id="@+id/detail_tv_outDateR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_marginRight="15dp"
                     android:text="Tue Oct 13 2015"
                     android:textSize="20sp" />
 
@@ -54,62 +93,146 @@
                     android:id="@+id/detail_relative_divideLine1R"
                     android:layout_width="fill_parent"
                     android:layout_height="1dp"
-                    android:layout_below="@+id/detail_tv_outboundR"
-                    android:background="#000000" />
+                    android:layout_below="@+id/detail_tv_outDateR"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#424242" />
 
                 <TextView
                     android:id="@+id/detail_outboundContentR"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/detail_relative_divideLine1R"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:text="Text"
                     android:textSize="20sp" />
 
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/detail_relative_inboundR"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/detail_relative_outboundR">
 
                 <TextView
+                    android:layout_marginTop="20dp"
                     android:id="@+id/detail_tv_inboundR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Inbound"
+                    android:layout_below="@+id/detail_outboundContentR"
+                    android:layout_marginLeft="15dp"
+                    android:text="Outbound"
                     android:textSize="20sp" />
 
                 <TextView
+                    android:layout_marginTop="20dp"
                     android:id="@+id/detail_tv_inDateR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:text="Tue Oct 20 2015"
+                    android:layout_below="@+id/detail_outboundContentR"
+                    android:layout_marginRight="15dp"
+                    android:text="Tue Oct 13 2015"
                     android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/detail_relative_divideLine2R"
                     android:layout_width="fill_parent"
                     android:layout_height="1dp"
-                    android:layout_below="@+id/detail_tv_inboundR"
-                    android:background="#000000" />
+                    android:layout_below="@+id/detail_tv_inDateR"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#424242" />
 
                 <TextView
                     android:id="@+id/detail_inboundContentR"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/detail_relative_divideLine2R"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:text="Text"
                     android:textSize="20sp" />
 
+                <com.gc.materialdesign.views.ButtonRectangle
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/detail_inboundContentR"
+                    android:layout_marginBottom="20dp"
+                    android:background="#1E88E5"
+                    android:onClick="book"
+                    android:text="Confirm Booking" />
+
             </RelativeLayout>
+
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:onClick="book"
-        android:text="Confirm Booking" />
-</LinearLayout>
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/login_float_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:elevation="11dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="10dp"
+        fab:menu_colorNormal="#db3236"
+        fab:menu_colorPressed="#581416"
+        fab:menu_colorRipple="#581416"
+        fab:menu_fab_size="normal"
+        fab:menu_icon="@drawable/airplane"
+        fab:menu_shadowColor="#66000000"
+        fab:menu_shadowRadius="4dp"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="3dp"
+        fab:menu_showShadow="true">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/login_float_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_account"
+            android:src="@drawable/account"
+            app:fab_colorNormal="#3cba54"
+            app:fab_colorPressed="#184a22"
+            app:fab_colorRipple="#184a22"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Account" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/login_float_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_checkIn"
+            android:src="@drawable/airplane"
+            app:fab_colorNormal="#1E88E5"
+            app:fab_colorPressed="#1E88E5"
+            app:fab_colorRipple="#1E88E5"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Search" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/login_float_checkIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_checkIn"
+            android:src="@drawable/checkin"
+            app:fab_colorNormal="#f4c20d"
+            app:fab_colorPressed="#624e05"
+            app:fab_colorRipple="#624e05"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Check In" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+</RelativeLayout>
