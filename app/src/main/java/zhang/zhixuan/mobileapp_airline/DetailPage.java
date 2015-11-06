@@ -74,7 +74,7 @@ public class DetailPage extends Activity implements itineraryFragment.OnFragment
         inArrCity = chosenFlight.getDesAirportName();
         outDeCity = testData [8];
         outArrCity = testData [9];
-        outBoundString = "\n" + inDeTime +  " " + inDeCity +" ("+chosenFlight.getOriAirportCode()+")"+ "\n" + "\n" + inArrTime + " " + inArrCity +" ("+chosenFlight.getDesAirportCode()+")"+"\n"+ "\n"+"Aircraft Type: "+chosenFlight.getAircraftTailN()+"\n" +"\n" + "Total time: "+chosenFlight.getTimeDuration()+" hours" + "\n"+ "\n"+ "\n";
+        outBoundString = "\n" + inDeTime +  " " + inDeCity +" ("+chosenFlight.getOriAirportCode()+")"+ "\n" + "\n" + inArrTime + " " + inArrCity +" ("+chosenFlight.getDesAirportCode()+")"+"\n"+ "\n"+"Aircraft Type: "+chosenFlight.getAircraftTailN()+"\n" +"\n" + "Total time: "+chosenFlight.getTimeDuration()+" hours" + "\n";
         inBoundString = "\n" + outDeTime +  " " +outDeCity + "\n" + "\n" + outArrTime + " " + outArrCity + "\n" + "\n"+ "Total time: 2 hours" + "\n"+ "\n"+ "\n";
         outBoundContent.setText(outBoundString);
 
