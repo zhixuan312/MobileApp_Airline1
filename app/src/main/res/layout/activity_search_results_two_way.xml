@@ -1,56 +1,111 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="10dp"
-    android:paddingBottom="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E3F2FD"
     tools:context="zhang.zhixuan.mobileapp_airline.SearchResults">
+
+
+    <RelativeLayout
+        android:id="@+id/login_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#1E88E5"
+        android:elevation="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="Search"
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/airplane" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_bar"
+        android:layout_centerHorizontal="true">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/sr2_ll1"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="new test"
+        android:orientation="vertical">
 
-            android:layout_height="match_parent"
-            android:id="@+id/sr2_tv_ori" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:background="#ffffff"
+            android:elevation="5dp"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="new text"
-            android:layout_height="match_parent"
-            android:id="@+id/sr2_tv_dest"
+            <LinearLayout
+                android:id="@+id/sr_ll2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/sr2_ll1"
-        android:id="@+id/sr2_ll2"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="New Text"
-            android:id="@+id/sr2_tv_depD"
-            />
+                <TextView
+                    android:id="@+id/sr2_tv_ori"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="new test" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="New Text"
-            android:id="@+id/sr2_tv_retD"
-            />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/sr2_tv_dest"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="new text"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sr_ll3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sr_ll1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/sr2_tv_depD"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="New Text" />
+
+                <TextView
+                    android:id="@+id/sr2_tv_retD"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="New Text" />
+            </LinearLayout>
+        </LinearLayout>
+
+
 
 
     <ListView
@@ -74,5 +129,7 @@
         android:text="Book"
         android:onClick="onclick_bookTwoWay"
         android:layout_below="@+id/sr2_lvR"/>
+    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
