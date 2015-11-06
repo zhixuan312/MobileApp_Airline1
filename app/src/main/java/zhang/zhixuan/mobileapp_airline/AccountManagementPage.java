@@ -11,6 +11,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+
 public class AccountManagementPage extends Activity implements View.OnClickListener {
 
     LinearLayout mTabBooking;
@@ -19,7 +22,7 @@ public class AccountManagementPage extends Activity implements View.OnClickListe
     ProfileFragment fProfile;
     LoginSessionDB db;
     String email;
-
+    Profile facebookProfile;
     //    TextView fnTV;
 //    TextView snTV;
 //    TextView adTV;
@@ -46,6 +49,8 @@ public class AccountManagementPage extends Activity implements View.OnClickListe
         setContentView(R.layout.activity_account_management_page);
         db = new LoginSessionDB(this);
         email = getIntent().getStringExtra("email");
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
+
         changeLoginStatus();
         mTabBooking = (LinearLayout) findViewById(R.id.ll_mybooking);
         mTabProfile = (LinearLayout) findViewById(R.id.ll_myprofile);
@@ -143,5 +148,25 @@ public class AccountManagementPage extends Activity implements View.OnClickListe
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void main_float_account (View view) {
+        facebookProfile = Profile.getCurrentProfile();
+        if (facebookProfile != null) {
+            Intent intent = new Intent(this, FacebookAccountPage.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, LoginPage.class);
+            startActivity(intent);
+        }
+    }
+
+    public void main_float_checkIn (View view) {
+        Intent intent = new Intent(this,WebCheckInHomePage.class);
+        startActivity(intent);
+    }
+
+    public void main_float_search (View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }

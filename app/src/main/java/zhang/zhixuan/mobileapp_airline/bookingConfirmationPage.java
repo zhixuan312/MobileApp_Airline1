@@ -6,8 +6,12 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
 
 public class bookingConfirmationPage extends Activity {
     String referenceN;
@@ -15,10 +19,13 @@ public class bookingConfirmationPage extends Activity {
     String email;
     String[] ticket;
     TextView cfm_rn;
+    Profile facebookProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_confirmation_page);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
+
         db = new TicketDB(this);
         Intent intent = getIntent();
         System.out.println(intent.getStringExtra("referenceN"));
@@ -73,5 +80,25 @@ public class bookingConfirmationPage extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void main_float_account (View view) {
+        facebookProfile = Profile.getCurrentProfile();
+        if (facebookProfile != null) {
+            Intent intent = new Intent(this, FacebookAccountPage.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, LoginPage.class);
+            startActivity(intent);
+        }
+    }
+
+    public void main_float_checkIn (View view) {
+        Intent intent = new Intent(this,WebCheckInHomePage.class);
+        startActivity(intent);
+    }
+
+    public void main_float_search (View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }

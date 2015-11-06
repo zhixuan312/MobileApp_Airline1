@@ -222,7 +222,7 @@ public class MainActivity extends Activity {
     }
 
     public void main_float_checkIn (View view) {
-        Intent intent = new Intent(this,RegisterPage.class);
+        Intent intent = new Intent(this,WebCheckInHomePage.class);
         startActivity(intent);
     }
 

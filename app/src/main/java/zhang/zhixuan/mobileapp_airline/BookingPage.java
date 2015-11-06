@@ -20,6 +20,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
 import com.paypal.android.sdk.payments.PayPalAuthorization;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalFuturePaymentActivity;
@@ -45,6 +47,8 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class BookingPage extends Activity implements itineraryFragment.OnFragmentInteractionListener{
+    Profile facebookProfile;
+
 
     TicketDB db;
     MyDB dbMember;
@@ -106,6 +110,7 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_page);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
         db = new TicketDB(this);
         dbLogin = new LoginSessionDB(this);
         chosenFlight = (FlightEntity)getIntent().getSerializableExtra("chosenFlight");
@@ -195,7 +200,7 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
 
         db.open();
 
-        long id = db.insertMember(rn, pp, em, "false",chosenFlight.getOrigin(),chosenFlight.getDestination(),chosenFlight.getDepartureDate(), chosenFlight.getArrivalDate());
+        long id = db.insertMember(rn, pp, em, "false", chosenFlight.getOrigin(), chosenFlight.getDestination(), chosenFlight.getDepartureDate(), chosenFlight.getArrivalDate());
 
         if(id > 0){
             Toast.makeText(this, "Add successful.", Toast.LENGTH_LONG).show();
@@ -430,7 +435,7 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
     }
     public void generateItinerary(){
         ClassAsyncTask_GenerateItinerary classAsyncTask_generateItinerary = new ClassAsyncTask_GenerateItinerary();
-        classAsyncTask_generateItinerary.execute("http://172.25.97.25:8080/MerlionAirlinesSystem-war/webresources/generic/generateItinerary?flightId=" + flightId +"&firstNP="+firstNP + "&lastNP=" + lastNP +  "&titleP=" + titleP +  "&bc=" + bc + "&nationNP=" + nationNP+"&title=" + title + "&firstN=" + firstN + "&lastN="+lastN+"&address="+address+"&city="+city+"&country="+country+"&zipCode="+zipCode+"&contactN="+contactN+"&passportP="+passportP+"&email="+email+"&price="+price);
+        classAsyncTask_generateItinerary.execute("http://192.168.1.106:8080/MerlionAirlinesSystem-war/webresources/generic/generateItinerary?flightId=" + flightId + "&firstNP=" + firstNP + "&lastNP=" + lastNP + "&titleP=" + titleP + "&bc=" + bc + "&nationNP=" + nationNP + "&title=" + title + "&firstN=" + firstN + "&lastN=" + lastN + "&address=" + address + "&city=" + city + "&country=" + country + "&zipCode=" + zipCode + "&contactN=" + contactN + "&passportP=" + passportP + "&email=" + email + "&price=" + price);
 
 
 
@@ -520,4 +525,24 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
             e.printStackTrace();
         }
         return null;}
+    public void main_float_account (View view) {
+        facebookProfile = Profile.getCurrentProfile();
+        if (facebookProfile != null) {
+            Intent intent = new Intent(this, FacebookAccountPage.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, LoginPage.class);
+            startActivity(intent);
+        }
+    }
+
+    public void main_float_checkIn (View view) {
+        Intent intent = new Intent(this,WebCheckInHomePage.class);
+        startActivity(intent);
+    }
+
+    public void main_float_search (View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
 }

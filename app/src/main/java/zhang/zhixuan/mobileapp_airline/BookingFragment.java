@@ -16,6 +16,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +37,7 @@ public class BookingFragment extends Fragment {
     ArrayList<String[]>  bookingRecordsCheckedIn;
     List<BookingRecordEntity> bookingRUnCheckedIn;
     List<BookingRecordEntity> bookingRCheckedIn;
+    Profile facebookProfile;
     public BookingFragment() {
         // Required empty public constructor
     }
@@ -41,6 +45,9 @@ public class BookingFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
+
+
         email = getActivity().getIntent().getStringExtra("email");
         db = new TicketDB(getActivity().getApplicationContext());
         bookingRecordsUnCheckedIn = getUncheckedInRecord(email);
@@ -393,6 +400,26 @@ public class BookingFragment extends Fragment {
 
             return convertView;
         }
+    }
+    public void main_float_account (View view) {
+        facebookProfile = Profile.getCurrentProfile();
+        if (facebookProfile != null) {
+            Intent intent = new Intent(getActivity(), FacebookAccountPage.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(getActivity(), LoginPage.class);
+            startActivity(intent);
+        }
+    }
+
+    public void main_float_checkIn (View view) {
+        Intent intent = new Intent(getActivity(),WebCheckInHomePage.class);
+        startActivity(intent);
+    }
+
+    public void main_float_search (View view) {
+        Intent intent = new Intent(getActivity(),MainActivity.class);
+        startActivity(intent);
     }
 
 }

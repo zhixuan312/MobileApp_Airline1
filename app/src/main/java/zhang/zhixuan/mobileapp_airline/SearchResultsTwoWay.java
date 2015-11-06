@@ -114,9 +114,9 @@ public class SearchResultsTwoWay extends Activity {
     public void searchFlights_TwoWay(String originStr, String destinationStr) {
         System.err.println("enter searchFlights_Oneway");
         ClassAsyncTask_Flookup classAsyncTask_flookup = new ClassAsyncTask_Flookup();
-        classAsyncTask_flookup.execute("http://172.25.97.25:8080/MerlionAirlinesSystem-war/webresources/generic/getOneWayFlightsByRouteDate?origin=" + originStr + "&destination=" + destinationStr + "&departureD=" + depDstr + "&bcName=" + bcName);
+        classAsyncTask_flookup.execute("http://192.168.1.106:8080/MerlionAirlinesSystem-war/webresources/generic/getOneWayFlightsByRouteDate?origin=" + originStr + "&destination=" + destinationStr + "&departureD=" + depDstr + "&bcName=" + bcName);
         ClassAsyncTask_FlookupR classAsyncTask_flookupR = new ClassAsyncTask_FlookupR();
-        classAsyncTask_flookupR.execute("http://172.25.97.25:8080/MerlionAirlinesSystem-war/webresources/generic/getOneWayFlightsByRouteDate?origin=" + destinationStr + "&destination=" + originStr + "&departureD=" + retDstr + "&bcName=" + bcName);
+        classAsyncTask_flookupR.execute("http://192.168.1.106:8080/MerlionAirlinesSystem-war/webresources/generic/getOneWayFlightsByRouteDate?origin=" + destinationStr + "&destination=" + originStr + "&departureD=" + retDstr + "&bcName=" + bcName);
 
         System.out.println("listview");
         System.out.println(flights_Result);

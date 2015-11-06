@@ -2,6 +2,7 @@ package zhang.zhixuan.mobileapp_airline;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -48,7 +50,7 @@ public class WebCheckIn extends Activity {
     public void displayCheckInTickets(){
         System.err.println("enter searchFlights_Oneway");
         ClassAsyncTask_CheckIn classAsyncTask_checkIn = new ClassAsyncTask_CheckIn();
-        classAsyncTask_checkIn.execute("http://172.25.97.25:8080/MerlionAirlinesSystem-war/webresources/generic/webCheckInObj?referenceN=" + referenceN + "&passport=" + passportN);
+        classAsyncTask_checkIn.execute("http://192.168.1.106:8080/MerlionAirlinesSystem-war/webresources/generic/webCheckInObj?referenceN=" + referenceN + "&passport=" + passportN);
 
         System.out.println("listview");
 
@@ -120,7 +122,8 @@ public class WebCheckIn extends Activity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         chosenTicket = tickets_results.get(position);
-
+                        LinearLayout item = (LinearLayout)view.findViewById(R.id.wc_ticket);
+                        item.setBackgroundColor(Color.parseColor("#ff6501"));
 
                     }
                 });
