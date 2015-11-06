@@ -61,8 +61,8 @@ public class DetailTwoWayPage extends Activity implements itineraryRFragment.OnF
         inArrCity = chosenFlight.getDesAirportName();
         outDeCity = chosenFlightR.getOriAirportName();
         outArrCity = chosenFlightR.getDesAirportName();
-        outBoundString = "\n" + inDeTime +  " " + inDeCity +" ("+chosenFlight.getOriAirportCode()+")"+ "\n" + "\n" + inArrTime + " " + inArrCity +" ("+chosenFlight.getDesAirportCode()+")"+"\n"+ "\n"+"Aircraft Type: "+chosenFlight.getAircraftTailN()+"\n" +"\n" + "Total time: "+chosenFlight.getTimeDuration()+" hours" + "\n"+ "\n"+ "\n";
-        inBoundString = "\n" + outDeTime +  " " + outDeCity +" ("+chosenFlightR.getOriAirportCode()+")"+ "\n" + "\n" + outArrTime + " " + outArrCity +" ("+chosenFlightR.getDesAirportCode()+")"+"\n"+ "\n"+"Aircraft Type: "+chosenFlightR.getAircraftTailN()+"\n" +"\n" + "Total time: "+chosenFlightR.getTimeDuration()+" hours" + "\n"+ "\n"+ "\n";
+        outBoundString = "\n" + inDeTime +  " " + inDeCity +" ("+chosenFlight.getOriAirportCode()+")"+ "\n" + "\n" + inArrTime + " " + inArrCity +" ("+chosenFlight.getDesAirportCode()+")"+"\n"+ "\n"+"Aircraft Type: "+chosenFlight.getAircraftTailN()+"\n" +"\n" + "Total time: "+chosenFlight.getTimeDuration()+" hours" + "\n";
+        inBoundString = "\n" + outDeTime +  " " + outDeCity +" ("+chosenFlightR.getOriAirportCode()+")"+ "\n" + "\n" + outArrTime + " " + outArrCity +" ("+chosenFlightR.getDesAirportCode()+")"+"\n"+ "\n"+"Aircraft Type: "+chosenFlightR.getAircraftTailN()+"\n" +"\n" + "Total time: "+chosenFlightR.getTimeDuration()+" hours" + "\n";
         outBoundContent.setText(outBoundString);
         inBoundContent.setText(inBoundString);
 
