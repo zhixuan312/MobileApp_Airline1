@@ -6,38 +6,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 
-public class WebCheckInHomePage extends AppCompatActivity {
-    EditText rfET;
-    EditText ppET;
+public class WebCheckInStatusPage extends AppCompatActivity {
 
     String referenceN;
     String passportN;
+
+    //test comment
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web_check_in_home_page);
-    }
-
-    public void checkIn(View view){
-
-        rfET = (EditText)findViewById(R.id.wc_referenceN);
-        ppET = (EditText)findViewById(R.id.wc_passportN);
-        referenceN = rfET.getText().toString();
-        passportN = ppET.getText().toString();
-
-        Intent intent = new Intent(this,WebCheckIn.class);
-        intent.putExtra("referenceN",referenceN);
-        intent.putExtra("passportN",passportN);
-        startActivity(intent);
-
+        setContentView(R.layout.activity_web_check_in_status_page);
+        referenceN = getIntent().getStringExtra("referenceN");
+        passportN = getIntent().getStringExtra("passportN");
+        //test
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_web_check_in_home_page, menu);
+        getMenuInflater().inflate(R.menu.menu_web_check_in_status_page, menu);
         return true;
     }
 
@@ -54,5 +43,11 @@ public class WebCheckInHomePage extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void back(View view){
+        Intent intent = new Intent(this,WebCheckIn.class);
+        intent.putExtra("referenceN", referenceN);
+        intent.putExtra("passportN",passportN);
+        startActivity(intent);
     }
 }

@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Reference Number"
-        android:id="@+id/extractEditText"
+        android:id="@+id/wc_referenceN"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
@@ -39,8 +39,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Passport Number"
-        android:id="@+id/extractEditText2"
-        android:layout_below="@+id/extractEditText"
+        android:id="@+id/wc_passportN"
+        android:layout_below="@+id/wc_referenceN"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -49,7 +49,7 @@
         android:text="Check In"
         android:id="@+id/button"
         android:onClick="checkIn"
-        android:layout_below="@+id/extractEditText2"
+        android:layout_below="@+id/wc_passportN"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="67dp" />
 
