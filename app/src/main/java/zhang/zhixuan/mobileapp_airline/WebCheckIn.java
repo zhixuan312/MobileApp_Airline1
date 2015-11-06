@@ -296,8 +296,8 @@ public class WebCheckIn extends Activity {
 
         db.close();
 
-        //WebCheckInStatusPage
-        Intent intent = new Intent(this,MainActivity.class);
+
+        Intent intent = new Intent(this,WebCheckInStatusPage.class);
         intent.putExtra("referenceN", referenceN);
         intent.putExtra("passportN",passportN);
         startActivity(intent);
