@@ -44,4 +44,5 @@
     <string name="title_activity_passenger_two_way_page">PassengerTwoWayPage</string>
     <string name="title_activity_account_management_page">AccountManagementPage</string>
     <string name="title_activity_web_check_in">WebCheckIn</string>
+    <string name="title_activity_web_check_in_home_page">WebCheckInHomePage</string>
 </resources>

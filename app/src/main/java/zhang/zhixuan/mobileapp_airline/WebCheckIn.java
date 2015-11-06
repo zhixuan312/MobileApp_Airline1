@@ -32,7 +32,7 @@ public class WebCheckIn extends Activity {
     String passportN;
     List<TicketCheckInEntity> tickets_results;
     ListView lv;
-
+    TicketCheckInEntity chosenTicket;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,6 +119,7 @@ public class WebCheckIn extends Activity {
 
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        chosenTicket = tickets_results.get(position);
 
 
                     }
