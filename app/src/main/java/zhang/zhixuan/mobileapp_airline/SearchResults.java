@@ -208,7 +208,7 @@ public class SearchResults extends Activity {
                     flightEntity.setArrivalDate(ariD);
                     flightEntity.setPriceD(price);
                     flightEntity.setBookingClassName(bookingClassName);
-                    DecimalFormat df = new DecimalFormat("0.0");
+                    DecimalFormat df = new DecimalFormat("0.00");
                     String priceStr = df.format(price);
                     flightEntity.setPrice(priceStr);
                     flightEntity.setOrigin(origin);
@@ -426,7 +426,7 @@ public class SearchResults extends Activity {
 
             holder.flightNo.setText((String) flights_Result.get(position).getFlightNo());
             holder.departureDate.setText("Depart: "+(String) flights_Result.get(position).getDepTimeE());
-            holder.arrivalDate.setText("Arrive: "+(String) flights_Result.get(position).getAriTimeE()+"\n Time Duration: "+flights_Result.get(position).getTimeDuration()+" hours");
+            holder.arrivalDate.setText("Arrive: "+(String) flights_Result.get(position).getAriTimeE()+"\nTime Duration: "+flights_Result.get(position).getTimeDuration()+" hours");
             holder.bookingClass.setText((String) flights_Result.get(position).getBookingClassName());
             String priceName = flights_Result.get(position).getPrice()+" SGD";
             holder.price.setText(priceName);

@@ -61,7 +61,7 @@ public class itineraryFragment extends Fragment {
         TextView bc = (TextView)view.findViewById(R.id.fg_tv_bookingClass);
         TextView path = (TextView)view.findViewById(R.id.fg_tv_path);
 
-        totalP.setText("SGD: "+chosenFlight.getPrice());
+        totalP.setText("SGD "+chosenFlight.getPrice());
         path.setText(chosenFlight.getOrigin()+" to "+chosenFlight.getDestination());
         bc.setText("Cabin Class: " + chosenFlight.getBookingClassName());
 
