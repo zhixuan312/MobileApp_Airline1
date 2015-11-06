@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/wc_lv_tickets"
         android:text="Check In"
+        android:onClick="ticketCheckIn"
         android:id="@+id/button2"
         android:layout_alignParentBottom="true"
          />
