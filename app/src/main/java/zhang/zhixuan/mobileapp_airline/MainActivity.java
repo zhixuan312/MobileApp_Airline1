@@ -5,9 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -17,6 +15,7 @@ import android.widget.Toast;
 
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
+import com.gc.materialdesign.views.ButtonFlat;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -28,8 +27,8 @@ public class MainActivity extends Activity {
     private int year_D,month_D,day_D;
     private int departDialogId = 1;
     private int returnDialogId = 2;
-    Button main_btn_departDate;
-    Button main_btn_returnDate;
+    ButtonFlat main_btn_departDate;
+    ButtonFlat main_btn_returnDate;
     RadioButton main_radioBtn_roundTrip;
 
     RelativeLayout main_rl_moreOption;
@@ -79,7 +78,7 @@ public class MainActivity extends Activity {
             year_D = year;
             month_D = monthOfYear;
             day_D = dayOfMonth;
-            main_btn_departDate = (Button)findViewById(R.id.main_btn_departDate);
+            main_btn_departDate = (ButtonFlat)findViewById(R.id.main_btn_departDate);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yy");
             Calendar calendar = Calendar.getInstance();
             calendar.set(Calendar.YEAR, year_D);
@@ -102,19 +101,19 @@ public class MainActivity extends Activity {
             calendar.set(Calendar.MONTH, month_R);
             calendar.set(Calendar.DAY_OF_MONTH, day_R);
             Date returnD = calendar.getTime();
-            main_btn_returnDate = (Button)findViewById(R.id.main_btn_returnDate);
+            main_btn_returnDate = (ButtonFlat)findViewById(R.id.main_btn_returnDate);
             main_btn_returnDate.setText(simpleDateFormat.format(returnD).toString());
             Toast.makeText(MainActivity.this, simpleDateFormat.format(returnD).toString(), Toast.LENGTH_SHORT).show();
         }
     };
 
     public void main_radioBtn_roundTrip(View view) {
-        main_btn_returnDate = (Button)findViewById(R.id.main_btn_returnDate);
+        main_btn_returnDate = (ButtonFlat)findViewById(R.id.main_btn_returnDate);
         main_btn_returnDate.setEnabled(true);
     }
 
     public void main_radioBtn_oneWay(View view) {
-        main_btn_returnDate = (Button)findViewById(R.id.main_btn_returnDate);
+        main_btn_returnDate = (ButtonFlat)findViewById(R.id.main_btn_returnDate);
         main_btn_returnDate.setEnabled(false);
     }
 
