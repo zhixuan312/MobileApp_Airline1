@@ -139,6 +139,7 @@
             android:layout_height="wrap_content"
             android:background="#3cba54"
             android:text="REGISTER"
+            android:onClick="register"
             android:layout_below="@+id/register_et_confirmPassword"/>
 
         <com.gc.materialdesign.views.ButtonFlat

@@ -4,9 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -115,9 +114,9 @@ public class SearchResultsTwoWay extends Activity {
     public void searchFlights_TwoWay(String originStr, String destinationStr) {
         System.err.println("enter searchFlights_Oneway");
         ClassAsyncTask_Flookup classAsyncTask_flookup = new ClassAsyncTask_Flookup();
-        classAsyncTask_flookup.execute("http://172.25.99.129:8080/MerlionAirlinesSystem-war/webresources/generic/getOneWayFlightsByRouteDate?origin=" + originStr + "&destination=" + destinationStr + "&departureD=" + depDstr + "&bcName=" + bcName);
+        classAsyncTask_flookup.execute("http://172.25.97.25:8080/MerlionAirlinesSystem-war/webresources/generic/getOneWayFlightsByRouteDate?origin=" + originStr + "&destination=" + destinationStr + "&departureD=" + depDstr + "&bcName=" + bcName);
         ClassAsyncTask_FlookupR classAsyncTask_flookupR = new ClassAsyncTask_FlookupR();
-        classAsyncTask_flookupR.execute("http://172.25.99.129:8080/MerlionAirlinesSystem-war/webresources/generic/getOneWayFlightsByRouteDate?origin=" + destinationStr + "&destination=" + originStr + "&departureD=" + retDstr + "&bcName=" + bcName);
+        classAsyncTask_flookupR.execute("http://172.25.97.25:8080/MerlionAirlinesSystem-war/webresources/generic/getOneWayFlightsByRouteDate?origin=" + destinationStr + "&destination=" + originStr + "&departureD=" + retDstr + "&bcName=" + bcName);
 
         System.out.println("listview");
         System.out.println(flights_Result);

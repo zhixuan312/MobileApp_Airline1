@@ -153,7 +153,7 @@ public class SearchResults extends Activity {
     public void searchFlights_OneWay(String originStr1, String destinationStr1){
         System.err.println("enter searchFlights_Oneway");
         ClassAsyncTask_Flookup classAsyncTask_flookup = new ClassAsyncTask_Flookup();
-        classAsyncTask_flookup.execute("http://172.25.99.129:8080/MerlionAirlinesSystem-war/webresources/generic/getOneWayFlightsByRouteDate?origin=" + originStr1 + "&destination=" + destinationStr1 + "&departureD=" + depDstr+"&bcName="+bcName);
+        classAsyncTask_flookup.execute("http://172.25.97.25:8080/MerlionAirlinesSystem-war/webresources/generic/getOneWayFlightsByRouteDate?origin=" + originStr1 + "&destination=" + destinationStr1 + "&departureD=" + depDstr+"&bcName="+bcName);
 
         System.out.println("listview");
         System.out.println(flights_Result);

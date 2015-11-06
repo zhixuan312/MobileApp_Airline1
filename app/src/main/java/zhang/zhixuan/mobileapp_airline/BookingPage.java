@@ -427,7 +427,7 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
     }
     public void generateItinerary(){
         ClassAsyncTask_GenerateItinerary classAsyncTask_generateItinerary = new ClassAsyncTask_GenerateItinerary();
-        classAsyncTask_generateItinerary.execute("http://172.25.99.129:8080/MerlionAirlinesSystem-war/webresources/generic/generateItinerary?flightId=" + flightId +"&firstNP="+firstNP + "&lastNP=" + lastNP +  "&titleP=" + titleP +  "&bc=" + bc + "&nationNP=" + nationNP+"&title=" + title + "&firstN=" + firstN + "&lastN="+lastN+"&address="+address+"&city="+city+"&country="+country+"&zipCode="+zipCode+"&contactN="+contactN+"&passportP="+passportP+"&email="+email+"&price="+price);
+        classAsyncTask_generateItinerary.execute("http://172.25.97.25:8080/MerlionAirlinesSystem-war/webresources/generic/generateItinerary?flightId=" + flightId +"&firstNP="+firstNP + "&lastNP=" + lastNP +  "&titleP=" + titleP +  "&bc=" + bc + "&nationNP=" + nationNP+"&title=" + title + "&firstN=" + firstN + "&lastN="+lastN+"&address="+address+"&city="+city+"&country="+country+"&zipCode="+zipCode+"&contactN="+contactN+"&passportP="+passportP+"&email="+email+"&price="+price);
 
 
 
