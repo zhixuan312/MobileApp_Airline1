@@ -1,65 +1,192 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="10dp"
-    android:paddingBottom="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E3F2FD"
     tools:context="zhang.zhixuan.mobileapp_airline.SearchResults">
 
-
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/login_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/sr_ll1"
+        android:layout_height="50dp"
+        android:background="#1E88E5"
+        android:elevation="5dp"
         android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="new test"
-
-            android:layout_height="match_parent"
-            android:id="@+id/sr_tv_ori" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="new text"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/sr_tv_dest"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="Search"
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
 
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/airplane" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/sr_ll1"
-        android:id="@+id/sr_ll2"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="New Text"
-            android:id="@+id/sr_tv_depD"
-            />
+        android:layout_below="@+id/login_bar"
+        android:layout_centerHorizontal="true">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="New Text"
-            android:id="@+id/sr_tv_retD"
-            />
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/sr_ll1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:background="#ffffff"
+                android:elevation="5dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:id="@+id/sr_ll2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/sr_tv_ori"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="new test" />
+
+                    <TextView
+                        android:id="@+id/sr_tv_dest"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="new text"
+
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/sr_ll3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sr_ll1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/sr_tv_depD"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="New Text" />
+
+                    <TextView
+                        android:id="@+id/sr_tv_retD"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="New Text" />
+                </LinearLayout>
+            </LinearLayout>
 
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/sr_ll2"
-        android:id="@+id/sr_lv"
-        />
+            <ListView
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#E3F2FD"
+                android:id="@+id/sr_lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none" />
+        </LinearLayout>
+    </ScrollView>
 
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/main_float_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:elevation="11dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="10dp"
+        fab:menu_colorNormal="#db3236"
+        fab:menu_colorPressed="#581416"
+        fab:menu_colorRipple="#581416"
+        fab:menu_fab_size="normal"
+        fab:menu_icon="@drawable/airplane"
+        fab:menu_shadowColor="#66000000"
+        fab:menu_shadowRadius="4dp"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="3dp"
+        fab:menu_showShadow="true">
 
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/main_float_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_account"
+            android:src="@drawable/account"
+            app:fab_colorNormal="#3cba54"
+            app:fab_colorPressed="#184a22"
+            app:fab_colorRipple="#184a22"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Account" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/main_float_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_search"
+            android:src="@drawable/checkin"
+            app:fab_colorNormal="#1E88E5"
+            app:fab_colorPressed="#1E88E5"
+            app:fab_colorRipple="#1E88E5"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Search" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/main_float_checkIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_checkIn"
+            android:src="@drawable/checkin"
+            app:fab_colorNormal="#f4c20d"
+            app:fab_colorPressed="#624e05"
+            app:fab_colorRipple="#624e05"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Check In" />
+
+    </com.github.clans.fab.FloatingActionMenu>
 
 </RelativeLayout>
