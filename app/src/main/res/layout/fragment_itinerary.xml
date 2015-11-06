@@ -2,6 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="10dp"
     android:orientation="vertical"
     tools:context="zhang.zhixuan.mobileapp_airline.itineraryFragment">
 
@@ -12,10 +14,7 @@
         android:layout_weight="1"
         android:text="Total Price" />
 
-
-
     <TextView
-
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"

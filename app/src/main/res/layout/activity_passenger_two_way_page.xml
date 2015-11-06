@@ -81,6 +81,8 @@
 
                 <Spinner
                     android:id="@+id/ps_sp_titleR"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#1E88E5"
@@ -127,25 +129,12 @@
                     app:met_textColorHint="#424242"
                     app:met_underlineColor="#1E88E5" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_weight="1"
-                        android:gravity="bottom"
-                        android:text="Gender: " />
-
                     <RadioGroup
                         android:id="@+id/ps_rg_gdR"
-                        android:layout_width="0dp"
+                        android:layout_width="fill_parent"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2.5"
                         android:orientation="horizontal">
 
                         <RadioButton
@@ -155,7 +144,8 @@
                             android:layout_weight="1"
                             android:checked="false"
                             android:onClick="onClick_fm"
-                            android:text="Female" />
+                            android:text="Female"
+                            android:backgroundTint="#1E88E5"/>
 
                         <RadioButton
                             android:id="@+id/ps_rg_mR"
@@ -164,7 +154,8 @@
                             android:layout_weight="1"
                             android:checked="false"
                             android:onClick="onClick_m"
-                            android:text="Male" />
+                            android:text="Male"
+                            android:backgroundTint="#1E88E5"/>
 
                     </RadioGroup>
 
@@ -213,7 +204,6 @@
                         android:background="#1E88E5"
                         android:onClick="onclick_Continue"
                         android:text="Continue" />
-                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

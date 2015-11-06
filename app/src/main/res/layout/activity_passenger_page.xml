@@ -84,6 +84,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#1E88E5"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:entries="@array/title"
                     android:prompt="@string/title_prompt" />
 
@@ -130,8 +132,7 @@
 
                 <RadioGroup
                     android:id="@+id/ps_rg_gdR"
-                    android:layout_width="0dp"
-                    android:layout_weight="2.5"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
@@ -142,9 +143,13 @@
                         android:layout_weight="1"
                         android:checked="false"
                         android:onClick="onClick_fm"
-                        android:text="Female" />
+                        android:text="Female"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:backgroundTint="#1E88E5"/>
 
                     <RadioButton
+                        android:backgroundTint="#1E88E5"
                         android:id="@+id/ps_rg_mR"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
