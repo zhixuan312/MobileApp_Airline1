@@ -303,6 +303,9 @@ public class WebCheckIn extends Activity {
 
 
         Intent intent = new Intent(this,WebCheckInStatusPage.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("chosenTicket",chosenTicket);
+        intent.putExtras(bundle);
         intent.putExtra("referenceN", referenceN);
         intent.putExtra("passportN",passportN);
         startActivity(intent);
@@ -342,4 +345,5 @@ public class WebCheckIn extends Activity {
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
+
 }

@@ -1,9 +1,11 @@
 package zhang.zhixuan.mobileapp_airline;
 
+import java.io.Serializable;
+
 /**
  * Created by ruicai on 6/11/15.
  */
-public class TicketCheckInEntity {
+public class TicketCheckInEntity implements Serializable{
     private Long id;
     private String originCity;
     private String destinationCity;
