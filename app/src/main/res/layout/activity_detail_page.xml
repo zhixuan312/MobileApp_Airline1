@@ -243,7 +243,7 @@
             android:id="@+id/login_float_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="main_float_checkIn"
+            android:onClick="main_float_search"
             android:src="@drawable/airplane"
             app:fab_colorNormal="#1E88E5"
             app:fab_colorPressed="#1E88E5"

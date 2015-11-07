@@ -77,8 +77,11 @@ public class DetailPage extends Activity implements itineraryFragment.OnFragment
         detail_reachTime_TV.setText(chosenFlight.getAriTimeE());
         detail_fromAirport_TV.setText(chosenFlight.getOriAirportName());
         detail_reachAirport_TV.setText(chosenFlight.getDesAirportName());
-        detail_aircraftType_TV.setText("Aircraft Type: "+chosenFlight.getAircraftTailN());
-        detail_duration_TV.setText("Duration: "+chosenFlight.getTimeDuration()+" hours "+chosenFlight.getTimeDminutes()+"minutes");
+        detail_aircraftType_TV.setText("Aircraft: "+chosenFlight.getAircraftTailN());
+        if(chosenFlight.getTimeDminutes().equals("0"))
+            detail_duration_TV.setText("Duration: "+chosenFlight.getTimeDuration()+" hours "+chosenFlight.getTimeDminutes()+" mins");
+        else
+            detail_duration_TV.setText("Duration: "+chosenFlight.getTimeDuration()+" hours ");
 
         fragmentTransaction = fragmentManager.beginTransaction();
         Fragment itineraryFragment = new itineraryFragment();
