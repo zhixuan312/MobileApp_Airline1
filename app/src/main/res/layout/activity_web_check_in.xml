@@ -1,9 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFDE7"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFDE7"
     tools:context="zhang.zhixuan.mobileapp_airline.WebCheckIn">
 
     <RelativeLayout
@@ -36,39 +37,52 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_bar"
-        android:layout_centerHorizontal="true"
-        >
+        android:layout_centerHorizontal="true">
 
 
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_marginTop="15dp"
-            >
-    <TextView
-        android:text="Ticket Wait to be checked in"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView" />
+            android:background="#ffffff"
+            android:elevation="5dp"
+            android:padding="10dp">
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/wc_lv_tickets"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="Ticket Wait to be checked in" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/wc_lv_tickets"
-        android:text="Check In"
-        android:onClick="ticketCheckIn"
-        android:id="@+id/button2"
-        android:layout_alignParentBottom="true"
-         />
+            <ListView
+                android:scrollbars="none"
+                android:id="@+id/wc_lv_tickets"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/button2"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/wc_lv_tickets"
+                android:onClick="ticketCheckIn"
+                android:text="Check In"
+                android:background="#FFFDE7"
+                android:layout_marginBottom="20dp"/>
+
+
         </RelativeLayout>
     </ScrollView>
 
