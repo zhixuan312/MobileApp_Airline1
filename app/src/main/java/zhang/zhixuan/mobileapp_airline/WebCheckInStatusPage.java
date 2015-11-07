@@ -1,9 +1,9 @@
 package zhang.zhixuan.mobileapp_airline;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 
-public class WebCheckInStatusPage extends AppCompatActivity {
+public class WebCheckInStatusPage extends Activity {
 
 
     String referenceN;

@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/search_expandLayout"
             android:layout_below="@+id/listResult_departTime"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/listResult_Duration"

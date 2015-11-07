@@ -354,13 +354,14 @@ public class SearchResults extends Activity {
 
     public final class ViewHolder{
 
-        public TextView flightNo;
-        public TextView departureDate;
-        public TextView arrivalDate;
-        public TextView bookingClass;
-        public TextView price;
+        public TextView listResult_departTime;
+        public TextView listResult_reachTime;
+        public TextView listResult_class;
+        public TextView listResult_flightNumber;
+        public TextView listResult_price;
+        public TextView listResult_Duration;
         public ButtonRectangle bookbtn;
-        public RelativeLayout fDetails;
+        public RelativeLayout search_expandLayout;
 
     }
 
@@ -420,6 +421,13 @@ public class SearchResults extends Activity {
                 holder.fDetails = (RelativeLayout) convertView.findViewById(R.id.fDetails);
                 holder.bookingClass = (TextView) convertView.findViewById(R.id.bookingClass);
                 holder.price = (TextView) convertView.findViewById(R.id.price);*/
+                holder.listResult_departTime = (TextView)convertView.findViewById(R.id.listResult_departTime);
+                holder.listResult_reachTime = (TextView)convertView.findViewById(R.id.listResult_reachTime);
+                holder.listResult_class = (TextView)convertView.findViewById(R.id.listResult_class);
+                holder.listResult_price = (TextView)convertView.findViewById(R.id.listResult_price);
+                holder.listResult_flightNumber = (TextView)convertView.findViewById(R.id.listResult_flightNumber);
+                holder.listResult_Duration = (TextView)convertView.findViewById(R.id.listResult_Duration);
+                holder.search_expandLayout = (RelativeLayout)convertView.findViewById(R.id.search_expandLayout);
                 convertView.setTag(holder);
 
             } else {
@@ -427,17 +435,21 @@ public class SearchResults extends Activity {
                 holder = (ViewHolder) convertView.getTag();
             }
             if(flightEntity1.expand) {
-                holder.fDetails.setVisibility(View.VISIBLE);
+                holder.search_expandLayout.setVisibility(View.VISIBLE);
             }else{
-                holder.fDetails.setVisibility(View.GONE);
+                holder.search_expandLayout.setVisibility(View.GONE);
             }
 
-            holder.flightNo.setText((String) flights_Result.get(position).getFlightNo());
-            holder.departureDate.setText("Depart: "+(String) flights_Result.get(position).getDepTimeE());
-            holder.arrivalDate.setText("Arrive: "+(String) flights_Result.get(position).getAriTimeE()+"\nTime Duration: "+flights_Result.get(position).getTimeDuration()+" hours");
-            holder.bookingClass.setText((String) flights_Result.get(position).getBookingClassName());
-            String priceName = flights_Result.get(position).getPrice()+" SGD";
-            holder.price.setText(priceName);
+            holder.listResult_departTime.setText(flights_Result.get(position).getDepTimeE());
+            holder.listResult_reachTime.setText(flights_Result.get(position).getAriTimeE());
+            if(flights_Result.get(position).getBookingClassName().equals("Premium Economy Class"))
+                flights_Result.get(position).setBookingClassName("Premium Economy");
+            holder.listResult_class.setText(flights_Result.get(position).getBookingClassName());
+            holder.listResult_flightNumber.setText(flights_Result.get(position).getFlightNo());
+            holder.listResult_price.setText("S$ "+flights_Result.get(position).getPrice());
+            if(flights_Result.get(position).getTimeDminutes().equals("0"))
+            holder.listResult_Duration.setText("Duration: "+flights_Result.get(position).getTimeDuration()+"hours "+flights_Result.get(position).getTimeDminutes()+" mins");
+
 
             holder.bookbtn.setTag(position+"");
             holder.bookbtn.setOnClickListener(new View.OnClickListener() {

@@ -1,8 +1,8 @@
 package zhang.zhixuan.mobileapp_airline;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
 
-public class WebCheckInHomePage extends AppCompatActivity {
+public class WebCheckInHomePage extends Activity {
     EditText rfET;
     EditText ppET;
 
