@@ -58,12 +58,10 @@ public class itineraryFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_itinerary, container, false);
         TextView totalP = (TextView)view.findViewById(R.id.fg_itn_tv_price);
-        TextView bc = (TextView)view.findViewById(R.id.fg_tv_bookingClass);
         TextView path = (TextView)view.findViewById(R.id.fg_tv_path);
 
         totalP.setText("SGD "+chosenFlight.getPrice());
-        path.setText(chosenFlight.getOrigin()+" to "+chosenFlight.getDestination());
-        bc.setText(chosenFlight.getBookingClassName());
+        path.setText(chosenFlight.getBookingClassName());
 
         return view;
     }

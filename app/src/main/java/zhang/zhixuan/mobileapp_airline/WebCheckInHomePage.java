@@ -27,8 +27,8 @@ public class WebCheckInHomePage extends Activity {
 
     public void checkIn(View view){
 
-        rfET = (EditText)findViewById(R.id.wc_referenceN);
-        ppET = (EditText)findViewById(R.id.wc_passportN);
+        rfET = (EditText)findViewById(R.id.check_reference);
+        ppET = (EditText)findViewById(R.id.check_passport);
         referenceN = rfET.getText().toString();
         passportN = ppET.getText().toString();
 

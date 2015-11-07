@@ -44,8 +44,10 @@ import java.util.List;
 public class SearchResults extends Activity {
     TextView originTV;
     TextView destinationTV;
-    TextView depD;
-    TextView retD;
+    TextView sr_tv_oriCity;
+    TextView sr_tv_destCity;
+    TextView search_departDate;
+
     String originStr;
     String destinationStr;
     String depDstr;
@@ -68,8 +70,7 @@ public class SearchResults extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
-        originTV = (TextView)findViewById(R.id.sr_tv_ori);
-        destinationTV = (TextView)findViewById(R.id.sr_tv_dest);
+
         //depD = (TextView)findViewById(R.id.sr_tv_depD);
         //retD = (TextView)findViewById(R.id.sr_tv_retD);
         Intent intent = getIntent();
@@ -88,9 +89,12 @@ public class SearchResults extends Activity {
         originStr = intent.getStringExtra("origin");
         destinationStr = intent.getStringExtra("destination");
         year_D = intent.getIntExtra("year_D", 0);
-        month_D = intent.getIntExtra("month_D",0);
+        month_D = intent.getIntExtra("month_D", 0);
         day_D = intent.getIntExtra("day_D", 0);
         oneWayOrNot = intent.getBooleanExtra("OneWayOrNot", false);
+        sr_tv_oriCity = (TextView)findViewById(R.id.sr_tv_oriCity);
+        sr_tv_oriCity.setText(originStr);
+        sr_tv_destCity = (TextView)findViewById(R.id.sr_tv_destCity);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d MMM yyyy");
         SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("dd-MM-yy");
         System.out.println("one way or not " + oneWayOrNot);
@@ -109,7 +113,6 @@ public class SearchResults extends Activity {
 //        }
 //        else
 //        {
-            retD.setText("");
 //        }
 
         Calendar calendar = Calendar.getInstance();
@@ -117,11 +120,11 @@ public class SearchResults extends Activity {
         calendar.set(Calendar.MONTH, month_D);
         calendar.set(Calendar.DAY_OF_MONTH, day_D);
         Date departureD = calendar.getTime();
-        depD.setText(simpleDateFormat.format(departureD));
+        search_departDate = (TextView)findViewById(R.id.search_departDate);
+        search_departDate.setText(simpleDateFormat.format(departureD));
         depDstr = simpleDateFormat1.format(departureD);
 
-        originTV.setText(originStr);
-        destinationTV.setText(destinationStr);
+
         flights_Result = new ArrayList<>();
 //        if(oneWayOrNot){
 
@@ -240,6 +243,16 @@ public class SearchResults extends Activity {
                 }
 
                 lv = (ListView)findViewById(R.id.sr_lv);
+                originTV = (TextView)findViewById(R.id.sr_tv_ori);
+                destinationTV = (TextView)findViewById(R.id.sr_tv_dest);
+
+                if(flights_Result.isEmpty()){
+                    originTV.setText("No Flights");
+                    destinationTV.setText("No Flights");
+                }else {
+                    originTV.setText(flights_Result.get(0).getOriAirportCode());
+                    destinationTV.setText(flights_Result.get(0).getDesAirportCode());
+                }
 //                handler.post(new Runnable() {
 //                    @Override
 //                    public void run() {
@@ -428,6 +441,7 @@ public class SearchResults extends Activity {
                 holder.listResult_flightNumber = (TextView)convertView.findViewById(R.id.listResult_flightNumber);
                 holder.listResult_Duration = (TextView)convertView.findViewById(R.id.listResult_Duration);
                 holder.search_expandLayout = (RelativeLayout)convertView.findViewById(R.id.search_expandLayout);
+                holder.bookbtn = (ButtonRectangle)convertView.findViewById(R.id.bookbtn);
                 convertView.setTag(holder);
 
             } else {

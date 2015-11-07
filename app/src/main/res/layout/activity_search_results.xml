@@ -75,6 +75,7 @@
                         />
                     <TextView
                         android:layout_marginLeft="15dp"
+                        android:id="@+id/sr_tv_oriCity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Singapore"
@@ -92,7 +93,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/search_targetCity"
+                        android:id="@+id/sr_tv_destCity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Hong Kong"
@@ -102,7 +103,7 @@
 
                     <TextView
                         android:layout_marginLeft="15dp"
-                        android:layout_below="@+id/search_targetCity"
+                        android:layout_below="@+id/sr_tv_destCity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/search_departDate"
