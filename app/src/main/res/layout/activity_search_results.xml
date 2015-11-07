@@ -61,7 +61,7 @@
                 <RelativeLayout
                     android:id="@+id/sr_ll2"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="80dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -69,50 +69,51 @@
                         android:id="@+id/sr_tv_ori"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="new test"
-                        android:textSize="23sp"
-                        android:layout_centerVertical="true"/>
+                        android:text="SIN"
+                        android:textSize="30sp"
+                        android:layout_marginTop="10dp"
+                        />
+                    <TextView
+                        android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Singapore"
+                        android:layout_below="@+id/sr_tv_ori"/>
 
                     <TextView
-                        android:textSize="23sp"
-                        android:layout_alignParentRight="true"
+                        android:textSize="30sp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginRight="15dp"
                         android:id="@+id/sr_tv_dest"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="new text"
-                        android:layout_centerVertical="true"
+                        android:text="HKG"
+                        android:layout_alignParentRight="true"
                         />
+
+                    <TextView
+                        android:id="@+id/search_targetCity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hong Kong"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="15dp"
+                        android:layout_below="@+id/sr_tv_dest"/>
+
+                    <TextView
+                        android:layout_marginLeft="15dp"
+                        android:layout_below="@+id/search_targetCity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/search_departDate"
+                        android:text="6 Nov 2016"/>
+
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="40dp"
                         android:layout_centerInParent="true"
                         android:background="@drawable/search_page_icon_blue"/>
                 </RelativeLayout>
-
-                <LinearLayout
-                    android:id="@+id/sr_ll3"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/sr_ll1"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/sr_tv_depD"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="New Text" />
-
-                    <TextView
-                        android:id="@+id/sr_tv_retD"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="New Text" />
-                </LinearLayout>
             </LinearLayout>
 
             <ListView

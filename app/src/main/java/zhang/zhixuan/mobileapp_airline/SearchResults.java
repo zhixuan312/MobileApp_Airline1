@@ -70,8 +70,8 @@ public class SearchResults extends Activity {
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         originTV = (TextView)findViewById(R.id.sr_tv_ori);
         destinationTV = (TextView)findViewById(R.id.sr_tv_dest);
-        depD = (TextView)findViewById(R.id.sr_tv_depD);
-        retD = (TextView)findViewById(R.id.sr_tv_retD);
+        //depD = (TextView)findViewById(R.id.sr_tv_depD);
+        //retD = (TextView)findViewById(R.id.sr_tv_retD);
         Intent intent = getIntent();
         //set parameter
 
@@ -413,13 +413,13 @@ public class SearchResults extends Activity {
 
                 convertView = mInflater.inflate(R.layout.listresult, null);
 
-                holder.flightNo = (TextView) convertView.findViewById(R.id.flightNo);
+               /* holder.flightNo = (TextView) convertView.findViewById(R.id.flightNo);
                 holder.departureDate = (TextView) convertView.findViewById(R.id.departureDate);
                 holder.arrivalDate = (TextView) convertView.findViewById(R.id.arrivalDate);
                 holder.bookbtn = (ButtonRectangle) convertView.findViewById(R.id.bookbtn);
                 holder.fDetails = (RelativeLayout) convertView.findViewById(R.id.fDetails);
                 holder.bookingClass = (TextView) convertView.findViewById(R.id.bookingClass);
-                holder.price = (TextView) convertView.findViewById(R.id.price);
+                holder.price = (TextView) convertView.findViewById(R.id.price);*/
                 convertView.setTag(holder);
 
             } else {

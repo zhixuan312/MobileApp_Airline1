@@ -97,9 +97,16 @@
 
                </LinearLayout>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/detail_flightNumber"
+                    android:layout_below="@id/detail_ll1"
+                    android:text="SH730"
+                    android:layout_marginLeft="10dp"/>
+
                 <LinearLayout
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="30dp"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/detail_ll2"
@@ -131,13 +138,13 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:layout_below="@+id/detail_ll2"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/detail_ll3"
                     android:orientation="horizontal">
+
                     <TextView
                         android:id="@+id/detail_fromAirport_TV"
                         android:layout_weight="1"
@@ -159,8 +166,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="15dp"
                     android:layout_below="@+id/detail_ll3"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
@@ -176,8 +182,7 @@
                         android:layout_height="wrap_content"
                         android:text="Aircraft Type A330"/>
                     <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginBottom="15dp"
                         android:id="@+id/detail_duration_TV"
                         android:gravity="right"
                         android:layout_marginRight="10dp"
