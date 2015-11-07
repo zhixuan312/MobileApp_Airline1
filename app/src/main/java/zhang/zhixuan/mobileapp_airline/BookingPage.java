@@ -126,6 +126,7 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
         fragmentTransaction.commit();
 
         checkLoginStatus();
+        System.out.println("check in status"+loginStatus);
         if(loginStatus==null)
             loginStatus = "";
         if(loginStatus.equals("true"))
@@ -140,21 +141,32 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
     public void checkLoginStatus(){
         dbLogin.open();
         Cursor c = dbLogin.getAllSession();
+        System.out.println("enter checklOGIN status");
+        System.out.println("enter checklOGIN status"+c);
+        if(c==null)
+            System.out.println("c == null");
+
+        System.out.println("c.moveToFirst"+c.moveToFirst());
+
         if (c.moveToFirst()) {
-            do {
+
+            System.out.println("c!-null");
                 loginStatus = c.getString(1);
+                System.out.println("loginStatus"+loginStatus);
                 emailAuto = c.getString(2);
 
-            } while (c.moveToNext());
+
         }
+        System.out.println("out of checkLoginStatus");
         dbLogin.close();
     }
     public void autoFillInMemberData(){
 
         dbMember.open();
         Cursor c = dbMember.getMemberByEmail(emailAuto);
-
+        System.out.println("enter autoFillInMemberData");
         if(c!=null) {
+            System.out.println("c!=null");
             if (c.moveToFirst()) {
                 firstNAuto = c.getString(1);
                 lastNAuto = c.getString(2);

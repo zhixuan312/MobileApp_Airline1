@@ -18,6 +18,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -37,10 +40,12 @@ public class WebCheckIn extends Activity {
     List<TicketCheckInEntity> tickets_results;
     ListView lv;
     TicketCheckInEntity chosenTicket;
+    Profile facebookProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_check_in);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
         referenceN = getIntent().getStringExtra("referenceN");
         passportN = getIntent().getStringExtra("passportN");
         db = new TicketDB(this);
@@ -316,5 +321,25 @@ public class WebCheckIn extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void main_float_account (View view) {
+        facebookProfile = Profile.getCurrentProfile();
+        if (facebookProfile != null) {
+            Intent intent = new Intent(this, FacebookAccountPage.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, LoginPage.class);
+            startActivity(intent);
+        }
+    }
+
+    public void main_float_checkIn (View view) {
+        Intent intent = new Intent(this,WebCheckInHomePage.class);
+        startActivity(intent);
+    }
+
+    public void main_float_search (View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }

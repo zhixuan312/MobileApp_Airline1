@@ -19,6 +19,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
 import com.paypal.android.sdk.payments.PayPalAuthorization;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalFuturePaymentActivity;
@@ -91,6 +93,7 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
     String zipCodeAuto;
     String contactNAuto;
     String loginStatus ;
+    Profile facebookProfile;
     double price;
 
     Spinner spinner;
@@ -111,6 +114,8 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_two_way_page);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
+
         db = new TicketDB(this);
         chosenFlight = (FlightEntity) getIntent().getSerializableExtra("chosenFlight");
         chosenFlightR = (FlightEntity) getIntent().getSerializableExtra("chosenFlightR");
@@ -198,7 +203,7 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
 
         db.open();
 
-        long id = db.insertMember(rn, pp, em, "false",chosenFlight.getOrigin(),chosenFlight.getDestination(),chosenFlight.getDepartureDate(), chosenFlight.getArrivalDate());
+        long id = db.insertMember(rn, pp, em, "false", chosenFlight.getOrigin(), chosenFlight.getDestination(), chosenFlight.getDepartureDate(), chosenFlight.getArrivalDate());
 
         if (id > 0) {
             Toast.makeText(this, "Add successful.", Toast.LENGTH_LONG).show();
@@ -521,5 +526,25 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void main_float_account (View view) {
+        facebookProfile = Profile.getCurrentProfile();
+        if (facebookProfile != null) {
+            Intent intent = new Intent(this, FacebookAccountPage.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, LoginPage.class);
+            startActivity(intent);
+        }
+    }
+
+    public void main_float_checkIn (View view) {
+        Intent intent = new Intent(this,WebCheckInHomePage.class);
+        startActivity(intent);
+    }
+
+    public void main_float_search (View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }

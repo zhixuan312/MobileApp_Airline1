@@ -19,6 +19,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -44,6 +47,7 @@ public class SearchResultsTwoWay extends Activity {
     String destinationStr;
     String depDstr;
     String retDstr;
+    Profile facebookProfile;
     private String bcName = "All Classes";
     private int bcIndex;
     private int year_R, month_R, day_R;
@@ -63,6 +67,7 @@ public class SearchResultsTwoWay extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results_two_way);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
         originTV = (TextView) findViewById(R.id.sr2_tv_ori);
         destinationTV = (TextView) findViewById(R.id.sr2_tv_dest);
         depD = (TextView) findViewById(R.id.sr2_tv_depD);
@@ -664,5 +669,25 @@ public class SearchResultsTwoWay extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void main_float_account (View view) {
+        facebookProfile = Profile.getCurrentProfile();
+        if (facebookProfile != null) {
+            Intent intent = new Intent(this, FacebookAccountPage.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, LoginPage.class);
+            startActivity(intent);
+        }
+    }
+
+    public void main_float_checkIn (View view) {
+        Intent intent = new Intent(this,WebCheckInHomePage.class);
+        startActivity(intent);
+    }
+
+    public void main_float_search (View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }

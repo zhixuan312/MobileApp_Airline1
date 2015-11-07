@@ -14,12 +14,15 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+
 public class PassengerTwoWayPage extends Activity implements itineraryRFragment.OnFragmentInteractionListener{
     private FlightEntity chosenFlight;
     private FlightEntity chosenFlightR;
     FragmentManager fragmentManager = getFragmentManager();
     FragmentTransaction fragmentTransaction;
-
+    Profile facebookProfile;
     Spinner spinner;
     TextView fnTV;
     TextView snTV;
@@ -32,6 +35,7 @@ public class PassengerTwoWayPage extends Activity implements itineraryRFragment.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passenger_two_way_page);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
         chosenFlight = (FlightEntity)getIntent().getSerializableExtra("chosenFlight");
         chosenFlightR = (FlightEntity)getIntent().getSerializableExtra("chosenFlightR");
         System.out.println("new page!!!!!"+chosenFlight.getDepartureDate());
@@ -130,5 +134,25 @@ public class PassengerTwoWayPage extends Activity implements itineraryRFragment.
         return super.onOptionsItemSelected(item);
     }
     public void onFragmentInteraction(Uri uri){
+    }
+    public void main_float_account (View view) {
+        facebookProfile = Profile.getCurrentProfile();
+        if (facebookProfile != null) {
+            Intent intent = new Intent(this, FacebookAccountPage.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, LoginPage.class);
+            startActivity(intent);
+        }
+    }
+
+    public void main_float_checkIn (View view) {
+        Intent intent = new Intent(this,WebCheckInHomePage.class);
+        startActivity(intent);
+    }
+
+    public void main_float_search (View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }

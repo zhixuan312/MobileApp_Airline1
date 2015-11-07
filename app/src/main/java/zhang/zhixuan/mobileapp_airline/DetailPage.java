@@ -13,13 +13,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-public class DetailPage extends Activity implements itineraryFragment.OnFragmentInteractionListener{
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+
+public class DetailPage extends Activity implements itineraryFragment.OnFragmentInteractionListener {
     // testdata: outdate(3 variables day month and year),time depart, time arrive, from city, to city. For both inbound and outbound
-    String [] testData = {"12/12/2015","2350","0525","03/04/2016","1320","1930","Singapore","Malaysia","Malaysia","Singapore"};
-    TextView outBoundDate;
-    TextView outBoundContent;
-    String inDeTime,inArrTime,outDeTime,outArrTime;
-    String inDeCity,inArrCity,outDeCity,outArrCity;
+    String[] testData = {"12/12/2015", "2350", "0525", "03/04/2016", "1320", "1930", "Singapore", "Malaysia", "Malaysia", "Singapore"};
+    TextView detail_date_TV;
+    TextView detail_outTime_TV;
+    TextView detail_reachTime_TV;
+    TextView detail_fromAirport_TV;
+    TextView detail_reachAirport_TV;
+    TextView detail_aircraftType_TV;
+    TextView detail_duration_TV;
+    Profile facebookProfile;
+
+    String inDeTime, inArrTime, outDeTime, outArrTime;
+    String inDeCity, inArrCity, outDeCity, outArrCity;
     String outBoundString, inBoundString;
     LayoutInflater mInflater;
     private FlightEntity chosenFlight;
@@ -47,12 +57,28 @@ public class DetailPage extends Activity implements itineraryFragment.OnFragment
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_page);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
+
         //outBoundDate = (TextView)findViewById(R.id.detail_tv_outDate);
         //outBoundContent = (TextView)findViewById(R.id.detail_outboundContent);
+        detail_date_TV = (TextView) findViewById(R.id.detail_date_TV);
+        detail_outTime_TV = (TextView) findViewById(R.id.detail_outTime_TV);
+        detail_reachTime_TV = (TextView) findViewById(R.id.detail_reachTime_TV);
+        detail_fromAirport_TV = (TextView) findViewById(R.id.detail_fromAirport_TV);
+        detail_reachAirport_TV = (TextView) findViewById(R.id.detail_reachAirport_TV);
+        detail_aircraftType_TV = (TextView) findViewById(R.id.detail_aircraftType_TV);
+        detail_duration_TV = (TextView) findViewById(R.id.detail_duration_TV);
 
-        chosenFlight = (FlightEntity)getIntent().getSerializableExtra("chosenFlight");
-        System.out.println("new page!!!!!"+chosenFlight.getDepartureDate());
+        chosenFlight = (FlightEntity) getIntent().getSerializableExtra("chosenFlight");
+        System.out.println("new page!!!!!" + chosenFlight.getDepartureDate());
 
+        detail_date_TV.setText(chosenFlight.getDepDayWE());
+        detail_outTime_TV.setText(chosenFlight.getDepTimeE());
+        detail_reachTime_TV.setText(chosenFlight.getAriTimeE());
+        detail_fromAirport_TV.setText(chosenFlight.getOriAirportName());
+        detail_reachAirport_TV.setText(chosenFlight.getDesAirportName());
+        detail_aircraftType_TV.setText("Aircraft Type: "+chosenFlight.getAircraftTailN());
+        detail_duration_TV.setText("Duration: "+chosenFlight.getTimeDuration()+" hours "+chosenFlight.getTimeDminutes()+"minutes");
 
         fragmentTransaction = fragmentManager.beginTransaction();
         Fragment itineraryFragment = new itineraryFragment();
@@ -64,27 +90,27 @@ public class DetailPage extends Activity implements itineraryFragment.OnFragment
 //        TextView itnTV = (TextView)frgV.findViewById(R.id.fl_tv_itn);
 //        itnTV.setText(chosenFlight.getFlightNo());
 
-        outBoundDate.setText(chosenFlight.getDepDayWE());
+        // outBoundDate.setText(chosenFlight.getDepDayWE());
 
         inDeTime = chosenFlight.getDepTimeE();
         inArrTime = chosenFlight.getAriTimeE();
-        outDeTime = testData [4];
-        outArrTime = testData [5];
+        outDeTime = testData[4];
+        outArrTime = testData[5];
         inDeCity = chosenFlight.getOriAirportName();
         inArrCity = chosenFlight.getDesAirportName();
-        outDeCity = testData [8];
-        outArrCity = testData [9];
-        outBoundString = "\n" + inDeTime +  " " + inDeCity +" ("+chosenFlight.getOriAirportCode()+")"+ "\n" + "\n" + inArrTime + " " + inArrCity +" ("+chosenFlight.getDesAirportCode()+")"+"\n"+ "\n"+"Aircraft Type: "+chosenFlight.getAircraftTailN()+"\n" +"\n" + "Total time: "+chosenFlight.getTimeDuration()+" hours" + "\n";
-        inBoundString = "\n" + outDeTime +  " " +outDeCity + "\n" + "\n" + outArrTime + " " + outArrCity + "\n" + "\n"+ "Total time: 2 hours" + "\n"+ "\n"+ "\n";
-        outBoundContent.setText(outBoundString);
-
+        outDeCity = testData[8];
+        outArrCity = testData[9];
+        //outBoundString = "\n" + inDeTime +  " " + inDeCity +" ("+chosenFlight.getOriAirportCode()+")"+ "\n" + "\n" + inArrTime + " " + inArrCity +" ("+chosenFlight.getDesAirportCode()+")"+"\n"+ "\n"+"Aircraft Type: "+chosenFlight.getAircraftTailN()+"\n" +"\n" + "Total time: "+chosenFlight.getTimeDuration()+" hours" + "\n";
+        // inBoundString = "\n" + outDeTime +  " " +outDeCity + "\n" + "\n" + outArrTime + " " + outArrCity + "\n" + "\n"+ "Total time: 2 hours" + "\n"+ "\n"+ "\n";
+        //   outBoundContent.setText(outBoundString);
 
 
     }
-    public void book(View view){
+
+    public void book(View view) {
         Intent intent = new Intent(this, PassengerPage.class);
         Bundle bundle = new Bundle();
-        bundle.putSerializable("chosenFlight",chosenFlight);
+        bundle.putSerializable("chosenFlight", chosenFlight);
         intent.putExtras(bundle);
         startActivity(intent);
     }
@@ -219,7 +245,7 @@ public class DetailPage extends Activity implements itineraryFragment.OnFragment
 
 //
 
-    public void onFragmentInteraction(Uri uri){
+    public void onFragmentInteraction(Uri uri) {
     }
 
     @Override
@@ -242,5 +268,25 @@ public class DetailPage extends Activity implements itineraryFragment.OnFragment
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void main_float_account (View view) {
+        facebookProfile = Profile.getCurrentProfile();
+        if (facebookProfile != null) {
+            Intent intent = new Intent(this, FacebookAccountPage.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, LoginPage.class);
+            startActivity(intent);
+        }
+    }
+
+    public void main_float_checkIn (View view) {
+        Intent intent = new Intent(this,WebCheckInHomePage.class);
+        startActivity(intent);
+    }
+
+    public void main_float_search (View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }

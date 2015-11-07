@@ -19,6 +19,8 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
 import com.gc.materialdesign.views.ButtonRectangle;
 
 import org.json.JSONArray;
@@ -47,6 +49,7 @@ public class SearchResults extends Activity {
     String originStr;
     String destinationStr;
     String depDstr;
+    Profile facebookProfile;
     //String retDstr;
     private String bcName = "All Classes";
 
@@ -64,7 +67,7 @@ public class SearchResults extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
-
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
         originTV = (TextView)findViewById(R.id.sr_tv_ori);
         destinationTV = (TextView)findViewById(R.id.sr_tv_dest);
         depD = (TextView)findViewById(R.id.sr_tv_depD);
@@ -197,6 +200,10 @@ public class SearchResults extends Activity {
                     String depTimeE = flight.getString("depTimeE");
                     String ariTimeE = flight.getString("ariTimeE");
                     String timeD = flight.getString("timeDuration");
+                    Double timeDD = Double.parseDouble(timeD);
+                    Integer hours = timeDD.intValue();
+                    Double minutes = (timeDD - hours)*60;
+                    Integer minutesD = minutes.intValue();
                     String aircraftTailN = flight.getString("aircraftTailN");
                     if(aircraftTailN==null){
                         aircraftTailN = "AK704";
@@ -221,7 +228,8 @@ public class SearchResults extends Activity {
                     flightEntity.setDepTimeE(depTimeE);
                     flightEntity.setAriDayWE(ariDayWE);
                     flightEntity.setAircraftTailN(aircraftTailN);
-                    flightEntity.setTimeDuration(timeD);
+                    flightEntity.setTimeDuration(hours.toString());
+                    flightEntity.setTimeDminutes(minutesD.toString());
                     flightEntity.setId(flight.getLong("id"));
 
                     flightEntity.setAriTimeE(ariTimeE);
@@ -482,5 +490,25 @@ public class SearchResults extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void main_float_account (View view) {
+        facebookProfile = Profile.getCurrentProfile();
+        if (facebookProfile != null) {
+            Intent intent = new Intent(this, FacebookAccountPage.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, LoginPage.class);
+            startActivity(intent);
+        }
+    }
+
+    public void main_float_checkIn (View view) {
+        Intent intent = new Intent(this,WebCheckInHomePage.class);
+        startActivity(intent);
+    }
+
+    public void main_float_search (View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }

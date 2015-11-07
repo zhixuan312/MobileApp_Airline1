@@ -14,11 +14,14 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+
 public class PassengerPage extends Activity implements itineraryFragment.OnFragmentInteractionListener{
     private FlightEntity chosenFlight;
     FragmentManager fragmentManager = getFragmentManager();
     FragmentTransaction fragmentTransaction;
-
+    Profile facebookProfile;
     Spinner spinner;
     TextView fnTV;
     TextView snTV;
@@ -31,6 +34,7 @@ public class PassengerPage extends Activity implements itineraryFragment.OnFragm
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passenger_page);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
         chosenFlight = (FlightEntity)getIntent().getSerializableExtra("chosenFlight");
         System.out.println("new page!!!!!"+chosenFlight.getDepartureDate());
 
@@ -127,5 +131,25 @@ public class PassengerPage extends Activity implements itineraryFragment.OnFragm
         return super.onOptionsItemSelected(item);
     }
     public void onFragmentInteraction(Uri uri){
+    }
+    public void main_float_account (View view) {
+        facebookProfile = Profile.getCurrentProfile();
+        if (facebookProfile != null) {
+            Intent intent = new Intent(this, FacebookAccountPage.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, LoginPage.class);
+            startActivity(intent);
+        }
+    }
+
+    public void main_float_checkIn (View view) {
+        Intent intent = new Intent(this,WebCheckInHomePage.class);
+        startActivity(intent);
+    }
+
+    public void main_float_search (View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }

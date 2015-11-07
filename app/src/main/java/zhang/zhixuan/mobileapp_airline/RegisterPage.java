@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+
 import java.util.ArrayList;
 
 public class RegisterPage extends Activity {
@@ -17,7 +20,7 @@ public class RegisterPage extends Activity {
     EditText unTV;
     EditText psTV;
     EditText cnTV;
-
+    Profile facebookProfile;
     String email;
     String username;
     String password;
@@ -27,6 +30,7 @@ public class RegisterPage extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_page);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
         emTV = (EditText)findViewById(R.id.register_et_email);
         unTV = (EditText)findViewById(R.id.register_et_username);
         psTV = (EditText)findViewById(R.id.register_et_password);
@@ -103,5 +107,25 @@ public class RegisterPage extends Activity {
             Toast.makeText(this, "Add failed.", Toast.LENGTH_LONG).show();
 
         db.close();
+    }
+    public void main_float_account (View view) {
+        facebookProfile = Profile.getCurrentProfile();
+        if (facebookProfile != null) {
+            Intent intent = new Intent(this, FacebookAccountPage.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, LoginPage.class);
+            startActivity(intent);
+        }
+    }
+
+    public void main_float_checkIn (View view) {
+        Intent intent = new Intent(this,WebCheckInHomePage.class);
+        startActivity(intent);
+    }
+
+    public void main_float_search (View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }

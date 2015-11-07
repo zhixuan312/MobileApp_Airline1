@@ -24,6 +24,7 @@ public class FlightEntity implements Serializable {
     private String ariDayWE;
     private String ariTimeE;
     private String timeDuration;
+    private String timeDminutes;
     private double priceD;
 
     public Boolean expand = false;
@@ -179,5 +180,13 @@ public class FlightEntity implements Serializable {
 
     public void setPriceD(double priceD) {
         this.priceD = priceD;
+    }
+
+    public String getTimeDminutes() {
+        return timeDminutes;
+    }
+
+    public void setTimeDminutes(String timeDminutes) {
+        this.timeDminutes = timeDminutes;
     }
 }

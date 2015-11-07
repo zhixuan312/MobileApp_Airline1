@@ -7,10 +7,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+
 public class WebCheckInStatusPage extends AppCompatActivity {
 
     String referenceN;
     String passportN;
+    Profile facebookProfile;
 
     //test comment
 
@@ -18,6 +22,7 @@ public class WebCheckInStatusPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_check_in_status_page);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
         referenceN = getIntent().getStringExtra("referenceN");
         passportN = getIntent().getStringExtra("passportN");
         //test
@@ -48,6 +53,26 @@ public class WebCheckInStatusPage extends AppCompatActivity {
         Intent intent = new Intent(this,WebCheckIn.class);
         intent.putExtra("referenceN", referenceN);
         intent.putExtra("passportN",passportN);
+        startActivity(intent);
+    }
+    public void main_float_account (View view) {
+        facebookProfile = Profile.getCurrentProfile();
+        if (facebookProfile != null) {
+            Intent intent = new Intent(this, FacebookAccountPage.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, LoginPage.class);
+            startActivity(intent);
+        }
+    }
+
+    public void main_float_checkIn (View view) {
+        Intent intent = new Intent(this,WebCheckInHomePage.class);
+        startActivity(intent);
+    }
+
+    public void main_float_search (View view) {
+        Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
 }

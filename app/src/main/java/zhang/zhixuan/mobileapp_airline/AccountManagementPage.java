@@ -64,11 +64,15 @@ public class AccountManagementPage extends Activity implements View.OnClickListe
     public void changeLoginStatus(){
         db.open();
         Cursor c = db.getAllSession();
+        System.out.println("after get All session");
         if(c == null){
+            System.out.println("c==null insertLoginSession");
             db.insertLoginSession("true", email);
         }
         else{
-            db.updateLoginStatus("true", email);
+            System.out.println("c!=null update");
+            long id = db.updateLoginStatus("true", email);
+            System.out.println("id"+id);
         }
         db.close();
     }

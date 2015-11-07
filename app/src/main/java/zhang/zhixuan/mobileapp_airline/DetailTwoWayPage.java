@@ -13,6 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+
 public class DetailTwoWayPage extends Activity implements itineraryRFragment.OnFragmentInteractionListener{
     // testdata: outdate(3 variables day month and year),time depart, time arrive, from city, to city. For both inbound and outbound
     String [] testData = {"12/12/2015","2350","0525","03/04/2016","1320","1930","Singapore","Malaysia","Malaysia","Singapore"};
@@ -21,7 +24,7 @@ public class DetailTwoWayPage extends Activity implements itineraryRFragment.OnF
     String inDeTime,inArrTime,outDeTime,outArrTime;
     String inDeCity,inArrCity,outDeCity,outArrCity;
     String outBoundString, inBoundString;
-
+    Profile facebookProfile;
     LayoutInflater mInflater;
     private FlightEntity chosenFlight;
     private FlightEntity chosenFlightR;
@@ -32,6 +35,7 @@ public class DetailTwoWayPage extends Activity implements itineraryRFragment.OnF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_two_way_page);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
 
         outBoundDate = (TextView)findViewById(R.id.detail_tv_outDateR);
         outBoundContent = (TextView)findViewById(R.id.detail_outboundContentR);
