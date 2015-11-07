@@ -17,78 +17,90 @@
             android:id="@+id/listResult_departTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="06:45"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="15dp"
-            android:textSize="30sp"/>
+            android:text="06:45"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/listResult_deshLine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-"
-            android:layout_toRightOf="@+id/listResult_departTime"
-            android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
-            android:textSize="30sp"/>
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@+id/listResult_departTime"
+            android:text="-"
+            android:textSize="30sp" />
 
         <TextView
-            android:layout_toRightOf="@+id/listResult_deshLine"
-            android:textSize="30sp"
             android:id="@+id/listResult_reachTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10:46" />
+            android:layout_toRightOf="@+id/listResult_deshLine"
+            android:text="10:46"
+            android:textSize="30sp" />
 
         <TextView
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
-            android:layout_below="@+id/listResult_departTime"
-            android:id="@+id/listResult_flightNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SH730" />
-
-        <TextView
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
-            android:layout_below="@+id/listResult_departTime"
-            android:layout_marginTop="50dp"
-            android:id="@+id/listResult_Duration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Duration: 4 hour" />
-
-        <TextView
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="15dp"
             android:id="@+id/listResult_class"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Premium Economy" />
-
-        <TextView
             android:layout_alignParentRight="true"
-            android:layout_marginLeft="15dp"
-
-            android:id="@+id/listResult_price"
+            android:layout_marginRight="15dp"
+            android:text="Premium Economy" />
+        <TextView
+            android:id="@+id/listResult_flightNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:layout_alignBottom="@+id/listResult_flightNumber"
-            android:text="S$ 4194.00" />
-
-        <com.gc.materialdesign.views.ButtonRectangle
+            android:layout_below="@+id/listResult_departTime"
+            android:layout_alignParentLeft="true"
             android:layout_marginLeft="15dp"
-            android:id="@+id/bookbtn"
+            android:text="SH730" />
+
+        <TextView
+            android:id="@+id/listResult_price"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_alignBottom="@+id/listResult_Duration"
+
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/listResult_flightNumber"
             android:layout_alignParentRight="true"
-            android:background="#1E88E5"
-            android:focusable="false"
-            android:text="Book"
-            android:textColor="#ffffff" />
+            android:layout_marginRight="15dp"
+            android:text="S$ 4194.00"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/search_expandLayout"
+            android:layout_below="@+id/listResult_departTime"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/listResult_Duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="50dp"
+                android:text="Duration: 4 hour" />
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/bookbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@+id/listResult_Duration"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:background="#1E88E5"
+                android:focusable="false"
+                android:text="Book"
+                android:textColor="#ffffff" />
+        </RelativeLayout>
+
+
+
+
+
+
 
     </RelativeLayout>
 </LinearLayout>
