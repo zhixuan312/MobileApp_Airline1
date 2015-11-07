@@ -131,7 +131,7 @@ public class WebCheckIn extends Activity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         chosenTicket = tickets_results.get(position);
                         LinearLayout item = (LinearLayout)view.findViewById(R.id.wc_ticket);
-                        item.setBackgroundColor(Color.parseColor("#ff6501"));
+                        item.setBackgroundColor(Color.parseColor("#FFF59D"));
 
                     }
                 });

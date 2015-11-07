@@ -2,55 +2,176 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFDE7"
     tools:context="zhang.zhixuan.mobileapp_airline.WebCheckInHomePage">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/wc_tv1"
-        android:textSize="50px"
-        android:text="Welcome to Web Check In"
-        android:layout_marginTop="84dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:id="@+id/wc_tv2"
-        android:layout_height="wrap_content"
-        android:text="Please enter reference number and passport for check in purpose"
-        android:layout_marginTop="44dp"
-        android:layout_below="@+id/wc_tv1"
-        android:layout_centerHorizontal="true" />
+    <RelativeLayout
+        android:id="@+id/login_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#f4c20d"
+        android:elevation="5dp"
+        android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="Check In"
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Reference Number"
-        android:id="@+id/wc_referenceN"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/checkin" />
+    </RelativeLayout>
 
-    <EditText
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="Passport Number"
-        android:id="@+id/wc_passportN"
-        android:layout_below="@+id/wc_referenceN"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Check In"
-        android:id="@+id/button"
-        android:onClick="checkIn"
-        android:layout_below="@+id/wc_passportN"
+        android:layout_below="@+id/login_bar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="67dp" />
+        >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#ffffff"
+            android:padding="10dp"
+            android:elevation="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/login_bar"
+            android:layout_marginBottom="10dp">
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_marginTop="20dp"
+                android:id="@+id/check_reference"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="#f4c20d"
+                android:hint="Reference Number"
+                android:maxLines="1"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="Reference Number"
+                app:met_maxCharacters="20"
+                app:met_primaryColor="#424242"
+                app:met_textColorHint="#f4c20d"
+                app:met_underlineColor="#f4c20d" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/check_passport"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/check_reference"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="#f4c20d"
+                android:hint="Passport Number"
+                android:maxLines="1"
+                app:met_floatingLabel="highlight"
+                app:met_floatingLabelText="Passport Number"
+                app:met_maxCharacters="20"
+                app:met_primaryColor="#424242"
+                app:met_textColorHint="#f4c20d"
+                app:met_underlineColor="#f4c20d" />
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/check_checkIn"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/check_passport"
+                android:onClick="checkIn"
+                android:background="#f4c20d"
+                android:text="Search" />
+        </RelativeLayout>
+
+
+
+
+    </ScrollView>
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/main_float_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:elevation="11dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="10dp"
+        fab:menu_colorNormal="#db3236"
+        fab:menu_colorPressed="#581416"
+        fab:menu_colorRipple="#581416"
+        fab:menu_fab_size="normal"
+        fab:menu_icon="@drawable/airplane"
+        fab:menu_shadowColor="#66000000"
+        fab:menu_shadowRadius="4dp"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="3dp"
+        fab:menu_showShadow="true">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/main_float_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_account"
+            android:src="@drawable/account"
+            app:fab_colorNormal="#3cba54"
+            app:fab_colorPressed="#184a22"
+            app:fab_colorRipple="#184a22"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Account" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/main_float_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_search"
+            android:src="@drawable/checkin"
+            app:fab_colorNormal="#1E88E5"
+            app:fab_colorPressed="#1E88E5"
+            app:fab_colorRipple="#1E88E5"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Search" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/main_float_checkIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_checkIn"
+            android:src="@drawable/checkin"
+            app:fab_colorNormal="#f4c20d"
+            app:fab_colorPressed="#624e05"
+            app:fab_colorRipple="#624e05"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Check In" />
+
+    </com.github.clans.fab.FloatingActionMenu>
 
 </RelativeLayout>

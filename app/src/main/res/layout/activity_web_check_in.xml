@@ -1,12 +1,54 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_height="match_parent"
+    android:background="#FFFDE7"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context="zhang.zhixuan.mobileapp_airline.WebCheckIn">
 
-    <TextView android:text="Ticket Wait to be checked in" android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/login_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#f4c20d"
+        android:elevation="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="Check In"
+            android:textColor="#ffffff"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/checkin" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_bar"
+        android:layout_centerHorizontal="true"
+        >
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp"
+            >
+    <TextView
+        android:text="Ticket Wait to be checked in"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView" />
 
@@ -27,5 +69,80 @@
         android:id="@+id/button2"
         android:layout_alignParentBottom="true"
          />
+        </RelativeLayout>
+    </ScrollView>
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/main_float_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:elevation="11dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="10dp"
+        fab:menu_colorNormal="#db3236"
+        fab:menu_colorPressed="#581416"
+        fab:menu_colorRipple="#581416"
+        fab:menu_fab_size="normal"
+        fab:menu_icon="@drawable/airplane"
+        fab:menu_shadowColor="#66000000"
+        fab:menu_shadowRadius="4dp"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="3dp"
+        fab:menu_showShadow="true">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/main_float_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_account"
+            android:src="@drawable/account"
+            app:fab_colorNormal="#3cba54"
+            app:fab_colorPressed="#184a22"
+            app:fab_colorRipple="#184a22"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Account" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/main_float_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_search"
+            android:src="@drawable/checkin"
+            app:fab_colorNormal="#1E88E5"
+            app:fab_colorPressed="#1E88E5"
+            app:fab_colorRipple="#1E88E5"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Search" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/main_float_checkIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_checkIn"
+            android:src="@drawable/checkin"
+            app:fab_colorNormal="#f4c20d"
+            app:fab_colorPressed="#624e05"
+            app:fab_colorRipple="#624e05"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Check In" />
+
+    </com.github.clans.fab.FloatingActionMenu>
 
 </RelativeLayout>
