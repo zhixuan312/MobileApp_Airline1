@@ -65,7 +65,7 @@ public class AccountManagementPage extends Activity implements View.OnClickListe
         db.open();
         Cursor c = db.getAllSession();
         System.out.println("after get All session");
-        if(c == null){
+        if(!c.moveToFirst()){
             System.out.println("c==null insertLoginSession");
             db.insertLoginSession("true", email);
         }

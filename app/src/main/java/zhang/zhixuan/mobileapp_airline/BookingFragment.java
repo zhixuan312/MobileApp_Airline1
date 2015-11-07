@@ -77,7 +77,7 @@ public class BookingFragment extends Fragment {
             brE.ariD = br[8];
             bookingRCheckedIn.add(brE);
         }
-
+        System.out.println("在这里在这里!!"+bookingRCheckedIn.size()+bookingRUnCheckedIn.size());
 
     }
 
@@ -96,6 +96,7 @@ public class BookingFragment extends Fragment {
 
         if (c.moveToFirst()) {
             do {
+                System.out.println("");
                 String[] record = {c.getString(0), c.getString(1), c.getString(2),c.getString(3), c.getString(4), c.getString(5),c.getString(6), c.getString(7), c.getString(8)};
                 records.add(record);
             } while (c.moveToNext());
@@ -110,7 +111,7 @@ public class BookingFragment extends Fragment {
 
         db.open();
 
-        Cursor c = db.getMemberByEmailUnCheckedIn(email);
+        Cursor c = db.getMemberByEmailCheckedIn(email);
 
         if(c== null){
             return new ArrayList<String[]>();

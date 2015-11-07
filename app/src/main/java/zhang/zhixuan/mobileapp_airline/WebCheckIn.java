@@ -304,6 +304,7 @@ public class WebCheckIn extends Activity {
 
         Intent intent = new Intent(this,WebCheckInStatusPage.class);
         Bundle bundle = new Bundle();
+        System.out.println("chosenTicket"+chosenTicket.getFlightNo() );
         bundle.putSerializable("chosenTicket",chosenTicket);
         intent.putExtras(bundle);
         intent.putExtra("referenceN", referenceN);

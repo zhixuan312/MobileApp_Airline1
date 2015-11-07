@@ -88,10 +88,7 @@ public class MyDB {
                         MyDBHelper.columnName_memberContactN},
                 MyDBHelper.columnName_memberEmail+"=?",
                 new String[]{email}, null, null, null, null);
-
-        if (mCursor != null) {
-            mCursor.moveToFirst();
-        }
+        
         return mCursor;
     }
     public Cursor getMemberPasswordByEmail(String email) {

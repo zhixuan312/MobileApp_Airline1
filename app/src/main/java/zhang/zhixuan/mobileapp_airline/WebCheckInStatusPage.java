@@ -39,7 +39,7 @@ public class WebCheckInStatusPage extends Activity {
         referenceN = getIntent().getStringExtra("referenceN");
         passportN = getIntent().getStringExtra("passportN");
         ticketCheckInEntity = (TicketCheckInEntity)getIntent().getSerializableExtra("chosenTicket");
-
+        checkInTicket();
 
         //test
     }
@@ -63,7 +63,8 @@ public class WebCheckInStatusPage extends Activity {
 
             try {
                 confirmation = (TextView)findViewById(R.id.status_seatnumber);
-                confirmation.setText("You seat number is "+result);
+                System.out.println("enter onPost Exucute在这里");
+                confirmation.setText(result);
 
 
 

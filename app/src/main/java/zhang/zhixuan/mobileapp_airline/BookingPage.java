@@ -113,11 +113,19 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         db = new TicketDB(this);
         dbLogin = new LoginSessionDB(this);
+        dbMember = new MyDB(this);
         chosenFlight = (FlightEntity)getIntent().getSerializableExtra("chosenFlight");
         passengerEntity = (PassengerEntity)getIntent().getSerializableExtra("passenger");
         System.out.println("new page!!!!!" + chosenFlight.getDepartureDate());
 
-
+        fnTV = (EditText)findViewById(R.id.bk_et_fn);
+        snTV = (EditText)findViewById(R.id.bk_et_sn);
+        adTV = (EditText)findViewById(R.id.bk_et_ad);
+        emTV = (EditText)findViewById(R.id.bk_et_em);
+        ciTV = (EditText)findViewById(R.id.bk_et_ci);
+        coTV = (EditText)findViewById(R.id.bk_et_co);
+        zcTV = (EditText)findViewById(R.id.bk_et_zp);
+        cnTV = (EditText)findViewById(R.id.bk_et_cn);
         addListenerOnSpinnerItemSelection();
 
         fragmentTransaction = fragmentManager.beginTransaction();
@@ -146,7 +154,7 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
         if(c==null)
             System.out.println("c == null");
 
-        System.out.println("c.moveToFirst"+c.moveToFirst());
+        System.out.println("c.moveToFirst");
 
         if (c.moveToFirst()) {
 
@@ -175,13 +183,19 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
                 cityAuto = c.getString(7);
                 zipCodeAuto = c.getString(8);
                 contactNAuto = c.getString(9);
-
+                if(firstNAuto!=null)
                 fnTV.setText(firstNAuto, TextView.BufferType.EDITABLE);
+                if(lastNAuto!=null)
                 snTV.setText(lastNAuto, TextView.BufferType.EDITABLE);
+                if(addressAuto!=null)
                 adTV.setText(addressAuto, TextView.BufferType.EDITABLE);
+                if(cityAuto!=null)
                 ciTV.setText(cityAuto, TextView.BufferType.EDITABLE);
+                if(countryAuto!=null)
                 coTV.setText(countryAuto, TextView.BufferType.EDITABLE);
+                if(zipCodeAuto!=null)
                 zcTV.setText(zipCodeAuto, TextView.BufferType.EDITABLE);
+                if(contactNAuto!=null)
                 cnTV.setText(contactNAuto, TextView.BufferType.EDITABLE);
 
 
@@ -244,14 +258,7 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
     public void pay (View view) throws ParseException {
 
 
-        fnTV = (EditText)findViewById(R.id.bk_et_fn);
-        snTV = (EditText)findViewById(R.id.bk_et_sn);
-        adTV = (EditText)findViewById(R.id.bk_et_ad);
-        emTV = (EditText)findViewById(R.id.bk_et_em);
-        ciTV = (EditText)findViewById(R.id.bk_et_ci);
-        coTV = (EditText)findViewById(R.id.bk_et_co);
-        zcTV = (EditText)findViewById(R.id.bk_et_zp);
-        cnTV = (EditText)findViewById(R.id.bk_et_cn);
+
 
         flightId = chosenFlight.getId();
         firstNP = passengerEntity.getFirstName();

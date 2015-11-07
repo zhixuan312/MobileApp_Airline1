@@ -44,6 +44,7 @@ public class bookingConfirmationPage extends Activity {
     public String[] getRecord(String email){
         db.open();
         Cursor c = db.getMemberByEmail(email);
+        System.out.println("最新的在这里"+email);
 
         String [] record = new String[4];
 

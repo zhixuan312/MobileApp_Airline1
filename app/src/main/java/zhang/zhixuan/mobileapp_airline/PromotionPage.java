@@ -31,6 +31,7 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -94,6 +95,11 @@ public class PromotionPage extends Activity {
             }
 
         }
+        flights_ResultF = new ArrayList<>();
+        flights_ResultB = new ArrayList<>();
+        flights_ResultP = new ArrayList<>();
+        flights_ResultE = new ArrayList<>();
+
         searchPromotedFlights("Singapore");
 
 
@@ -190,6 +196,13 @@ public class PromotionPage extends Activity {
                 }
 
                 lv = (ListView)findViewById(R.id.promotion_lv);
+                System.out.println("哈哈哈哈哈哈我在这里"+flights_ResultB.size());
+                System.out.println("哈哈哈哈哈哈我在这里"+flights_ResultF.size());
+
+                System.out.println("哈哈哈哈哈哈我在这里"+flights_ResultP.size());
+
+                System.out.println("哈哈哈哈哈哈我在这里"+flights_ResultE.size());
+
 //                handler.post(new Runnable() {
 //                    @Override
 //                    public void run() {

@@ -112,9 +112,6 @@ public class TicketDB {
                 TicketDBHelper.columnName_email+" = ?",new String[]{email+""}
                 , null, null, null);
 
-        if (mCursor != null) {
-            mCursor.moveToFirst();
-        }
         return mCursor;
     }
     public Cursor getMemberByEmailUnCheckedIn(String email) {

@@ -69,7 +69,7 @@ public class LoginSessionDB {
                         LoginSessionDBHelper.columnName_memberLoginStatus,
                         LoginSessionDBHelper.columnName_memberEmail,
                 },
-                null, null, null, null, null);
+                null,null, null, null, null);
     }
 
 
