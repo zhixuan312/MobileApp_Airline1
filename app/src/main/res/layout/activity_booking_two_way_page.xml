@@ -36,9 +36,9 @@
 
 
     <ScrollView
-        android:layout_below="@+id/login_bar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/login_bar"
         android:layout_centerHorizontal="true">
 
 
@@ -51,7 +51,7 @@
             <FrameLayout
                 android:id="@+id/bk_fl_itnR"
                 android:layout_width="fill_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -75,47 +75,46 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:layout_marginTop="20dp"
                     android:text="Contact Person Details: "
-                    android:textSize="20sp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginBottom="10dp"/>
+                    android:textSize="20sp" />
 
                 <Spinner
                     android:id="@+id/bk_sp_titleR"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#1E88E5"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:backgroundTint="#1E88E5"
                     android:entries="@array/title"
                     android:prompt="@string/title_prompt" />
 
                 <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/bk_et_fnR"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/pf_tv_username"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="#1E88E5"
                     android:hint="First Name"
                     android:maxLines="1"
-                    app:met_primaryColor= "#1E88E5"
                     android:textSize="15sp"
-                    android:id="@+id/bk_et_fn"
-                    app:met_floatingLabel="highlight"
-                    app:met_floatingLabelText = "First Name"
-                    app:met_underlineColor= "#1E88E5"
-                    app:met_maxCharacters = "30"
-                    app:met_minCharacters ="1"
-                    app:met_textColorHint = "#424242"
-                    android:backgroundTint="#1E88E5"
                     app:met_errorColor="#424242"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_below="@+id/pf_tv_username"
-                    android:layout_marginTop="20dp"
-                    />
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelText="First Name"
+                    app:met_maxCharacters="30"
+                    app:met_minCharacters="1"
+                    app:met_primaryColor="#1E88E5"
+                    app:met_textColorHint="#424242"
+                    app:met_underlineColor="#1E88E5" />
 
                 <com.rengwuxian.materialedittext.MaterialEditText
-                    android:id="@+id/bk_et_sn"
+                    android:id="@+id/bk_et_snR"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pf_et_fn"
@@ -135,7 +134,7 @@
                     app:met_underlineColor="#1E88E5" />
 
                 <com.rengwuxian.materialedittext.MaterialEditText
-                    android:id="@+id/bk_et_ad"
+                    android:id="@+id/bk_et_adR"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pf_et_sn"
@@ -155,7 +154,7 @@
                     app:met_underlineColor="#1E88E5" />
 
                 <com.rengwuxian.materialedittext.MaterialEditText
-                    android:id="@+id/bk_et_co"
+                    android:id="@+id/bk_et_coR"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pf_et_ad"
@@ -175,7 +174,7 @@
                     app:met_underlineColor="#1E88E5" />
 
                 <com.rengwuxian.materialedittext.MaterialEditText
-                    android:id="@+id/bk_et_ci"
+                    android:id="@+id/bk_et_ciR"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pf_et_co"
@@ -195,7 +194,7 @@
                     app:met_underlineColor="#1E88E5" />
 
                 <com.rengwuxian.materialedittext.MaterialEditText
-                    android:id="@+id/bk_et_em"
+                    android:id="@+id/bk_et_emR"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pf_et_ci"
@@ -216,7 +215,7 @@
                     app:met_underlineColor="#1E88E5" />
 
                 <com.rengwuxian.materialedittext.MaterialEditText
-                    android:id="@+id/bk_et_zp"
+                    android:id="@+id/bk_et_zpR"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pf_et_ci"
@@ -237,7 +236,7 @@
                     app:met_underlineColor="#1E88E5" />
 
                 <com.rengwuxian.materialedittext.MaterialEditText
-                    android:id="@+id/bk_et_cn"
+                    android:id="@+id/bk_et_cnR"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/pf_et_zp"
@@ -255,21 +254,16 @@
                     app:met_minCharacters="1"
                     app:met_primaryColor="#1E88E5"
                     app:met_textColorHint="#424242"
-                    app:met_underlineColor="#1E88E5"
-                    />
+                    app:met_underlineColor="#1E88E5" />
 
                 <com.gc.materialdesign.views.ButtonRectangle
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:background="#1E88E5"
-                    android:text="Pay"
-                    android:onClick="pay"
                     android:layout_marginBottom="20dp"
-                    />
+                    android:background="#1E88E5"
+                    android:onClick="pay"
+                    android:text="Pay" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp" />
             </LinearLayout>
 
 
@@ -284,6 +278,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:elevation="11dp"
         android:paddingBottom="5dp"
         android:paddingRight="10dp"
         fab:menu_colorNormal="#db3236"
@@ -295,8 +290,7 @@
         fab:menu_shadowRadius="4dp"
         fab:menu_shadowXOffset="1dp"
         fab:menu_shadowYOffset="3dp"
-        fab:menu_showShadow="true"
-        android:elevation="11dp">
+        fab:menu_showShadow="true">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/login_float_account"

@@ -103,6 +103,7 @@ public class PromotionPage extends Activity {
         searchPromotedFlights("Singapore");
 
 
+
     }
     public void searchPromotedFlights(String originStr1){
         System.err.println("enter searchFlights_Oneway");

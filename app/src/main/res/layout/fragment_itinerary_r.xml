@@ -2,59 +2,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="15dp"
     android:orientation="vertical"
     tools:context="zhang.zhixuan.mobileapp_airline.itineraryFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:text="Total Price" />
 
-
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:id="@+id/fg_itn_tv_priceR"
+        android:text="S$ 4194.00"
+        />
 
     <TextView
 
+        android:id="@+id/fg_tv_path"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:textSize="100px"
-        android:id="@+id/fg_itn_tv_priceR"
-        android:text="From: " />
+        android:text="First ClassR" />
 
     <TextView
 
         android:id="@+id/fg_tv_pathR"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textSize="50px"
-        android:text="cabin" />
-    <TextView
-
-        android:id="@+id/fg_tv_bookingClassRR"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="cabin" />
-
-    <TextView
-
-        android:id="@+id/fg_tv_pathRR"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textSize="50px"
-        android:text="cabin" />
-
-    <TextView
-
-        android:id="@+id/fg_tv_bookingClassR"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="cabin" />
+        android:text="First ClassR" />
 
 
 </LinearLayout>

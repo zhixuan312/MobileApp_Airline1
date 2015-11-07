@@ -2,101 +2,107 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/flightNoR"
-            android:text="flight no"
-            android:layout_width="0dp"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            android:layout_height="wrap_content"
-            android:textSize="50px"
-            android:textColor="@color/black"
-
-            />
-
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:orientation="horizontal"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="2"
-                android:id="@+id/bookingClassR"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="Expand"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/priceR"
-                android:layout_width="0dp"
-                android:layout_weight="3"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="Expand"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/fDetailsR"
-
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:minHeight="100dp"
-        android:background="#fffeee"
-        android:visibility="gone" >
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/departureDateR"
-                android:text="2016-10-27T03:00:00+08:00"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="30px" />
+        android:layout_margin="10dp"
+        android:elevation="5dp"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-            <TextView
-                android:id="@+id/arrivalDateR"
-                android:text="2016-10-27T07:01:00+08:00"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="30px" />
 
-        </LinearLayout>
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        <TextView
+            android:id="@+id/listResultR_departTime"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select"
-            android:background="@drawable/book_btn_selector"
-            android:focusable="false"
-            android:id="@+id/bookbtnR" />
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:text="06:45"
+            android:textColor="#424242"
+            android:textSize="30sp" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/listResultR_deshLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@+id/listResultR_departTime"
+            android:text="-"
+            android:textColor="#424242"
+            android:textSize="30sp" />
 
+        <TextView
+            android:id="@+id/listResultR_reachTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/listResultR_deshLine"
+            android:text="10:46"
+            android:textColor="#424242"
+            android:textSize="30sp" />
 
+        <TextView
+            android:id="@+id/listResultR_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:text="Premium Economy"
+            android:textColor="#424242" />
+
+        <TextView
+            android:id="@+id/listResultR_flightNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/listResultR_departTime"
+            android:layout_marginLeft="15dp"
+            android:text="SH730"
+            android:textColor="#424242" />
+
+        <TextView
+            android:id="@+id/listResultR_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/listResultR_flightNumber"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:text="S$ 4194.00"
+            android:textColor="#424242"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/search_expandLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/listResultR_departTime"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/listResultR_Duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="50dp"
+                android:text="Duration: 4 hour"
+                android:textColor="#424242" />
+
+            <com.gc.materialdesign.views.ButtonRectangle
+                android:id="@+id/bookbtnR"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@+id/listResultR_Duration"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:background="#1E88E5"
+                android:focusable="false"
+                android:text="Book"
+                android:textAlignment="center"
+                android:textColor="#ffffff" />
+        </RelativeLayout>
+
+    </RelativeLayout>
 </LinearLayout>
