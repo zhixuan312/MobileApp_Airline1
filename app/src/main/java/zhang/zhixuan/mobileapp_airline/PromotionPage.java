@@ -94,14 +94,15 @@ public class PromotionPage extends Activity {
             }
 
         }
+        searchPromotedFlights("Singapore");
 
 
 
     }
-    public void searchFlights_OneWay(String originStr1, String destinationStr1){
+    public void searchPromotedFlights(String originStr1){
         System.err.println("enter searchFlights_Oneway");
         ClassAsyncTask_Flookup classAsyncTask_flookup = new ClassAsyncTask_Flookup();
-        classAsyncTask_flookup.execute("http://192.168.1.106:8080/MerlionAirlinesSystem-war/webresources/generic/getPromotedFlights?cityName=" + country);
+        classAsyncTask_flookup.execute("http://192.168.1.106:8080/MerlionAirlinesSystem-war/webresources/generic/getPromotedFlights?cityName=" + originStr1);
 
         System.out.println("listview");
 
