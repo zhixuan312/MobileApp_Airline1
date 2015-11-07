@@ -16,7 +16,6 @@
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:id="@+id/promotion_lv">
 
     </ListView>
@@ -71,6 +70,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="pm_pc"
         android:text="Premium Economy"
         android:id="@+id/radioButton3" />
         <RadioButton
