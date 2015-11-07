@@ -51,6 +51,7 @@ public class itineraryFragment extends Fragment {
 //        Fragment contentFragment = new Fragment();
 //        contentFragment.setArguments(bundle);
 //        return contentFragment;
+
 //    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
