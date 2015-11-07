@@ -15,8 +15,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gc.materialdesign.views.ButtonRectangle;
@@ -352,7 +352,7 @@ public class SearchResults extends Activity {
         public TextView bookingClass;
         public TextView price;
         public ButtonRectangle bookbtn;
-        public LinearLayout fDetails;
+        public RelativeLayout fDetails;
 
     }
 
@@ -409,7 +409,7 @@ public class SearchResults extends Activity {
                 holder.departureDate = (TextView) convertView.findViewById(R.id.departureDate);
                 holder.arrivalDate = (TextView) convertView.findViewById(R.id.arrivalDate);
                 holder.bookbtn = (ButtonRectangle) convertView.findViewById(R.id.bookbtn);
-                holder.fDetails = (LinearLayout) convertView.findViewById(R.id.fDetails);
+                holder.fDetails = (RelativeLayout) convertView.findViewById(R.id.fDetails);
                 holder.bookingClass = (TextView) convertView.findViewById(R.id.bookingClass);
                 holder.price = (TextView) convertView.findViewById(R.id.price);
                 convertView.setTag(holder);
