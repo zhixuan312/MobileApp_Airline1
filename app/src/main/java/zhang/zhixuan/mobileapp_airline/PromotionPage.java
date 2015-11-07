@@ -66,10 +66,13 @@ public class PromotionPage extends Activity {
             double myLatitude = location.getLatitude();
             double myLongitude = location.getLongitude();
 
-            Geocoder geocoder = new Geocoder(this, Locale.getDefault());
 
-            try {
+            try{
+                Geocoder geocoder = new Geocoder(this, Locale.getDefault());
                 addressList = geocoder.getFromLocation(myLatitude, myLongitude, 1);
+//                if (addressList.size() <= 0){
+//                    addressList = new Geocoder (this).getFromLocation(myLatitude,myLongitude,1);
+//                }
                 if (addressList.get(0) != null) {
                     Address address = addressList.get(0);
                     for (int b=0; b<address.getMaxAddressLineIndex(); b++) {

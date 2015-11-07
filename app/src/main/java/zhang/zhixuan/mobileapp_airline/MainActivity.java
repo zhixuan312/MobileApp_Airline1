@@ -227,7 +227,7 @@ public class MainActivity extends Activity {
     }
 
     public void main_float_search (View view) {
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this,PromotionPage.class);
         startActivity(intent);
     }
 }

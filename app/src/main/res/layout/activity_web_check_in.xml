@@ -79,7 +79,7 @@
                 android:layout_below="@+id/wc_lv_tickets"
                 android:onClick="ticketCheckIn"
                 android:text="Check In"
-                android:background="#FFFDE7"
+                android:background="#f4c20d"
                 android:layout_marginBottom="20dp"/>
 
 
