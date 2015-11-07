@@ -96,6 +96,7 @@ public class PromotionPage extends Activity {
         }
 
 
+
     }
     public void searchFlights_OneWay(String originStr1, String destinationStr1){
         System.err.println("enter searchFlights_Oneway");
