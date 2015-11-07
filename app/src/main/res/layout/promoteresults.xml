@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:elevation="5dp"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+        <TextView
+            android:id="@+id/pm_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="S$650"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:textSize="30sp"/>
+
+
+
+        <TextView
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/pm_price"
+            android:id="@+id/pm_path"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Singapore to Shanghai" />
+
+
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/pm_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 Nov 2015 Sun" />
+
+
+
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/pm_bookbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="#1E88E5"
+            android:focusable="false"
+            android:text="Book"
+            android:textColor="#ffffff"
+            android:layout_below="@+id/pm_date"
+            android:layout_alignRight="@+id/pm_path"
+            android:layout_alignParentRight="true"
+            android:layout_alignEnd="@+id/pm_date" />
+
+    </RelativeLayout>
+</LinearLayout>
