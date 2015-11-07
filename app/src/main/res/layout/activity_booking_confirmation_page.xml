@@ -141,6 +141,8 @@
             android:text="You have successfully made the booking. The record has been updated in your personal account." />
 
         <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:id="@+id/cfm_rn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
