@@ -63,7 +63,7 @@ public class itineraryFragment extends Fragment {
 
         totalP.setText("SGD "+chosenFlight.getPrice());
         path.setText(chosenFlight.getOrigin()+" to "+chosenFlight.getDestination());
-        bc.setText("Cabin Class: " + chosenFlight.getBookingClassName());
+        bc.setText(chosenFlight.getBookingClassName());
 
         return view;
     }
