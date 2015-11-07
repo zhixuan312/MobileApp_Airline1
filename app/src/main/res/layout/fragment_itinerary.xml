@@ -18,7 +18,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:id="@+id/fg_itn_tv_price"
         android:text="From: "
         android:layout_marginBottom="10dp"/>

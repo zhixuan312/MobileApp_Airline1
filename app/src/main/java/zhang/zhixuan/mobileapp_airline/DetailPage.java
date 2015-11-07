@@ -47,8 +47,8 @@ public class DetailPage extends Activity implements itineraryFragment.OnFragment
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_page);
-        outBoundDate = (TextView)findViewById(R.id.detail_tv_outDate);
-        outBoundContent = (TextView)findViewById(R.id.detail_outboundContent);
+        //outBoundDate = (TextView)findViewById(R.id.detail_tv_outDate);
+        //outBoundContent = (TextView)findViewById(R.id.detail_outboundContent);
 
         chosenFlight = (FlightEntity)getIntent().getSerializableExtra("chosenFlight");
         System.out.println("new page!!!!!"+chosenFlight.getDepartureDate());
