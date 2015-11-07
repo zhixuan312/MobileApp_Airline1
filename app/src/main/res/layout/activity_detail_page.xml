@@ -100,7 +100,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/detail_flightNumber"
+                    android:id="@+id/detail_flightNumberR"
                     android:layout_below="@id/detail_ll1"
                     android:text="SH730"
                     android:layout_marginLeft="10dp"/>
@@ -124,6 +124,13 @@
                         android:layout_marginRight="10dp"
                         android:layout_height="wrap_content"
                         android:text="06:45"/>
+
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/search_page_icon_blue"/>
                     <TextView
                         android:textSize="30sp"
                         android:id="@+id/detail_reachTime_TV"

@@ -32,8 +32,6 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
             android:src="@drawable/airplane" />
-
-
     </RelativeLayout>
 
     <ScrollView
@@ -59,6 +57,7 @@
                 android:background="#ffffff"
                 android:elevation="5dp"
                 android:padding="10dp"></FrameLayout>
+
             <RelativeLayout
                 android:id="@+id/detail_relative_outboundR"
                 android:layout_width="fill_parent"
@@ -70,89 +69,272 @@
                 android:elevation="5dp"
                 android:padding="10dp">
 
-                <TextView
-                    android:layout_marginTop="20dp"
-                    android:id="@+id/detail_tv_outboundR"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:text="Outbound"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:layout_marginTop="20dp"
-                    android:id="@+id/detail_tv_outDateR"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="15dp"
-                    android:text="Tue Oct 13 2015"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/detail_relative_divideLine1R"
-                    android:layout_width="fill_parent"
-                    android:layout_height="1dp"
-                    android:layout_below="@+id/detail_tv_outDateR"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="#424242" />
-
-                <TextView
-                    android:id="@+id/detail_outboundContentR"
+                <LinearLayout
+                    android:layout_marginTop="10dp"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/detail_relative_divideLine1R"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:text="Text"
-                    android:textSize="20sp" />
+                    android:id="@+id/detail_ll1R"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:id="@+id/detail_outbound_TVR"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:layout_width="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="Outbound"/>
+                    <TextView
+                        android:id="@+id/detail_date_TVR"
+                        android:gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Nov 6 2016"/>
+
+                </LinearLayout>
 
                 <TextView
-                    android:layout_marginTop="20dp"
-                    android:id="@+id/detail_tv_inboundR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/detail_outboundContentR"
-                    android:layout_marginLeft="15dp"
-                    android:text="Outbound"
-                    android:textSize="20sp" />
+                    android:id="@+id/detail_flightNumberR"
+                    android:layout_below="@id/detail_ll1R"
+                    android:text="SH730"
+                    android:layout_marginLeft="10dp"/>
+
+                <LinearLayout
+                    android:layout_marginTop="30dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/detail_ll2R"
+                    android:layout_below="@+id/detail_ll1R"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:id="@+id/detail_outTime_TVR"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:textSize="30sp"
+                        android:layout_width="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="06:45"/>
+
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/search_page_icon_blue"/>
+                    <TextView
+                        android:textSize="30sp"
+                        android:id="@+id/detail_reachTime_TVR"
+                        android:gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="10:46"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginBottom="5dp"
+                    android:layout_below="@+id/detail_ll2R"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/detail_ll3R"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/detail_fromAirport_TVR"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:layout_width="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="Singapore Changi Airport"/>
+                    <TextView
+                        android:id="@+id/detail_reachAirport_TVR"
+                        android:gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Hong Kong International Airport"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/detail_ll3R"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/detail_ll4R"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/detail_aircraftType_TVR"
+                        android:gravity="left"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="Aircraft Type A330"/>
+                    <TextView
+                        android:layout_marginBottom="15dp"
+                        android:id="@+id/detail_duration_TVR"
+                        android:gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Duration 4 hours"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/detail_l11R"
+                    android:layout_below="@+id/detail_ll4R"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/detail_inbound_TVR"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:layout_width="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="Inbound"/>
+                    <TextView
+                        android:id="@+id/detail_dateR_TVR"
+                        android:gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Nov 6 2016"/>
+
+                </LinearLayout>
 
                 <TextView
-                    android:layout_marginTop="20dp"
-                    android:id="@+id/detail_tv_inDateR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/detail_outboundContentR"
-                    android:layout_marginRight="15dp"
-                    android:text="Tue Oct 13 2015"
-                    android:textSize="20sp" />
+                    android:id="@+id/detail_flightNumber"
+                    android:layout_below="@id/detail_l11R"
+                    android:text="SH730"
+                    android:layout_marginLeft="10dp"/>
 
-                <TextView
-                    android:id="@+id/detail_relative_divideLine2R"
-                    android:layout_width="fill_parent"
-                    android:layout_height="1dp"
-                    android:layout_below="@+id/detail_tv_inDateR"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:background="#424242" />
-
-                <TextView
-                    android:id="@+id/detail_inboundContentR"
+                <LinearLayout
+                    android:layout_marginTop="30dp"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/detail_relative_divideLine2R"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:text="Text"
-                    android:textSize="20sp" />
+                    android:id="@+id/detail_l2R"
+                    android:layout_below="@+id/detail_l11R"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/detail_inTime_TVR"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:textSize="30sp"
+                        android:layout_width="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="06:45"/>
+
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/search_page_icon_blue"/>
+                    <TextView
+                        android:textSize="30sp"
+                        android:id="@+id/detail_reachTimeR_TVR"
+                        android:gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="10:46"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginBottom="5dp"
+                    android:layout_below="@+id/detail_l2R"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/detail_l3R"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/detail_fromAirportR_TVR"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:layout_width="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="Singapore Changi Airport"/>
+                    <TextView
+                        android:id="@+id/detail_reachAirportR_TVR"
+                        android:gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Hong Kong International Airport"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/detail_l3R"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/detail_l4R"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/detail_aircraftTypeR_TVR"
+                        android:gravity="left"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="Aircraft Type A330"/>
+                    <TextView
+                        android:layout_marginBottom="15dp"
+                        android:id="@+id/detail_durationR_TVR"
+                        android:gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Duration 4 hours"/>
+
+                </LinearLayout>
 
                 <com.gc.materialdesign.views.ButtonRectangle
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/detail_inboundContentR"
+                    android:layout_below="@+id/detail_l4R"
                     android:layout_marginBottom="20dp"
                     android:background="#1E88E5"
                     android:onClick="book"
