@@ -44,7 +44,7 @@
         android:orientation="horizontal"
         android:minHeight="100dp"
 
-        android:visibility="gone" >
+        android:visibility="visible" >
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
