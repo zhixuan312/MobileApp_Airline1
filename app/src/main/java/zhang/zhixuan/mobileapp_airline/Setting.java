@@ -7,26 +7,32 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.BatteryManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.Toast;
+
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
 
 public class Setting extends Activity {
 
     CheckBox setting_check;
     SharedPreferences sharedPreferences;
 
-
+    LoginSessionDB dbLogin;
+    Profile facebookProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         setting_check = (CheckBox) findViewById(R.id.setting_check);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
+
         SharedPreferences preferences = getSharedPreferences("promotion_function", Context.MODE_PRIVATE);
         Boolean switchFunction = preferences.getBoolean("promote", true);
-
+        dbLogin = new LoginSessionDB(this);
         IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         Intent baReryStatus = this.registerReceiver(null, ifilter);
         int level = baReryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
@@ -77,6 +83,48 @@ public class Setting extends Activity {
             editor.commit();
         }
 
+    }
+    public void main_float_account (View view) {
+        facebookProfile = Profile.getCurrentProfile();
+        if (facebookProfile != null) {
+            Intent intent = new Intent(this, FacebookAccountPage.class);
+            startActivity(intent);
+        } else {
+            dbLogin.open();
+            Cursor c = dbLogin.getAllSession();
+            System.out.println("after get All session");
+            if(!c.moveToFirst()){
+                System.out.println("c==null insertLoginSession");
+                dbLogin.close();
+                Intent intent = new Intent(this, LoginPage.class);
+                startActivity(intent);
+            }else {
+                System.out.println("c!-null");
+                String loginStatus = c.getString(1);
+                System.out.println("loginStatus" + loginStatus);
+                String emailAuto = c.getString(2);
+                dbLogin.close();
+
+                if (loginStatus.equals("true")) {
+                    Intent intent = new Intent(this, AccountManagementPage.class);
+                    intent.putExtra("email", emailAuto);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(this, LoginPage.class);
+                    startActivity(intent);
+                }
+            }
+        }
+    }
+
+    public void main_float_checkIn (View view) {
+        Intent intent = new Intent(this,WebCheckInHomePage.class);
+        startActivity(intent);
+    }
+
+    public void main_float_search (View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 
 

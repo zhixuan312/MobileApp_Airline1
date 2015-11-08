@@ -19,6 +19,7 @@ public class LoginPage extends Activity {
     String loginId;
     String loginPassword;
     MyDB db;
+    LoginSessionDB dbLogin;
     Profile facebookProfile;
     Fragment facebookFragment;
 
@@ -28,6 +29,7 @@ public class LoginPage extends Activity {
         setContentView(R.layout.activity_login_page);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         db = new MyDB(this);
+        dbLogin = new LoginSessionDB(this);
         android.app.FragmentManager fragmentManager = getFragmentManager();
         android.app.FragmentTransaction fragmentTransaction;
 
@@ -94,8 +96,30 @@ public class LoginPage extends Activity {
             Intent intent = new Intent(this, FacebookAccountPage.class);
             startActivity(intent);
         } else {
-            Intent intent = new Intent(this, LoginPage.class);
-            startActivity(intent);
+            dbLogin.open();
+            Cursor c = dbLogin.getAllSession();
+            System.out.println("after get All session");
+            if(!c.moveToFirst()){
+                System.out.println("c==null insertLoginSession");
+                dbLogin.close();
+                Intent intent = new Intent(this, LoginPage.class);
+                startActivity(intent);
+            }else {
+                System.out.println("c!-null");
+                String loginStatus = c.getString(1);
+                System.out.println("loginStatus" + loginStatus);
+                String emailAuto = c.getString(2);
+                dbLogin.close();
+
+                if (loginStatus.equals("true")) {
+                    Intent intent = new Intent(this, AccountManagementPage.class);
+                    intent.putExtra("email", emailAuto);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(this, LoginPage.class);
+                    startActivity(intent);
+                }
+            }
         }
     }
 

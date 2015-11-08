@@ -115,22 +115,39 @@ public class AccountManagementPage extends Activity implements View.OnClickListe
         transaction.commit();
     }
 
-    public void logout(){
-        changeLogoutStatus();
+    public void logout(View view){
+        db.open();
+        Cursor c = db.getAllSession();
+        System.out.println("after get All session");
+        if(!c.moveToFirst()){
+            System.out.println("c==null insertLoginSession");
+            db.insertLoginSession("false", email);
+        }
+        else{
+            System.out.println("c!=null update");
+            long id = db.updateLoginStatus("false", email);
+            System.out.println("id"+id);
+        }
+        db.close();
         Intent intent = new Intent(this, LoginPage.class);
         startActivity(intent);
     }
     public void changeLogoutStatus(){
         db.open();
         Cursor c = db.getAllSession();
-        if(c == null){
+        System.out.println("after get All session");
+        if(!c.moveToFirst()){
+            System.out.println("c==null insertLoginSession");
             db.insertLoginSession("false", email);
         }
         else{
-            db.updateLoginStatus("false", email);
+            System.out.println("c!=null update");
+            long id = db.updateLoginStatus("false", email);
+            System.out.println("id"+id);
         }
         db.close();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -163,6 +180,7 @@ public class AccountManagementPage extends Activity implements View.OnClickListe
             startActivity(intent);
         }
     }
+
 
     public void main_float_checkIn (View view) {
         Intent intent = new Intent(this,WebCheckInHomePage.class);

@@ -551,8 +551,30 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
             Intent intent = new Intent(this, FacebookAccountPage.class);
             startActivity(intent);
         } else {
-            Intent intent = new Intent(this, LoginPage.class);
-            startActivity(intent);
+            dbLogin.open();
+            Cursor c = dbLogin.getAllSession();
+            System.out.println("after get All session");
+            if(!c.moveToFirst()){
+                System.out.println("c==null insertLoginSession");
+                dbLogin.close();
+                Intent intent = new Intent(this, LoginPage.class);
+                startActivity(intent);
+            }else {
+                System.out.println("c!-null");
+                String loginStatus = c.getString(1);
+                System.out.println("loginStatus" + loginStatus);
+                String emailAuto = c.getString(2);
+                dbLogin.close();
+
+                if (loginStatus.equals("true")) {
+                    Intent intent = new Intent(this, AccountManagementPage.class);
+                    intent.putExtra("email", emailAuto);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(this, LoginPage.class);
+                    startActivity(intent);
+                }
+            }
         }
     }
 

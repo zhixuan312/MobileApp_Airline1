@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -34,13 +35,14 @@ public class MainActivity extends Activity {
     RelativeLayout main_rl_moreOption;
     CheckBox main_cb_moreOption;
     Profile facebookProfile;
+    LoginSessionDB dbLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_main);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
-
+        dbLogin = new LoginSessionDB(this);
         Calendar calendar =Calendar.getInstance();
         year_D = calendar.get(Calendar.YEAR);
         month_D = calendar.get(Calendar.MONTH);
@@ -216,8 +218,32 @@ public class MainActivity extends Activity {
             Intent intent = new Intent(this, FacebookAccountPage.class);
             startActivity(intent);
         } else {
-            Intent intent = new Intent(this, LoginPage.class);
-            startActivity(intent);
+            dbLogin.open();
+            Cursor c = dbLogin.getAllSession();
+            System.out.println("after get All session");
+            if(!c.moveToFirst()){
+                System.out.println("c==null insertLoginSession");
+                dbLogin.close();
+                Intent intent = new Intent(this, LoginPage.class);
+                startActivity(intent);
+            }else{
+                System.out.println("c!-null");
+                String loginStatus = c.getString(1);
+                System.out.println("loginStatus"+loginStatus);
+                String emailAuto = c.getString(2);
+                dbLogin.close();
+
+                if(loginStatus.equals("true")) {
+                    Intent intent = new Intent(this, AccountManagementPage.class);
+                    intent.putExtra("email", emailAuto);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(this, LoginPage.class);
+                    startActivity(intent);
+                }
+            }
+
+
         }
     }
 
@@ -226,8 +252,9 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+
     public void main_float_search (View view) {
-        Intent intent = new Intent(this,PromotionPage.class);
+        Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
 

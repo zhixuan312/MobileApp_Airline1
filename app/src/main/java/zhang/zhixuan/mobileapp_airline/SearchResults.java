@@ -3,6 +3,7 @@ package zhang.zhixuan.mobileapp_airline;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -52,6 +53,7 @@ public class SearchResults extends Activity {
     String destinationStr;
     String depDstr;
     Profile facebookProfile;
+    LoginSessionDB dbLogin;
     //String retDstr;
     private String bcName = "All Classes";
 
@@ -70,6 +72,7 @@ public class SearchResults extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
+        dbLogin = new LoginSessionDB(this);
 
         //depD = (TextView)findViewById(R.id.sr_tv_depD);
         //retD = (TextView)findViewById(R.id.sr_tv_retD);
@@ -524,8 +527,30 @@ public class SearchResults extends Activity {
             Intent intent = new Intent(this, FacebookAccountPage.class);
             startActivity(intent);
         } else {
-            Intent intent = new Intent(this, LoginPage.class);
-            startActivity(intent);
+            dbLogin.open();
+            Cursor c = dbLogin.getAllSession();
+            System.out.println("after get All session");
+            if(!c.moveToFirst()){
+                System.out.println("c==null insertLoginSession");
+                dbLogin.close();
+                Intent intent = new Intent(this, LoginPage.class);
+                startActivity(intent);
+            }else {
+                System.out.println("c!-null");
+                String loginStatus = c.getString(1);
+                System.out.println("loginStatus" + loginStatus);
+                String emailAuto = c.getString(2);
+                dbLogin.close();
+
+                if (loginStatus.equals("true")) {
+                    Intent intent = new Intent(this, AccountManagementPage.class);
+                    intent.putExtra("email", emailAuto);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(this, LoginPage.class);
+                    startActivity(intent);
+                }
+            }
         }
     }
 

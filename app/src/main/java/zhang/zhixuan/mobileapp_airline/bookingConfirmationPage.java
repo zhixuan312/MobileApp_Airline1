@@ -1,6 +1,7 @@
 package zhang.zhixuan.mobileapp_airline;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -15,17 +16,21 @@ import com.facebook.Profile;
 
 public class bookingConfirmationPage extends Activity {
     String referenceN;
-    TicketDB db;
+
     String email;
     String[] ticket;
     TextView cfm_rn;
+    Fragment facebookFragment;
     Profile facebookProfile;
+    LoginSessionDB dbLogin;
+    TicketDB db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_confirmation_page);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
-
+        dbLogin = new LoginSessionDB(this);
         db = new TicketDB(this);
         Intent intent = getIntent();
         System.out.println(intent.getStringExtra("referenceN"));
@@ -88,8 +93,30 @@ public class bookingConfirmationPage extends Activity {
             Intent intent = new Intent(this, FacebookAccountPage.class);
             startActivity(intent);
         } else {
-            Intent intent = new Intent(this, LoginPage.class);
-            startActivity(intent);
+            dbLogin.open();
+            Cursor c = dbLogin.getAllSession();
+            System.out.println("after get All session");
+            if(!c.moveToFirst()){
+                System.out.println("c==null insertLoginSession");
+                dbLogin.close();
+                Intent intent = new Intent(this, LoginPage.class);
+                startActivity(intent);
+            }else {
+                System.out.println("c!-null");
+                String loginStatus = c.getString(1);
+                System.out.println("loginStatus" + loginStatus);
+                String emailAuto = c.getString(2);
+                dbLogin.close();
+
+                if (loginStatus.equals("true")) {
+                    Intent intent = new Intent(this, AccountManagementPage.class);
+                    intent.putExtra("email", emailAuto);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(this, LoginPage.class);
+                    startActivity(intent);
+                }
+            }
         }
     }
 

@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -41,19 +42,19 @@ public class DetailTwoWayPage extends Activity implements itineraryRFragment.OnF
     TextView detail_aircraftType_TVRR;
     TextView detail_duration_TVRR;
     TextView detail_dateR_TVRR;
-
+    LoginSessionDB dbLogin;
     Profile facebookProfile;
     LayoutInflater mInflater;
     private FlightEntity chosenFlight;
     private FlightEntity chosenFlightR;
     FragmentManager fragmentManager = getFragmentManager();
     FragmentTransaction fragmentTransaction;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_two_way_page);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
+        dbLogin = new LoginSessionDB(this);
         detail_date_TVR = (TextView)findViewById(R.id.detail_date_TVR);
         detail_flightNumberR = (TextView)findViewById(R.id.detail_flightNumberR);
         detail_outTime_TVR = (TextView)findViewById(R.id.detail_outTime_TVR);
@@ -167,5 +168,47 @@ public class DetailTwoWayPage extends Activity implements itineraryRFragment.OnF
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void main_float_account (View view) {
+        facebookProfile = Profile.getCurrentProfile();
+        if (facebookProfile != null) {
+            Intent intent = new Intent(this, FacebookAccountPage.class);
+            startActivity(intent);
+        } else {
+            dbLogin.open();
+            Cursor c = dbLogin.getAllSession();
+            System.out.println("after get All session");
+            if(!c.moveToFirst()){
+                System.out.println("c==null insertLoginSession");
+                dbLogin.close();
+                Intent intent = new Intent(this, LoginPage.class);
+                startActivity(intent);
+            }else {
+                System.out.println("c!-null");
+                String loginStatus = c.getString(1);
+                System.out.println("loginStatus" + loginStatus);
+                String emailAuto = c.getString(2);
+                dbLogin.close();
+
+                if (loginStatus.equals("true")) {
+                    Intent intent = new Intent(this, AccountManagementPage.class);
+                    intent.putExtra("email", emailAuto);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(this, LoginPage.class);
+                    startActivity(intent);
+                }
+            }
+        }
+    }
+
+    public void main_float_checkIn (View view) {
+        Intent intent = new Intent(this,WebCheckInHomePage.class);
+        startActivity(intent);
+    }
+
+    public void main_float_search (View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }

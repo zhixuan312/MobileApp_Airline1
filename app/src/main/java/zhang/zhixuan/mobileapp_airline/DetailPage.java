@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,7 +28,7 @@ public class DetailPage extends Activity implements itineraryFragment.OnFragment
     TextView detail_aircraftType_TV;
     TextView detail_duration_TV;
     Profile facebookProfile;
-
+    LoginSessionDB dbLogin;
     String inDeTime, inArrTime, outDeTime, outArrTime;
     String inDeCity, inArrCity, outDeCity, outArrCity;
     String outBoundString, inBoundString;
@@ -58,7 +59,7 @@ public class DetailPage extends Activity implements itineraryFragment.OnFragment
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_page);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
-
+        dbLogin = new LoginSessionDB(this);
         //outBoundDate = (TextView)findViewById(R.id.detail_tv_outDate);
         //outBoundContent = (TextView)findViewById(R.id.detail_outboundContent);
         detail_date_TV = (TextView) findViewById(R.id.detail_date_TV);
@@ -278,8 +279,30 @@ public class DetailPage extends Activity implements itineraryFragment.OnFragment
             Intent intent = new Intent(this, FacebookAccountPage.class);
             startActivity(intent);
         } else {
-            Intent intent = new Intent(this, LoginPage.class);
-            startActivity(intent);
+            dbLogin.open();
+            Cursor c = dbLogin.getAllSession();
+            System.out.println("after get All session");
+            if(!c.moveToFirst()){
+                System.out.println("c==null insertLoginSession");
+                dbLogin.close();
+                Intent intent = new Intent(this, LoginPage.class);
+                startActivity(intent);
+            }else {
+                System.out.println("c!-null");
+                String loginStatus = c.getString(1);
+                System.out.println("loginStatus" + loginStatus);
+                String emailAuto = c.getString(2);
+                dbLogin.close();
+
+                if (loginStatus.equals("true")) {
+                    Intent intent = new Intent(this, AccountManagementPage.class);
+                    intent.putExtra("email", emailAuto);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(this, LoginPage.class);
+                    startActivity(intent);
+                }
+            }
         }
     }
 

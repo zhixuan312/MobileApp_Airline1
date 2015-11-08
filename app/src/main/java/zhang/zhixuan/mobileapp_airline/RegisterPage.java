@@ -25,6 +25,7 @@ public class RegisterPage extends Activity {
     String username;
     String password;
     String contactN;
+    LoginSessionDB dbLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class RegisterPage extends Activity {
         psTV = (EditText)findViewById(R.id.register_et_password);
         cnTV = (EditText)findViewById(R.id.register_et_confirmPassword);
         db = new MyDB(this);
-
+        dbLogin = new LoginSessionDB(this);
     }
 
     public void register(View view){
@@ -114,8 +115,30 @@ public class RegisterPage extends Activity {
             Intent intent = new Intent(this, FacebookAccountPage.class);
             startActivity(intent);
         } else {
-            Intent intent = new Intent(this, LoginPage.class);
-            startActivity(intent);
+            dbLogin.open();
+            Cursor c = dbLogin.getAllSession();
+            System.out.println("after get All session");
+            if(!c.moveToFirst()){
+                System.out.println("c==null insertLoginSession");
+                dbLogin.close();
+                Intent intent = new Intent(this, LoginPage.class);
+                startActivity(intent);
+            }else {
+                System.out.println("c!-null");
+                String loginStatus = c.getString(1);
+                System.out.println("loginStatus" + loginStatus);
+                String emailAuto = c.getString(2);
+                dbLogin.close();
+
+                if (loginStatus.equals("true")) {
+                    Intent intent = new Intent(this, AccountManagementPage.class);
+                    intent.putExtra("email", emailAuto);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(this, LoginPage.class);
+                    startActivity(intent);
+                }
+            }
         }
     }
 
