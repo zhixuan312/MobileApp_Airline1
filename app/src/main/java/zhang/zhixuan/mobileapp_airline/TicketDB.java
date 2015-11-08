@@ -4,8 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Environment;
-import android.widget.Toast;
 
 /**
  * Created by ruicai on 1/11/15.
@@ -24,7 +22,7 @@ public class TicketDB {
     public TicketDB open() {
         db = DBHelper.getWritableDatabase();
 
-        Toast.makeText(context, Environment.getDataDirectory().toString(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, Environment.getDataDirectory().toString(), Toast.LENGTH_SHORT).show();
 
         return this;
     }
