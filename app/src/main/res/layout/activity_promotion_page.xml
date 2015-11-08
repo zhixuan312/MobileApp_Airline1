@@ -27,59 +27,70 @@
 
     </ListView>
 
-    <RadioGroup
+    <Spinner
         android:id="@+id/promotion_rg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/promotion_tv">
+        android:layout_below="@+id/promotion_tv"
+        android:backgroundTint="#1E88E5"
+        android:entries="@array/bookingClass"
+        android:prompt="@string/bookingClass_prompt"
+        >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+    </Spinner>
+    <!--<RadioGroup-->
+        <!--android:id="@+id/promotion_rg"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/promotion_tv">-->
 
-            <RadioButton
-                android:id="@+id/radioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="pm_fc"
-                android:text="First Class"
-                android:textColor="#000000"/>
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
 
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:onClick="pm_bc"
-                android:text="Business Class"
-                android:textColor="#000000"/>
-        </LinearLayout>
+            <!--<RadioButton-->
+                <!--android:id="@+id/radioButton"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:onClick="pm_fc"-->
+                <!--android:text="First Class"-->
+                <!--android:textColor="#000000"/>-->
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/radioButton2"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="right"-->
+                <!--android:onClick="pm_bc"-->
+                <!--android:text="Business Class"-->
+                <!--android:textColor="#000000"/>-->
+        <!--</LinearLayout>-->
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
 
-            <RadioButton
-                android:id="@+id/radioButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="pm_pc"
-                android:text="Premium Economy"
-                android:textColor="#000000" />
+            <!--<RadioButton-->
+                <!--android:id="@+id/radioButton3"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:onClick="pm_pc"-->
+                <!--android:text="Premium Economy"-->
+                <!--android:textColor="#000000" />-->
 
-            <RadioButton
-                android:id="@+id/radioButton4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:onClick="pm_ec"
-                android:text="Economy Class"
-                android:textColor="#000000" />
+            <!--<RadioButton-->
+                <!--android:id="@+id/radioButton4"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="right"-->
+                <!--android:onClick="pm_ec"-->
+                <!--android:text="Economy Class"-->
+                <!--android:textColor="#000000" />-->
 
-        </LinearLayout>
-    </RadioGroup>
+        <!--</LinearLayout>-->
+    <!--</RadioGroup>-->
 
 </RelativeLayout>

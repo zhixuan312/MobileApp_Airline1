@@ -14,8 +14,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +41,7 @@ import java.util.Locale;
 public class PromotionPage extends Activity {
 
     private TextView promotion_tv;
+    Spinner spinner;
     private List<Address> addressList;
     String addressLine;
     String city;
@@ -60,6 +63,7 @@ public class PromotionPage extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_promotion_page);
         promotion_tv = (TextView) findViewById(R.id.promotion_tv);
+        addListenerOnSpinnerItemSelection();
         LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, true);
@@ -104,6 +108,47 @@ public class PromotionPage extends Activity {
 
 
 
+    }
+    public void addListenerOnSpinnerItemSelection() {
+        System.out.println("注意!!!!!!哈哈哈哈哈哈");
+        spinner = (Spinner) findViewById(R.id.promotion_rg);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println("lalalalla"+parent.getItemAtPosition(position).toString());
+                String bc = parent.getItemAtPosition(position).toString();
+                if(bc.equals("First Class")){
+                    lv = (ListView)findViewById(R.id.promotion_lv);
+                    final MyAdapterF myAdapterF = new MyAdapterF(getApplicationContext());
+                    lv.setAdapter(myAdapterF);
+                }
+                else if(bc.equals("Business Class")){
+                    lv = (ListView)findViewById(R.id.promotion_lv);
+                    final MyAdapterB myAdapterB = new MyAdapterB(getApplicationContext());
+                    lv.setAdapter(myAdapterB);
+                }
+                else if(bc.equals("Premium Economy Class")){
+                    lv = (ListView)findViewById(R.id.promotion_lv);
+                    final MyAdapterP myAdapterP = new MyAdapterP(getApplicationContext());
+                    lv.setAdapter(myAdapterP);
+                }else if(bc.equals("Economy Class")){
+                    lv = (ListView)findViewById(R.id.promotion_lv);
+                    final MyAdapterE myAdapterE = new MyAdapterE(getApplicationContext());
+                    lv.setAdapter(myAdapterE);
+                }
+                else{
+                    lv = (ListView)findViewById(R.id.promotion_lv);
+                    final MyAdapterE myAdapterE = new MyAdapterE(getApplicationContext());
+                    lv.setAdapter(myAdapterE);
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
     public void searchPromotedFlights(String originStr1){
         System.err.println("enter searchFlights_Oneway");
