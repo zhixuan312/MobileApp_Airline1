@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
@@ -76,6 +77,19 @@ public class PassengerTwoWayPage extends Activity implements itineraryRFragment.
         if(title==null)
             title = "Mr";
 
+        if(fnStr==null||fnStr.equals("")){
+            Toast.makeText(this,"Please enter your first name",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(snStr==null||snStr.equals("")){
+            Toast.makeText(this,"Please enter your second name",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(ppStr==null||ppStr.equals("")){
+            Toast.makeText(this, "Please enter your passport number", Toast.LENGTH_SHORT).show();
+            return;
+        }
         passengerEntity = new PassengerEntity();
         passengerEntity.setTitle(title);
         passengerEntity.setFirstName(fnStr);

@@ -14,13 +14,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
+import com.gc.materialdesign.views.ButtonRectangle;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,10 +39,16 @@ import java.util.Date;
 import java.util.List;
 
 public class SearchResultsTwoWay extends Activity {
-    TextView originTV;
-    TextView destinationTV;
+//    TextView originTV;
+//    TextView destinationTV;
     TextView depD;
     TextView retD;
+    TextView sr2_tv_ori;
+    TextView sr2_tv_oriCity;
+    TextView sr2_tv_dest;
+    TextView sr2_tv_destCity;
+    TextView search2_departDate;
+    TextView search2_returnDate;
     String originStr;
     String destinationStr;
     String depDstr;
@@ -60,27 +66,37 @@ public class SearchResultsTwoWay extends Activity {
     ListView lv;
     ListView lvR;
     private int oldPostion = -1;
+    private int oldPostionR = -1;
     private FlightEntity flight;
     private FlightEntity flightR;
+    Boolean flightSelected = false;
+    Boolean flightRSelected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results_two_way);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
-        originTV = (TextView) findViewById(R.id.sr2_tv_ori);
-        destinationTV = (TextView) findViewById(R.id.sr2_tv_dest);
-       // depD = (TextView) findViewById(R.id.sr2_tv_depD);
-     //   retD = (TextView) findViewById(R.id.sr2_tv_retD);
+//        originTV = (TextView) findViewById(R.id.sr2_tv_ori);
+//        destinationTV = (TextView) findViewById(R.id.sr2_tv_dest);
+//        depD = (TextView) findViewById(R.id.sr2_tv_depD);
+//        retD = (TextView) findViewById(R.id.sr2_tv_retD);
         Intent intent = getIntent();
         //set parameter
-
+        sr2_tv_ori = (TextView)findViewById(R.id.sr2_tv_ori);
+        sr2_tv_oriCity = (TextView)findViewById(R.id.sr2_tv_oriCity);
+        sr2_tv_dest = (TextView)findViewById(R.id.sr2_tv_dest);
+        sr2_tv_destCity = (TextView)findViewById(R.id.sr2_tv_destCity);
+        search2_departDate = (TextView)findViewById(R.id.search2_departDate);
+        search2_returnDate = (TextView)findViewById(R.id.search2_returnDate);
         bcName = intent.getStringExtra("bcIndex");
 
 
         System.out.println("bcName!!!!!" + bcName);
         originStr = intent.getStringExtra("origin");
         destinationStr = intent.getStringExtra("destination");
+        sr2_tv_oriCity.setText(originStr);
+        sr2_tv_destCity.setText(destinationStr);
         year_D = intent.getIntExtra("year_D", 0);
         month_D = intent.getIntExtra("month_D", 0);
         day_D = intent.getIntExtra("day_D", 0);
@@ -97,7 +113,7 @@ public class SearchResultsTwoWay extends Activity {
         calendar.set(Calendar.MONTH, month_R);
         calendar.set(Calendar.DAY_OF_MONTH, day_R);
         Date returnD = calendar.getTime();
-        retD.setText("Return Date: " + simpleDateFormat.format(returnD));
+      //  retD.setText("Return Date: " + simpleDateFormat.format(returnD));
         retDstr = simpleDateFormat1.format(returnD);
 
 
@@ -106,14 +122,15 @@ public class SearchResultsTwoWay extends Activity {
         calendar.set(Calendar.MONTH, month_D);
         calendar.set(Calendar.DAY_OF_MONTH, day_D);
         Date departureD = calendar.getTime();
-        depD.setText("Departure Date: " + simpleDateFormat.format(departureD));
+        //depD.setText("Departure Date: " + simpleDateFormat.format(departureD));
         depDstr = simpleDateFormat1.format(departureD);
-
-        originTV.setText("Origin: " + originStr);
-        destinationTV.setText("Destination: " + destinationStr);
+        search2_departDate.setText(simpleDateFormat.format(departureD));
+        search2_returnDate.setText(simpleDateFormat.format(returnD));
+//        originTV.setText("Origin: " + originStr);
+//        destinationTV.setText("Destination: " + destinationStr);
         flights_Result = new ArrayList<>();
         flightsR_Result = new ArrayList<>();
-        searchFlights_TwoWay(destinationStr, originStr);
+        searchFlights_TwoWay(originStr,destinationStr);
     }
 
     public void searchFlights_TwoWay(String originStr, String destinationStr) {
@@ -173,6 +190,10 @@ public class SearchResultsTwoWay extends Activity {
                     String depTimeE = flight.getString("depTimeE");
                     String ariTimeE = flight.getString("ariTimeE");
                     String timeD = flight.getString("timeDuration");
+                    Double timeDD = Double.parseDouble(timeD);
+                    Integer hours = timeDD.intValue();
+                    Double minutes = (timeDD - hours)*60;
+                    Integer minutesD = minutes.intValue();
                     String aircraftTailN = flight.getString("aircraftTailN");
                     if (aircraftTailN == null) {
                         aircraftTailN = "AK704";
@@ -197,7 +218,8 @@ public class SearchResultsTwoWay extends Activity {
                     flightEntity.setDepTimeE(depTimeE);
                     flightEntity.setAriDayWE(ariDayWE);
                     flightEntity.setAircraftTailN(aircraftTailN);
-                    flightEntity.setTimeDuration(timeD);
+                    flightEntity.setTimeDuration(hours.toString());
+                    flightEntity.setTimeDminutes(minutesD.toString());
                     flightEntity.setId(flight.getLong("id"));
 
                     flightEntity.setAriTimeE(ariTimeE);
@@ -207,7 +229,12 @@ public class SearchResultsTwoWay extends Activity {
                     flights_Result.add(flightEntity);
                 }
 
-               // lv = (ListView) findViewById(R.id.sr2_lv);
+                lv = (ListView) findViewById(R.id.sr2_lv1);
+                if(!flights_Result.isEmpty()) {
+                    sr2_tv_ori.setText(flights_Result.get(0).getOriAirportCode());
+                    sr2_tv_dest.setText(flights_Result.get(0).getDesAirportCode());
+                }
+
 //                handler.post(new Runnable() {
 //                    @Override
 //                    public void run() {
@@ -293,6 +320,10 @@ public class SearchResultsTwoWay extends Activity {
                     String depTimeE = flight.getString("depTimeE");
                     String ariTimeE = flight.getString("ariTimeE");
                     String timeD = flight.getString("timeDuration");
+                    Double timeDD = Double.parseDouble(timeD);
+                    Integer hours = timeDD.intValue();
+                    Double minutes = (timeDD - hours)*60;
+                    Integer minutesD = minutes.intValue();
                     String aircraftTailN = flight.getString("aircraftTailN");
                     if (aircraftTailN == null) {
                         aircraftTailN = "AK704";
@@ -317,7 +348,8 @@ public class SearchResultsTwoWay extends Activity {
                     flightEntity.setDepTimeE(depTimeE);
                     flightEntity.setAriDayWE(ariDayWE);
                     flightEntity.setAircraftTailN(aircraftTailN);
-                    flightEntity.setTimeDuration(timeD);
+                    flightEntity.setTimeDuration(hours.toString());
+                    flightEntity.setTimeDminutes(minutesD.toString());
                     flightEntity.setId(flight.getLong("id"));
 
                     flightEntity.setAriTimeE(ariTimeE);
@@ -327,7 +359,7 @@ public class SearchResultsTwoWay extends Activity {
                     flightsR_Result.add(flightEntity);
                 }
 
-            //    lvR = (ListView) findViewById(R.id.sr2_lvR);
+                lvR = (ListView) findViewById(R.id.sr2_lv2);
 //                handler.post(new Runnable() {
 //                    @Override
 //                    public void run() {
@@ -345,13 +377,13 @@ public class SearchResultsTwoWay extends Activity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         FlightEntity data = flightsR_Result.get(position);
-                        if (oldPostion == position) {
+                        if (oldPostionR == position) {
                             if (data.expand) {
-                                oldPostion = -1;
+                                oldPostionR = -1;
                             }
                             data.expand = !data.expand;
                         } else {
-                            oldPostion = position;
+                            oldPostionR = position;
                             data.expand = true;
                         }
 
@@ -442,13 +474,26 @@ public class SearchResultsTwoWay extends Activity {
 
     public final class ViewHolder {
 
-        public TextView flightNo;
-        public TextView departureDate;
-        public TextView arrivalDate;
-        public TextView bookingClass;
-        public TextView price;
-        public Button bookbtn;
-        public LinearLayout fDetails;
+        public TextView listResult_departTime;
+        public TextView listResult_reachTime;
+        public TextView listResult_class;
+        public TextView listResult_flightNumber;
+        public TextView listResult_price;
+        public TextView listResult_Duration;
+        public ButtonRectangle bookbtn;
+        public RelativeLayout search_expandLayout;
+
+    }
+    public final class ViewHolderR {
+
+        public TextView listResult_departTime;
+        public TextView listResult_reachTime;
+        public TextView listResult_class;
+        public TextView listResult_flightNumber;
+        public TextView listResult_price;
+        public TextView listResult_Duration;
+        public ButtonRectangle bookbtn;
+        public RelativeLayout search_expandLayout;
 
     }
 
@@ -499,33 +544,38 @@ public class SearchResultsTwoWay extends Activity {
             if (convertView == null) {
 
 
-                convertView = mInflater.inflate(R.layout.listresultr, null);
+                convertView = mInflater.inflate(R.layout.listresult, null);
 
-              /*  holder.flightNo = (TextView) convertView.findViewById(R.id.flightNoR);
-                holder.departureDate = (TextView) convertView.findViewById(R.id.departureDateR);
-                holder.arrivalDate = (TextView) convertView.findViewById(R.id.arrivalDateR);
-                holder.bookbtn = (Button) convertView.findViewById(R.id.bookbtnR);
-                holder.fDetails = (LinearLayout) convertView.findViewById(R.id.fDetailsR);
-                holder.bookingClass = (TextView) convertView.findViewById(R.id.bookingClassR);
-                holder.price = (TextView) convertView.findViewById(R.id.priceR);*/
+                holder.listResult_departTime = (TextView)convertView.findViewById(R.id.listResult_departTime);
+                holder.listResult_reachTime = (TextView)convertView.findViewById(R.id.listResult_reachTime);
+                holder.listResult_class = (TextView)convertView.findViewById(R.id.listResult_class);
+                holder.listResult_price = (TextView)convertView.findViewById(R.id.listResult_price);
+                holder.listResult_flightNumber = (TextView)convertView.findViewById(R.id.listResult_flightNumber);
+                holder.listResult_Duration = (TextView)convertView.findViewById(R.id.listResult_Duration);
+                holder.search_expandLayout = (RelativeLayout)convertView.findViewById(R.id.search_expandLayout);
+                holder.bookbtn = (ButtonRectangle)convertView.findViewById(R.id.bookbtn);
                 convertView.setTag(holder);
 
             } else {
 
                 holder = (ViewHolder) convertView.getTag();
             }
-            if (flightEntity1.expand) {
-                holder.fDetails.setVisibility(View.VISIBLE);
-            } else {
-                holder.fDetails.setVisibility(View.GONE);
+            if(flightEntity1.expand) {
+                holder.search_expandLayout.setVisibility(View.VISIBLE);
+            }else{
+                holder.search_expandLayout.setVisibility(View.GONE);
             }
 
-            holder.flightNo.setText((String) flights_Result.get(position).getFlightNo());
-            holder.departureDate.setText("Depart: " + (String) flights_Result.get(position).getDepTimeE());
-            holder.arrivalDate.setText("Arrive: " + (String) flights_Result.get(position).getAriTimeE() + "\nTime Duration: " + flights_Result.get(position).getTimeDuration() + " hours");
-            holder.bookingClass.setText((String) flights_Result.get(position).getBookingClassName());
-            String priceName = flights_Result.get(position).getPrice() + " SGD";
-            holder.price.setText(priceName);
+            holder.listResult_departTime.setText(flights_Result.get(position).getDepTimeE());
+            holder.listResult_reachTime.setText(flights_Result.get(position).getAriTimeE());
+            if(flights_Result.get(position).getBookingClassName().equals("Premium Economy Class"))
+                flights_Result.get(position).setBookingClassName("Premium Economy");
+            holder.listResult_class.setText(flights_Result.get(position).getBookingClassName());
+            holder.listResult_flightNumber.setText(flights_Result.get(position).getFlightNo());
+            holder.listResult_price.setText("S$ "+flights_Result.get(position).getPrice());
+            if(flights_Result.get(position).getTimeDminutes().equals("0"))
+                holder.listResult_Duration.setText("Duration: "+flights_Result.get(position).getTimeDuration()+"hours "+flights_Result.get(position).getTimeDminutes()+" mins");
+
 
             holder.bookbtn.setTag(position + "");
             holder.bookbtn.setOnClickListener(new View.OnClickListener() {
@@ -542,6 +592,15 @@ public class SearchResultsTwoWay extends Activity {
 //                    TextView depDChosen = (TextView)findViewById(R.id.departureDate);
                     int index = Integer.parseInt(v.getTag().toString());
                     flight = flights_Result.get(index);
+                    flightSelected = true;
+                    if(flightRSelected && flightR!=null){
+                        Intent intent = new Intent(getApplicationContext(),DetailTwoWayPage.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("chosenFlight", flight);
+                        bundle.putSerializable("chosenFlightR", flightR);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                    }
 
                 }
             });
@@ -591,39 +650,44 @@ public class SearchResultsTwoWay extends Activity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             System.out.println("enter getView" + position);
-            ViewHolder holder = new ViewHolder();
+            ViewHolderR holder = new ViewHolderR();
 
             FlightEntity flightEntity1 = flightsR_Result.get(position);
             if (convertView == null) {
 
 
                 convertView = mInflater.inflate(R.layout.listresultr, null);
-/*
-                holder.flightNo = (TextView) convertView.findViewById(R.id.flightNoR);
-                holder.departureDate = (TextView) convertView.findViewById(R.id.departureDateR);
-                holder.arrivalDate = (TextView) convertView.findViewById(R.id.arrivalDateR);
-                holder.bookbtn = (Button) convertView.findViewById(R.id.bookbtnR);
-                holder.fDetails = (LinearLayout) convertView.findViewById(R.id.fDetailsR);
-                holder.bookingClass = (TextView) convertView.findViewById(R.id.bookingClassR);
-                holder.price = (TextView) convertView.findViewById(R.id.priceR);
-                convertView.setTag(holder);*/
+
+                holder.listResult_departTime = (TextView)convertView.findViewById(R.id.listResultR_departTime);
+                holder.listResult_reachTime = (TextView)convertView.findViewById(R.id.listResultR_reachTime);
+                holder.listResult_class = (TextView)convertView.findViewById(R.id.listResultR_class);
+                holder.listResult_price = (TextView)convertView.findViewById(R.id.listResultR_price);
+                holder.listResult_flightNumber = (TextView)convertView.findViewById(R.id.listResultR_flightNumber);
+                holder.listResult_Duration = (TextView)convertView.findViewById(R.id.listResultR_Duration);
+                holder.search_expandLayout = (RelativeLayout)convertView.findViewById(R.id.searchR_expandLayout);
+                holder.bookbtn = (ButtonRectangle)convertView.findViewById(R.id.bookbtnR);
+                System.out.println("test1");
+                convertView.setTag(holder);
 
             } else {
-
-                holder = (ViewHolder) convertView.getTag();
+                   holder = (ViewHolderR) convertView.getTag();
             }
-            if (flightEntity1.expand) {
-                holder.fDetails.setVisibility(View.VISIBLE);
-            } else {
-                holder.fDetails.setVisibility(View.GONE);
+            if(flightEntity1.expand) {
+                holder.search_expandLayout.setVisibility(View.VISIBLE);
+            }else{
+                holder.search_expandLayout.setVisibility(View.GONE);
             }
 
-            holder.flightNo.setText((String) flightsR_Result.get(position).getFlightNo());
-            holder.departureDate.setText("Depart: " + (String) flightsR_Result.get(position).getDepTimeE());
-            holder.arrivalDate.setText("Arrive: " + (String) flightsR_Result.get(position).getAriTimeE() + "\n Time Duration: " + flightsR_Result.get(position).getTimeDuration() + " hours");
-            holder.bookingClass.setText((String) flightsR_Result.get(position).getBookingClassName());
-            String priceName = flightsR_Result.get(position).getPrice() + " SGD";
-            holder.price.setText(priceName);
+            holder.listResult_departTime.setText(flightsR_Result.get(position).getDepTimeE());
+            holder.listResult_reachTime.setText(flightsR_Result.get(position).getAriTimeE());
+            if(flights_Result.get(position).getBookingClassName().equals("Premium Economy Class"))
+                flights_Result.get(position).setBookingClassName("Premium Economy");
+            holder.listResult_class.setText(flightsR_Result.get(position).getBookingClassName());
+            holder.listResult_flightNumber.setText(flightsR_Result.get(position).getFlightNo());
+            holder.listResult_price.setText("S$ "+flightsR_Result.get(position).getPrice());
+            if(flights_Result.get(position).getTimeDminutes().equals("0"))
+                holder.listResult_Duration.setText("Duration: "+flightsR_Result.get(position).getTimeDuration()+"hours "+flightsR_Result.get(position).getTimeDminutes()+" mins");
+
 
             holder.bookbtn.setTag(position + "");
             holder.bookbtn.setOnClickListener(new View.OnClickListener() {
@@ -640,6 +704,15 @@ public class SearchResultsTwoWay extends Activity {
 //                    TextView depDChosen = (TextView)findViewById(R.id.departureDate);
                     int index = Integer.parseInt(v.getTag().toString());
                     flightR = flightsR_Result.get(index);
+                    flightRSelected = true;
+                    if(flightSelected && flight!=null){
+                        Intent intent = new Intent(getApplicationContext(),DetailTwoWayPage.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("chosenFlight", flight);
+                        bundle.putSerializable("chosenFlightR", flightR);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                    }
 
                 }
             });
