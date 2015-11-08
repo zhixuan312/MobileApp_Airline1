@@ -26,7 +26,7 @@ public class ProfileFragment extends Fragment {
     TextView coTV;
     TextView zcTV;
     TextView cnTV;
-
+TextView pf_tv_username;
     String firstN;
     String lastN;
     String address;
@@ -36,6 +36,8 @@ public class ProfileFragment extends Fragment {
     String zipCode;
     String contactN;
     String email;
+    String username;
+
     Spinner spinner;
     ButtonRectangle update;
     MyDB db;
@@ -56,6 +58,7 @@ public class ProfileFragment extends Fragment {
         coTV = (TextView)view.findViewById(R.id.pf_et_co);
         zcTV = (TextView)view.findViewById(R.id.pf_et_zp);
         cnTV = (TextView)view.findViewById(R.id.pf_et_cn);
+        pf_tv_username = (TextView)view.findViewById(R.id.pf_tv_username);
         update = (ButtonRectangle)view.findViewById(R.id.pf_btn_update);
         email = getActivity().getIntent().getStringExtra("email");
         db = new MyDB(getActivity().getApplicationContext());
@@ -68,6 +71,7 @@ public class ProfileFragment extends Fragment {
         coTV.setText(country, TextView.BufferType.EDITABLE);
         zcTV.setText(zipCode, TextView.BufferType.EDITABLE);
         cnTV.setText(contactN, TextView.BufferType.EDITABLE);
+        pf_tv_username.setText("Welcome "+username);
 
         update.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +114,7 @@ public class ProfileFragment extends Fragment {
             city = c.getString(7);
             zipCode = c.getString(8);
             contactN = c.getString(9);
+            username = c.getString(10);
 
 
 
