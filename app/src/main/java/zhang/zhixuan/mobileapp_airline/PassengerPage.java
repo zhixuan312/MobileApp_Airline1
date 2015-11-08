@@ -43,7 +43,7 @@ public class PassengerPage extends Activity implements itineraryFragment.OnFragm
         System.out.println("new page!!!!!"+chosenFlight.getDepartureDate());
 
 
-        dbLogin = new LoginSessionDB(this);
+
 
         fragmentTransaction = fragmentManager.beginTransaction();
         Fragment itineraryFragment = new itineraryFragment();

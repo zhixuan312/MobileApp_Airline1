@@ -36,6 +36,13 @@
         <item>Mstr</item>
         <item>Prof</item>
     </string-array>
+    <string name="bookingClass_prompt">Choose a Booking Class</string>
+    <string-array name="bookingClass">
+        <item>First Class</item>
+        <item>Business Class</item>
+        <item>Premium Economy Class</item>
+        <item>Economy Class</item>
+    </string-array>
     <string name="title_activity_search_results_two_way">SearchResultsTwoWay</string>
     <drawable name="clr_default">#ff6501</drawable>
     <drawable name="clr_selected">#a44100</drawable>
