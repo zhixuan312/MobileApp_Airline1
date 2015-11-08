@@ -42,19 +42,19 @@ public class itineraryRFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_itinerary_r, container, false);
         TextView totalP = (TextView)view.findViewById(R.id.fg_itn_tv_priceR);
-        TextView bc = (TextView)view.findViewById(R.id.fg_tv_bookingClassR);
-        TextView path = (TextView)view.findViewById(R.id.fg_tv_pathR);
-        TextView pathR = (TextView)view.findViewById(R.id.fg_tv_pathRR);
-        TextView bcR = (TextView)view.findViewById(R.id.fg_tv_bookingClassRR);
+        //TextView bc = (TextView)view.findViewById(R.id.fg_tv_bookingClassR);
+        //TextView path = (TextView)view.findViewById(R.id.fg_tv_pathR);
+        //extView pathR = (TextView)view.findViewById(R.id.fg_tv_pathRR);
+       // TextView bcR = (TextView)view.findViewById(R.id.fg_tv_bookingClassRR);
 
         double p = chosenFlight.getPriceD() + chosenFlightR.getPriceD();
         DecimalFormat df = new DecimalFormat("0.0");
         String priceStr = df.format(p);
         totalP.setText("SGD: "+priceStr);
-        path.setText("Out: "+chosenFlight.getOrigin()+" to "+chosenFlight.getDestination());
-        pathR.setText("In: "+chosenFlight.getDestination()+" to "+chosenFlight.getOrigin());
-        bc.setText("Cabin Class: " + chosenFlight.getBookingClassName());
-        bcR.setText("Cabin Class: " + chosenFlightR.getBookingClassName());
+      //  path.setText("Out: "+chosenFlight.getOrigin()+" to "+chosenFlight.getDestination());
+       // pathR.setText("In: "+chosenFlight.getDestination()+" to "+chosenFlight.getOrigin());
+        //bc.setText("Cabin Class: " + chosenFlight.getBookingClassName());
+        //bcR.setText("Cabin Class: " + chosenFlightR.getBookingClassName());
 
         return view;
     }

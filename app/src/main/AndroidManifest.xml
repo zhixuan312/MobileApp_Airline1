@@ -162,6 +162,8 @@
             android:name=".WebCheckInStatusPage"
             android:label="@string/title_activity_web_check_in_status_page" >
         </activity>
+        <activity android:name=".Setting" >
+        </activity>
     </application>
 
 </manifest>

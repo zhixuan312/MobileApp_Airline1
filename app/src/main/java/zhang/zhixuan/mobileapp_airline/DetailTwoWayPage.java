@@ -37,10 +37,10 @@ public class DetailTwoWayPage extends Activity implements itineraryRFragment.OnF
         setContentView(R.layout.activity_detail_two_way_page);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
 
-        outBoundDate = (TextView)findViewById(R.id.detail_tv_outDateR);
-        outBoundContent = (TextView)findViewById(R.id.detail_outboundContentR);
-        inBoundDate = (TextView)findViewById(R.id.detail_tv_inDateR);
-        inBoundContent = (TextView)findViewById(R.id.detail_inboundContentR);
+       // outBoundDate = (TextView)findViewById(R.id.detail_tv_outDateR);
+       // outBoundContent = (TextView)findViewById(R.id.detail_outboundContentR);
+       // inBoundDate = (TextView)findViewById(R.id.detail_tv_inDateR);
+       // inBoundContent = (TextView)findViewById(R.id.detail_inboundContentR);
 
         chosenFlight = (FlightEntity)getIntent().getSerializableExtra("chosenFlight");
         chosenFlightR = (FlightEntity)getIntent().getSerializableExtra("chosenFlightR");

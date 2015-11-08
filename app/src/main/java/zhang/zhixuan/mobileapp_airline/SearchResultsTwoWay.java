@@ -70,8 +70,8 @@ public class SearchResultsTwoWay extends Activity {
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         originTV = (TextView) findViewById(R.id.sr2_tv_ori);
         destinationTV = (TextView) findViewById(R.id.sr2_tv_dest);
-        depD = (TextView) findViewById(R.id.sr2_tv_depD);
-        retD = (TextView) findViewById(R.id.sr2_tv_retD);
+       // depD = (TextView) findViewById(R.id.sr2_tv_depD);
+     //   retD = (TextView) findViewById(R.id.sr2_tv_retD);
         Intent intent = getIntent();
         //set parameter
 
@@ -207,7 +207,7 @@ public class SearchResultsTwoWay extends Activity {
                     flights_Result.add(flightEntity);
                 }
 
-                lv = (ListView) findViewById(R.id.sr2_lv);
+               // lv = (ListView) findViewById(R.id.sr2_lv);
 //                handler.post(new Runnable() {
 //                    @Override
 //                    public void run() {
@@ -327,7 +327,7 @@ public class SearchResultsTwoWay extends Activity {
                     flightsR_Result.add(flightEntity);
                 }
 
-                lvR = (ListView) findViewById(R.id.sr2_lvR);
+            //    lvR = (ListView) findViewById(R.id.sr2_lvR);
 //                handler.post(new Runnable() {
 //                    @Override
 //                    public void run() {
@@ -501,13 +501,13 @@ public class SearchResultsTwoWay extends Activity {
 
                 convertView = mInflater.inflate(R.layout.listresultr, null);
 
-                holder.flightNo = (TextView) convertView.findViewById(R.id.flightNoR);
+              /*  holder.flightNo = (TextView) convertView.findViewById(R.id.flightNoR);
                 holder.departureDate = (TextView) convertView.findViewById(R.id.departureDateR);
                 holder.arrivalDate = (TextView) convertView.findViewById(R.id.arrivalDateR);
                 holder.bookbtn = (Button) convertView.findViewById(R.id.bookbtnR);
                 holder.fDetails = (LinearLayout) convertView.findViewById(R.id.fDetailsR);
                 holder.bookingClass = (TextView) convertView.findViewById(R.id.bookingClassR);
-                holder.price = (TextView) convertView.findViewById(R.id.priceR);
+                holder.price = (TextView) convertView.findViewById(R.id.priceR);*/
                 convertView.setTag(holder);
 
             } else {
@@ -598,7 +598,7 @@ public class SearchResultsTwoWay extends Activity {
 
 
                 convertView = mInflater.inflate(R.layout.listresultr, null);
-
+/*
                 holder.flightNo = (TextView) convertView.findViewById(R.id.flightNoR);
                 holder.departureDate = (TextView) convertView.findViewById(R.id.departureDateR);
                 holder.arrivalDate = (TextView) convertView.findViewById(R.id.arrivalDateR);
@@ -606,7 +606,7 @@ public class SearchResultsTwoWay extends Activity {
                 holder.fDetails = (LinearLayout) convertView.findViewById(R.id.fDetailsR);
                 holder.bookingClass = (TextView) convertView.findViewById(R.id.bookingClassR);
                 holder.price = (TextView) convertView.findViewById(R.id.priceR);
-                convertView.setTag(holder);
+                convertView.setTag(holder);*/
 
             } else {
 
