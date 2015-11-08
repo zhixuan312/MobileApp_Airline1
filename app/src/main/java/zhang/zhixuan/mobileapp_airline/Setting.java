@@ -16,10 +16,13 @@ import android.widget.CheckBox;
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
 
+import java.text.DecimalFormat;
+
 public class Setting extends Activity {
 
     CheckBox setting_check;
     SharedPreferences sharedPreferences;
+    String answer;
 
     LoginSessionDB dbLogin;
     Profile facebookProfile;
@@ -37,8 +40,9 @@ public class Setting extends Activity {
         Intent baReryStatus = this.registerReceiver(null, ifilter);
         int level = baReryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
         int scale = baReryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
-        float baReryPct = level / (float) scale;
-        String answer = Float.toString(baReryPct);
+        double baReryPct = level / (double) scale *100;
+        DecimalFormat df = new DecimalFormat("0");
+        answer = df.format(baReryPct) + "%";
 
         if (switchFunction == true && baReryPct > 20) {
             setting_check.setChecked(true);
@@ -63,16 +67,11 @@ public class Setting extends Activity {
 
 
             new AlertDialog.Builder(this)
-                    .setTitle("Delete entry")
-                    .setMessage("Are you sure you want to delete this entry?")
+                    .setTitle("Notice")
+                    .setMessage("Your current battery level is " + answer + ", promotion search will be disabled when your battery level is lower than 20%")
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // continue with delete
-                        }
-                    })
-                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            // do nothing
                         }
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
