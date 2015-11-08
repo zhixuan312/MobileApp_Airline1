@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gc.materialdesign.views.ButtonRectangle;
 
@@ -71,10 +72,8 @@ public class PromotionPage extends Activity {
             try{
                 Geocoder geocoder = new Geocoder(this, Locale.getDefault());
                 addressList = geocoder.getFromLocation(myLatitude, myLongitude, 1);
-//                if (addressList.size() <= 0){
-//                    addressList = new Geocoder (this).getFromLocation(myLatitude,myLongitude,1);
-//                }
-                if (addressList.get(0) != null) {
+                if (addressList == null && addressList.get(0) != null) {
+                    Toast.makeText(PromotionPage.this, "here", Toast.LENGTH_SHORT).show();
                     Address address = addressList.get(0);
                     for (int b=0; b<address.getMaxAddressLineIndex(); b++) {
                          addressLine = addressList.get(0).getAddressLine(b);
@@ -88,7 +87,8 @@ public class PromotionPage extends Activity {
                                 ", " + postalCode);
                     }
                 } else {
-                    promotion_tv.setText("No data");
+                    IOException e = new IOException();
+                    Log.e("Getting Address: ", "Error: ", e);
                 }
             } catch (IOException e) {
                 Log.e("Getting Address: ", "Error: ", e);
