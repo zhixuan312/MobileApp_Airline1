@@ -2,7 +2,8 @@
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#E8F5E9">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -49,6 +50,23 @@
         fab:menu_shadowYOffset="3dp"
         fab:menu_showShadow="true"
         android:elevation="11dp">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/login_float_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_account"
+            android:src="@drawable/account"
+            app:fab_colorNormal="#9C27B0"
+            app:fab_colorPressed="#9C27B0"
+            app:fab_colorRipple="#9C27B0"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Account" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/login_float_account"
