@@ -27,7 +27,7 @@
         <ListView
             android:id="@+id/fb_lv_bookingCI"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:scrollbars="none"
             android:layout_below="@+id/fb_tv_bookingTitle"/>
     </RelativeLayout>
@@ -58,7 +58,7 @@
             android:layout_below="@+id/fb_tv_bookingTitle2"
             android:id="@+id/fb_lv_bookingHistory"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:scrollbars="none" />
     </RelativeLayout>
 

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -142,6 +143,15 @@ public class BookingFragment extends Fragment {
         final MyAdapter adapter = new MyAdapter(getActivity().getApplicationContext());
 
         lv.setAdapter(adapter);
+        lv.setOnTouchListener(new View.OnTouchListener() {
+            // Setting on Touch Listener for handling the touch inside ScrollView
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // Disallow the touch request for parent scroll on touch of child view
+                v.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -174,6 +184,15 @@ public class BookingFragment extends Fragment {
         final MyAdapter1 adapter1 = new MyAdapter1(getActivity().getApplicationContext());
 
         lv1.setAdapter(adapter1);
+        lv1.setOnTouchListener(new View.OnTouchListener() {
+            // Setting on Touch Listener for handling the touch inside ScrollView
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // Disallow the touch request for parent scroll on touch of child view
+                v.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
         lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
