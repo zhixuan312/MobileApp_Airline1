@@ -47,4 +47,5 @@
     <string name="title_activity_web_check_in_home_page">WebCheckInHomePage</string>
     <string name="title_activity_web_check_in_status_page">WebCheckInStatusPage</string>
     <string name="congrat">Congratulations! You have successfully checked in online</string>
+    <string name="title_activity_hybrid_page">HybridPage</string>
 </resources>

@@ -683,8 +683,8 @@ LoginSessionDB dbLogin;
 
             holder.listResult_departTime.setText(flightsR_Result.get(position).getDepTimeE());
             holder.listResult_reachTime.setText(flightsR_Result.get(position).getAriTimeE());
-            if(flights_Result.get(position).getBookingClassName().equals("Premium Economy Class"))
-                flights_Result.get(position).setBookingClassName("Premium Economy");
+            if(flightsR_Result.get(position).getBookingClassName().equals("Premium Economy Class"))
+                flightsR_Result.get(position).setBookingClassName("Premium Economy");
             holder.listResult_class.setText(flightsR_Result.get(position).getBookingClassName());
             holder.listResult_flightNumber.setText(flightsR_Result.get(position).getFlightNo());
             holder.listResult_price.setText("S$ "+flightsR_Result.get(position).getPrice());

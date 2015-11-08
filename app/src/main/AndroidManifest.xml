@@ -39,11 +39,6 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".SearchResults"
@@ -163,6 +158,15 @@
             android:label="@string/title_activity_web_check_in_status_page" >
         </activity>
         <activity android:name=".Setting" >
+        </activity>
+        <activity
+            android:name=".HybridPage"
+            android:label="@string/title_activity_hybrid_page" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
