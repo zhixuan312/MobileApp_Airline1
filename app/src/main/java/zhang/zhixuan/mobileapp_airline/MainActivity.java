@@ -230,4 +230,9 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this,PromotionPage.class);
         startActivity(intent);
     }
+
+    public void main_float_setting (View view) {
+        Intent intent = new Intent(this,Setting.class);
+        startActivity(intent);
+    }
 }

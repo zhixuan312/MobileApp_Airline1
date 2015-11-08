@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
+import com.gc.materialdesign.views.ButtonRectangle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -249,7 +250,7 @@ public class BookingFragment extends Fragment {
             public TextView dep;
             public TextView ari;
             public TextView passport;
-            public Button checkInBtn;
+            public ButtonRectangle checkInBtn;
             public LinearLayout hiddenInfo;
 
         }
@@ -268,7 +269,7 @@ public class BookingFragment extends Fragment {
                 holder.referenceN = (TextView) convertView.findViewById(R.id.br_tv_rn);
                 holder.itinerary = (TextView) convertView.findViewById(R.id.br_tv_iti);
                 holder.dep = (TextView) convertView.findViewById(R.id.br_tv_dep);
-                holder.checkInBtn = (Button) convertView.findViewById(R.id.br_btn_checkin);
+                holder.checkInBtn = (ButtonRectangle) convertView.findViewById(R.id.br_btn_checkin);
                 holder.hiddenInfo = (LinearLayout) convertView.findViewById(R.id.br_ll_gone);
                 holder.passport = (TextView) convertView.findViewById(R.id.br_tv_passport);
                 holder.ari = (TextView) convertView.findViewById(R.id.br_tv_ari);
@@ -288,7 +289,7 @@ public class BookingFragment extends Fragment {
             holder.itinerary.setText(bookingRecordEntity.origin+" to "+bookingRecordEntity.destination);
             holder.dep.setText("Departs: " + bookingRecordEntity.depD);
             holder.ari.setText("Arrives: " + bookingRecordEntity.ariD);
-            holder.passport.setText("Passport Information: " + bookingRecordEntity.passport);
+            holder.passport.setText("Passport: " + bookingRecordEntity.passport);
 
             holder.checkInBtn.setTag(position + "");
             holder.checkInBtn.setOnClickListener(new View.OnClickListener() {

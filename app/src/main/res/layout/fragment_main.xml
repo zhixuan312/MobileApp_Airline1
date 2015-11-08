@@ -284,6 +284,23 @@
         fab:menu_showShadow="true">
 
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/main_float_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="main_float_setting"
+            android:src="@drawable/account"
+            app:fab_colorNormal="#607D8B"
+            app:fab_colorPressed="#607D8B"
+            app:fab_colorRipple="#607D8B"
+            app:fab_shadowColor="#66000000"
+            app:fab_shadowRadius="4dp"
+            app:fab_shadowXOffset="1dp"
+            app:fab_shadowYOffset="3dp"
+            app:fab_showShadow="true"
+            app:fab_size="normal"
+            fab:fab_label="Setting" />
+
+        <com.github.clans.fab.FloatingActionButton
             android:id="@+id/main_float_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

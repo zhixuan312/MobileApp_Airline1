@@ -5,67 +5,52 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/wc_ticket"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:id="@+id/wc_ticket"
         android:elevation="5dp"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="25dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/wc_flightNo"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginRight="10dp"
                 android:gravity="center"
-                android:text="flight no"
+                android:layout_below="@+id/wc_path"
+                android:text="MU545"
                 android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="50px"
+                android:textColor="#424242"
+
 
                 />
 
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:orientation="vertical">
+            <TextView
+                android:id="@+id/wc_depD"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6 Nov 2016"
+                android:textColor="#424242"
+                android:layout_alignTop="@+id/wc_path"
+                android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/wc_depD"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_gravity="right"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Expand"
-                    android:textColor="#424242"
-                    android:textSize="16sp" />
+            <TextView
+                android:id="@+id/wc_path"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Singapore to Hong Kong"
+                android:textColor="#424242"
+                android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/wc_path"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_centerInParent="true"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Expand"
-                    android:textColor="#424242"
-                    android:textSize="16sp" />
-
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
+        </RelativeLayout>
 
 
     </LinearLayout>
