@@ -83,7 +83,8 @@ public class MyDB {
                         MyDBHelper.columnName_memberCountry,
                         MyDBHelper.columnName_memberCity,
                         MyDBHelper.columnName_memberZipcode,
-                        MyDBHelper.columnName_memberContactN},
+                        MyDBHelper.columnName_memberContactN,
+                        MyDBHelper.columnName_memberUserName},
                 MyDBHelper.columnName_memberEmail+"=?",
                 new String[]{email}, null, null, null, null);
         
