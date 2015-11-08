@@ -59,25 +59,8 @@
             android:onClick="main_float_account"
             android:src="@drawable/logout_icon"
             app:fab_colorNormal="#9C27B0"
-            app:fab_colorPressed="#4c1356"
-            app:fab_colorRipple="#4c1356"
-            app:fab_shadowColor="#66000000"
-            app:fab_shadowRadius="4dp"
-            app:fab_shadowXOffset="1dp"
-            app:fab_shadowYOffset="3dp"
-            app:fab_showShadow="true"
-            app:fab_size="normal"
-            fab:fab_label="Logout" />
-
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/login_float_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="main_float_account"
-            android:src="@drawable/account"
-            app:fab_colorNormal="#3cba54"
-            app:fab_colorPressed="#184a22"
-            app:fab_colorRipple="#184a22"
+            app:fab_colorPressed="#4C1356"
+            app:fab_colorRipple="#4C1356"
             app:fab_shadowColor="#66000000"
             app:fab_shadowRadius="4dp"
             app:fab_shadowXOffset="1dp"
@@ -86,12 +69,29 @@
             app:fab_size="normal"
             fab:fab_label="Account" />
 
+        <!--<com.github.clans.fab.FloatingActionButton-->
+            <!--android:id="@+id/login_float_account"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="main_float_account"-->
+            <!--android:src="@drawable/account"-->
+            <!--app:fab_colorNormal="#3cba54"-->
+            <!--app:fab_colorPressed="#184a22"-->
+            <!--app:fab_colorRipple="#184a22"-->
+            <!--app:fab_shadowColor="#66000000"-->
+            <!--app:fab_shadowRadius="4dp"-->
+            <!--app:fab_shadowXOffset="1dp"-->
+            <!--app:fab_shadowYOffset="3dp"-->
+            <!--app:fab_showShadow="true"-->
+            <!--app:fab_size="normal"-->
+            <!--fab:fab_label="Account" />-->
+
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/login_float_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="main_float_search"
-            android:src="@drawable/search_icon"
+            android:src="@drawable/airplane"
             app:fab_colorNormal="#1E88E5"
             app:fab_colorPressed="#1E88E5"
             app:fab_colorRipple="#1E88E5"
