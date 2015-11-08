@@ -101,7 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/detail_flightNumberR"
-                    android:layout_below="@id/detail_ll1R"
+                    android:layout_below="@+id/detail_ll1R"
                     android:text="SH730"
                     android:layout_marginLeft="10dp"/>
 

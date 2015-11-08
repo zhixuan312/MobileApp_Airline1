@@ -74,11 +74,11 @@
             android:textStyle="bold" />
 
         <RelativeLayout
-            android:id="@+id/search_expandLayout"
+            android:id="@+id/searchR_expandLayout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/listResultR_departTime"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <TextView
                 android:id="@+id/listResultR_Duration"
