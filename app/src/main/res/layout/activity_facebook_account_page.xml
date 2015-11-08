@@ -74,11 +74,26 @@
             android:layout_marginTop="20dp"
             android:textSize="25sp" />
 
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/facebook_login"
+            android:layout_width="fill_parent"
+            android:layout_height="55dp"
+            android:background="#3cba54"
+            android:paddingTop="5dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:text="Login"
+            android:textAlignment="center"
+            android:layout_below="@+id/facebookAccount_tv_profile"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:onClick="facebookLogin"/>
+
         <FrameLayout
             android:id="@+id/facebookAccount_fl_facebook"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/facebookAccount_tv_profile"
+            android:layout_below="@+id/facebook_login"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp">
 
