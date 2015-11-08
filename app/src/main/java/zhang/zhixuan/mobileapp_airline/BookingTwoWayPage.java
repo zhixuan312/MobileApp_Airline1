@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -117,12 +118,22 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
         FacebookSdk.sdkInitialize(this.getApplicationContext());
 
         db = new TicketDB(this);
+        dbLogin = new LoginSessionDB(this);
+        dbMember = new MyDB(this);
+
         chosenFlight = (FlightEntity) getIntent().getSerializableExtra("chosenFlight");
         chosenFlightR = (FlightEntity) getIntent().getSerializableExtra("chosenFlightR");
         passengerEntity = (PassengerEntity) getIntent().getSerializableExtra("passenger");
         System.out.println("new page!!!!!" + chosenFlight.getDepartureDate());
 
-
+        fnTV = (EditText)findViewById(R.id.bk_et_fnR);
+        snTV = (EditText)findViewById(R.id.bk_et_snR);
+        adTV = (EditText)findViewById(R.id.bk_et_adR);
+        emTV = (EditText)findViewById(R.id.bk_et_emR);
+        ciTV = (EditText)findViewById(R.id.bk_et_ciR);
+        coTV = (EditText)findViewById(R.id.bk_et_coR);
+        zcTV = (EditText)findViewById(R.id.bk_et_zpR);
+        cnTV = (EditText)findViewById(R.id.bk_et_cnR);
         addListenerOnSpinnerItemSelection();
 
         fragmentTransaction = fragmentManager.beginTransaction();
@@ -131,6 +142,9 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
         fragmentTransaction.commit();
 
         checkLoginStatus();
+        System.out.println("check in status" + loginStatus);
+        if(loginStatus==null)
+            loginStatus = "";
         if(loginStatus.equals("true"))
             autoFillInMemberData();
 
@@ -141,21 +155,32 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
     public void checkLoginStatus(){
         dbLogin.open();
         Cursor c = dbLogin.getAllSession();
-        if (c.moveToFirst()) {
-            do {
-                loginStatus = c.getString(1);
-                emailAuto = c.getString(2);
+        System.out.println("enter checklOGIN status");
+        System.out.println("enter checklOGIN status"+c);
+        if(c==null)
+            System.out.println("c == null");
 
-            } while (c.moveToNext());
+        System.out.println("c.moveToFirst");
+
+        if (c.moveToFirst()) {
+
+            System.out.println("c!-null");
+            loginStatus = c.getString(1);
+            System.out.println("loginStatus"+loginStatus);
+            emailAuto = c.getString(2);
+
+
         }
+        System.out.println("out of checkLoginStatus");
         dbLogin.close();
     }
     public void autoFillInMemberData(){
 
         dbMember.open();
         Cursor c = dbMember.getMemberByEmail(emailAuto);
-
+        System.out.println("enter autoFillInMemberData");
         if(c!=null) {
+            System.out.println("c!=null");
             if (c.moveToFirst()) {
                 firstNAuto = c.getString(1);
                 lastNAuto = c.getString(2);
@@ -164,14 +189,21 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
                 cityAuto = c.getString(7);
                 zipCodeAuto = c.getString(8);
                 contactNAuto = c.getString(9);
-
-                fnTV.setText(firstNAuto, TextView.BufferType.EDITABLE);
-                snTV.setText(lastNAuto, TextView.BufferType.EDITABLE);
-                adTV.setText(addressAuto, TextView.BufferType.EDITABLE);
-                ciTV.setText(cityAuto, TextView.BufferType.EDITABLE);
-                coTV.setText(countryAuto, TextView.BufferType.EDITABLE);
-                zcTV.setText(zipCodeAuto, TextView.BufferType.EDITABLE);
-                cnTV.setText(contactNAuto, TextView.BufferType.EDITABLE);
+                if(firstNAuto!=null)
+                    fnTV.setText(firstNAuto, TextView.BufferType.EDITABLE);
+                if(lastNAuto!=null)
+                    snTV.setText(lastNAuto, TextView.BufferType.EDITABLE);
+                if(addressAuto!=null)
+                    adTV.setText(addressAuto, TextView.BufferType.EDITABLE);
+                if(cityAuto!=null)
+                    ciTV.setText(cityAuto, TextView.BufferType.EDITABLE);
+                if(countryAuto!=null)
+                    coTV.setText(countryAuto, TextView.BufferType.EDITABLE);
+                if(zipCodeAuto!=null)
+                    zcTV.setText(zipCodeAuto, TextView.BufferType.EDITABLE);
+                if(contactNAuto!=null)
+                    cnTV.setText(contactNAuto, TextView.BufferType.EDITABLE);
+                emTV.setText(emailAuto);
 
 
 
@@ -203,9 +235,10 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
 
         db.open();
 
-        long id = db.insertMember(rn, pp, em, "false", chosenFlight.getOrigin(), chosenFlight.getDestination(), chosenFlight.getDepartureDate(), chosenFlight.getArrivalDate());
+        long id1 = db.insertMember(rn, pp, em, "false", chosenFlight.getOrigin(), chosenFlight.getDestination(), chosenFlight.getDepartureDate(), chosenFlight.getArrivalDate());
 
-        if (id > 0) {
+        long id2 = db.insertMember(rn, pp, em, "false", chosenFlightR.getOrigin(), chosenFlightR.getDestination(), chosenFlightR.getDepartureDate(), chosenFlightR.getArrivalDate());
+        if (id1 > 0&&id2>0) {
             Toast.makeText(this, "Add successful.", Toast.LENGTH_LONG).show();
         } else
             Toast.makeText(this, "Add failed.", Toast.LENGTH_LONG).show();

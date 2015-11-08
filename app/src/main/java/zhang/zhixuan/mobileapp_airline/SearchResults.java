@@ -95,6 +95,7 @@ public class SearchResults extends Activity {
         sr_tv_oriCity = (TextView)findViewById(R.id.sr_tv_oriCity);
         sr_tv_oriCity.setText(originStr);
         sr_tv_destCity = (TextView)findViewById(R.id.sr_tv_destCity);
+        sr_tv_destCity.setText(destinationStr);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d MMM yyyy");
         SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("dd-MM-yy");
         System.out.println("one way or not " + oneWayOrNot);

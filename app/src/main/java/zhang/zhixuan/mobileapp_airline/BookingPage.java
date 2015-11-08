@@ -198,6 +198,7 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
                 if(contactNAuto!=null)
                 cnTV.setText(contactNAuto, TextView.BufferType.EDITABLE);
 
+                emTV.setText(emailAuto);
 
 
             } else
