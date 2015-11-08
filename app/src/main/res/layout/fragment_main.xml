@@ -317,22 +317,22 @@
             app:fab_size="normal"
             fab:fab_label="Account" />
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/main_float_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="main_float_search"
-            android:src="@drawable/checkin"
-            app:fab_colorNormal="#1E88E5"
-            app:fab_colorPressed="#1E88E5"
-            app:fab_colorRipple="#1E88E5"
-            app:fab_shadowColor="#66000000"
-            app:fab_shadowRadius="4dp"
-            app:fab_shadowXOffset="1dp"
-            app:fab_shadowYOffset="3dp"
-            app:fab_showShadow="true"
-            app:fab_size="normal"
-            fab:fab_label="Search" />
+        <!--<com.github.clans.fab.FloatingActionButton-->
+            <!--android:id="@+id/main_float_search"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="main_float_search"-->
+            <!--android:src="@drawable/checkin"-->
+            <!--app:fab_colorNormal="#1E88E5"-->
+            <!--app:fab_colorPressed="#1E88E5"-->
+            <!--app:fab_colorRipple="#1E88E5"-->
+            <!--app:fab_shadowColor="#66000000"-->
+            <!--app:fab_shadowRadius="4dp"-->
+            <!--app:fab_shadowXOffset="1dp"-->
+            <!--app:fab_shadowYOffset="3dp"-->
+            <!--app:fab_showShadow="true"-->
+            <!--app:fab_size="normal"-->
+            <!--fab:fab_label="Search" />-->
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/main_float_checkIn"

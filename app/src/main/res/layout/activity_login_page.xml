@@ -184,22 +184,22 @@
         fab:menu_showShadow="true"
         android:elevation="11dp">
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/login_float_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="main_float_account"
-            android:src="@drawable/account"
-            app:fab_colorNormal="#3cba54"
-            app:fab_colorPressed="#184a22"
-            app:fab_colorRipple="#184a22"
-            app:fab_shadowColor="#66000000"
-            app:fab_shadowRadius="4dp"
-            app:fab_shadowXOffset="1dp"
-            app:fab_shadowYOffset="3dp"
-            app:fab_showShadow="true"
-            app:fab_size="normal"
-            fab:fab_label="Account" />
+        <!--<com.github.clans.fab.FloatingActionButton-->
+            <!--android:id="@+id/login_float_account"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="main_float_account"-->
+            <!--android:src="@drawable/account"-->
+            <!--app:fab_colorNormal="#3cba54"-->
+            <!--app:fab_colorPressed="#184a22"-->
+            <!--app:fab_colorRipple="#184a22"-->
+            <!--app:fab_shadowColor="#66000000"-->
+            <!--app:fab_shadowRadius="4dp"-->
+            <!--app:fab_shadowXOffset="1dp"-->
+            <!--app:fab_shadowYOffset="3dp"-->
+            <!--app:fab_showShadow="true"-->
+            <!--app:fab_size="normal"-->
+            <!--fab:fab_label="Account" />-->
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/login_float_search"
