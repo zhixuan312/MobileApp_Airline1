@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="main_float_account"
-            android:src="@drawable/account"
+            android:src="@drawable/logout_icon"
             app:fab_colorNormal="#9C27B0"
             app:fab_colorPressed="#4c1356"
             app:fab_colorRipple="#4c1356"
@@ -67,7 +67,7 @@
             app:fab_shadowYOffset="3dp"
             app:fab_showShadow="true"
             app:fab_size="normal"
-            fab:fab_label="Account" />
+            fab:fab_label="Logout" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/login_float_account"
@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="main_float_search"
-            android:src="@drawable/airplane"
+            android:src="@drawable/search_icon"
             app:fab_colorNormal="#1E88E5"
             app:fab_colorPressed="#1E88E5"
             app:fab_colorRipple="#1E88E5"
