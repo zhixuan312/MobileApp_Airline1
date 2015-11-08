@@ -43,6 +43,7 @@
         fab:menu_colorPressed="#581416"
         fab:menu_colorRipple="#581416"
         fab:menu_fab_size="normal"
+        android:onClick="logout"
         fab:menu_icon="@drawable/airplane"
         fab:menu_shadowColor="#66000000"
         fab:menu_shadowRadius="4dp"
