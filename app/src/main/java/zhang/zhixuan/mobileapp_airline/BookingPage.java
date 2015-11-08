@@ -255,12 +255,7 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
             .merchantName("Example Merchant")
             .merchantPrivacyPolicyUri(Uri.parse("https://www.example.com/privacy"))
             .merchantUserAgreementUri(Uri.parse("https://www.example.com/legal"));
-
-    public void pay (View view) throws ParseException {
-
-
-
-
+    public void pay(View view){
         flightId = chosenFlight.getId();
         firstNP = passengerEntity.getFirstName();
         lastNP = passengerEntity.getLastName();
@@ -279,6 +274,14 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
         price = chosenFlight.getPriceD();
 
         generateItinerary();
+    }
+
+    public void pay2 () throws ParseException {
+
+
+
+
+
 
         SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("d MMM yyyy HH:mm");
         Date dpD = simpleDateFormat1.parse(chosenFlight.getDepartureDate());
@@ -316,12 +319,9 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
         intent2.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, calendarE.getTimeInMillis());
         intent2.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
 
-
-        Intent intent3 = new Intent(this,bookingConfirmationPage.class);
-
+        Intent intent3 = new Intent(this, bookingConfirmationPage.class);
         intent3.putExtra("referenceN", referenceN);
-        intent3.putExtra("email",email);
-
+        intent3.putExtra("email", email);
         startActivity(intent3);
         startActivity(intent2);
         PayPalPayment thingToBuy = getThingToBuy(PayPalPayment.PAYMENT_INTENT_SALE);
@@ -477,7 +477,7 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
                 referenceN = result;
                 System.out.println("产生reference number,数值是:"+referenceN);
                 addRecord(referenceN,passportP,email);
-
+                pay2();
 
             } catch (Exception e) {
                 Log.d("ReadCurrencyJSON", e.getLocalizedMessage());

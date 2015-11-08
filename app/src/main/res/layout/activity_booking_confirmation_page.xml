@@ -146,8 +146,39 @@
             android:id="@+id/cfm_rn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="You reference number is "
             android:layout_below="@+id/cfm_tv_df3"
             android:layout_marginTop="25dp" />
+        <TextView
+            android:layout_below="@+id/cfm_rn"
+            android:id="@+id/cfm_rnT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="13kjh3r"
+            android:textSize="30sp"
+            android:layout_marginBottom="20dp"
+            />
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+
+            android:id="@+id/cfm_rn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="and you can look for your booking records in your own account: "
+            android:layout_below="@+id/cfm_rn"
+            android:layout_marginTop="40dp" />
+        <TextView
+            android:layout_below="@+id/cfm_rn1"
+            android:id="@+id/cfm_rn1T"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="13kjh3r"
+            android:textSize="30sp"
+            android:layout_marginBottom="20dp"
+            />
 
     </RelativeLayout>
 

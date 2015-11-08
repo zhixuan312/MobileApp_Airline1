@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
@@ -19,7 +18,9 @@ public class bookingConfirmationPage extends Activity {
 
     String email;
     String[] ticket;
-    TextView cfm_rn;
+    TextView cfm_rn1T;
+    TextView cfm_rnT;
+
     Fragment facebookFragment;
     Profile facebookProfile;
     LoginSessionDB dbLogin;
@@ -38,10 +39,16 @@ public class bookingConfirmationPage extends Activity {
 
         ticket = getRecord(email);
         referenceN = ticket[1];
+        if(referenceN==null||ticket[3]==null){
+            referenceN = getIntent().getStringExtra("referenceN");
+            ticket[3] = getIntent().getStringExtra("email");
+         }
 
 
-        cfm_rn = (TextView)findViewById(R.id.cfm_rn);
-        cfm_rn.setText("Your Booking Reference Number: \n"+referenceN+"\n and you can look for your booking records in your own account: \n"+ticket[3]);
+        cfm_rn1T = (TextView)findViewById(R.id.cfm_rn1T);
+        cfm_rnT = (TextView)findViewById(R.id.cfm_rnT);
+        cfm_rn1T.setText(ticket[3]);
+        cfm_rnT.setText(referenceN);
     }
 
     //test github
@@ -56,8 +63,7 @@ public class bookingConfirmationPage extends Activity {
         if (c.moveToFirst()) {
             String[] temp = {c.getString(0), c.getString(1), c.getString(2),c.getString(3)};
             record = temp;
-        } else
-            Toast.makeText(this, "No contact found", Toast.LENGTH_LONG).show();
+        }
 
 
         db.close();
