@@ -39,7 +39,7 @@ public class bookingConfirmationPage extends Activity {
 
         ticket = getRecord(email);
         referenceN = ticket[1];
-        if(referenceN==null||ticket[3]==null){
+        if(referenceN==null||ticket[3]==null||referenceN.equals("")){
             referenceN = getIntent().getStringExtra("referenceN");
             ticket[3] = getIntent().getStringExtra("email");
          }

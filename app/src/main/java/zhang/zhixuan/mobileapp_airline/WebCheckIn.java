@@ -116,6 +116,8 @@ public class WebCheckIn extends Activity {
                     tickets_results.add(ticketCheckInEntity);
                 }
 
+                System.out.println("我在这里啦啦啦啦啦啦"+tickets_results.size());
+
                 lv = (ListView)findViewById(R.id.wc_lv_tickets);
 //                handler.post(new Runnable() {
 //                    @Override

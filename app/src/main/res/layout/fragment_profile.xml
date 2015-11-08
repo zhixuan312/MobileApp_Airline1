@@ -207,6 +207,7 @@
             android:id="@+id/pf_btn_update"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:onClick="updateRecord"
             android:background="#3cba54"
             android:text="UPDATE"
             android:layout_below="@+id/pf_et_cn"/>

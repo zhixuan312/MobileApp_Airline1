@@ -256,10 +256,7 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
             .merchantPrivacyPolicyUri(Uri.parse("https://www.example.com/privacy"))
             .merchantUserAgreementUri(Uri.parse("https://www.example.com/legal"));
 
-    public void pay(View view) throws ParseException {
-
-
-
+    public void pay(View view){
         flightId = chosenFlight.getId();
         flightId2 = chosenFlightR.getId();
         firstNP = passengerEntity.getFirstName();
@@ -279,6 +276,12 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
         price = chosenFlight.getPriceD();
 
         generateItinerary();
+    }
+
+    public void pay2() throws ParseException {
+
+
+
 
         SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("d MMM yyyy HH:mm");
         Date dpD = simpleDateFormat1.parse(chosenFlight.getDepartureDate());
@@ -448,7 +451,7 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
 
     public void generateItinerary() {
         ClassAsyncTask_GenerateItinerary classAsyncTask_generateItinerary = new ClassAsyncTask_GenerateItinerary();
-        classAsyncTask_generateItinerary.execute("http://192.168.1.106:8080/MerlionAirlinesSystem-war/webresources/generic/generateItineraryTwoWay?flightId=" + flightId + "&flightId2=" + flightId2 + "&firstNP=" + firstNP + "&lastNP=" + lastNP + "&titleP=" + titleP + "&bc=" + bc + "&nationNP=" + nationNP + "&title=" + title + "&firstN=" + firstN + "&lastN=" + lastN + "&address=" + address + "&city=" + city + "&country=" + country + "&zipCode=" + zipCode + "&contactN=" + contactN + "&passportP=" + passportP + "&email=" + email + "&price=" + price);
+        classAsyncTask_generateItinerary.execute("http://192.168.1.106:8080/MerlionAirlinesSystem-war/webresources/generic/generateItineraryTwoWay?flightId=" + flightId + "&flightId2=" + flightId2 + "&firstNP=" + firstNP + "&lastNP=" + lastNP + "&titleP=" + titleP + "&bc=" + bc+"&bc1=" + chosenFlightR.getBookingClassName() + "&nationNP=" + nationNP + "&title=" + title + "&firstN=" + firstN + "&lastN=" + lastN + "&address=" + address + "&city=" + city + "&country=" + country + "&zipCode=" + zipCode + "&contactN=" + contactN + "&passportP=" + passportP + "&email=" + email + "&price=" + price+"&price1=" + chosenFlightR.getPriceD());
 
 
     }
@@ -468,6 +471,7 @@ public class BookingTwoWayPage extends Activity implements itineraryRFragment.On
                 referenceN = result;
                 System.out.println("产生reference number,数值是:" + referenceN);
                 addRecord(referenceN, passportP, email);
+                pay2();
 
             } catch (Exception e) {
                 Log.d("ReadCurrencyJSON", e.getLocalizedMessage());

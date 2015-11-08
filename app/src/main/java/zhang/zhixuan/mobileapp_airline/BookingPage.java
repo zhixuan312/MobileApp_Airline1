@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -324,6 +325,11 @@ public class BookingPage extends Activity implements itineraryFragment.OnFragmen
         intent3.putExtra("email", email);
         startActivity(intent3);
         startActivity(intent2);
+
+        SmsManager sms	= SmsManager.getDefault();
+        sms.sendTextMessage(contactN, null,
+                "Hello, You have successfully book a ticket (flight no: "+chosenFlight.getFlightNo()+" ). Please remember to check in in time. Thanks for choosing our service", null, null);
+
         PayPalPayment thingToBuy = getThingToBuy(PayPalPayment.PAYMENT_INTENT_SALE);
 
         Intent intent = new Intent(this, PaymentActivity.class);

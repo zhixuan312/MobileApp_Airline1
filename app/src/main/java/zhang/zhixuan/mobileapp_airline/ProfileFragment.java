@@ -76,6 +76,7 @@ TextView pf_tv_username;
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("点击到了!");
                 firstN = fnTV.getText().toString();
                 lastN = snTV.getText().toString();
                 address = adTV.getText().toString();
@@ -125,14 +126,14 @@ TextView pf_tv_username;
     }
     public void updateRecord(){
         db.open();
-
+        System.out.println("在这里!!");
         long id = db.updateMember(email, firstN, lastN, title, address, country, city, zipCode, contactN);
 
         if(id > 0){
-            Toast.makeText(getActivity().getApplicationContext(), "Update successful.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Update successful.", Toast.LENGTH_LONG).show();
         }
         else
-            Toast.makeText(getActivity().getApplicationContext(), "Upddte fail.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(),"Upddte fail.", Toast.LENGTH_LONG).show();
 
 
         db.close();
