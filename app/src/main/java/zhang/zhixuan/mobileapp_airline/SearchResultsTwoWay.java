@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,12 +12,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.facebook.FacebookSdk;
@@ -73,6 +76,7 @@ LoginSessionDB dbLogin;
     private FlightEntity flightR;
     Boolean flightSelected = false;
     Boolean flightRSelected = false;
+    ScrollView scrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,7 +137,8 @@ LoginSessionDB dbLogin;
 //        destinationTV.setText("Destination: " + destinationStr);
         flights_Result = new ArrayList<>();
         flightsR_Result = new ArrayList<>();
-        searchFlights_TwoWay(originStr,destinationStr);
+        searchFlights_TwoWay(originStr, destinationStr);
+
     }
 
     public void searchFlights_TwoWay(String originStr, String destinationStr) {
@@ -233,6 +238,7 @@ LoginSessionDB dbLogin;
                 }
 
                 lv = (ListView) findViewById(R.id.sr2_lv1);
+                lv.setFocusable(false);
                 if(!flights_Result.isEmpty()) {
                     sr2_tv_ori.setText(flights_Result.get(0).getOriAirportCode());
                     sr2_tv_dest.setText(flights_Result.get(0).getDesAirportCode());
@@ -250,6 +256,15 @@ LoginSessionDB dbLogin;
 //                lv.setAdapter(adapter);
                 final MyAdapter adapter = new MyAdapter(getApplicationContext());
                 lv.setAdapter(adapter);
+                lv.setOnTouchListener(new View.OnTouchListener() {
+                    // Setting on Touch Listener for handling the touch inside ScrollView
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        // Disallow the touch request for parent scroll on touch of child view
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        return false;
+                    }
+                });
                 lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
                     @Override
@@ -265,17 +280,19 @@ LoginSessionDB dbLogin;
                             data.expand = true;
                         }
 
-                        int totalHeight = 0;
-                        for (int i = 0; i < adapter.getCount(); i++) {
-                            View viewItem = adapter.getView(i, null, lv);//这个很重要，那个展开的item的measureHeight比其他的大
-                            viewItem.measure(0, 0);
-                            totalHeight += viewItem.getMeasuredHeight();
-                        }
 
-                        ViewGroup.LayoutParams params = lv.getLayoutParams();
-                        params.height = totalHeight
-                                + (lv.getDividerHeight() * (lv.getCount() - 1));
-                        lv.setLayoutParams(params);
+//                        int totalHeight = 0;
+//                        for (int i = 0; i < adapter.getCount(); i++) {
+//                            View viewItem = adapter.getView(i, null, lv);//这个很重要，那个展开的item的measureHeight比其他的大
+//                            viewItem.measure(0, 0);
+//                            totalHeight += viewItem.getMeasuredHeight();
+//                        }
+//
+//                        ViewGroup.LayoutParams params = lv.getLayoutParams();
+//                        params.height = totalHeight
+//                                + (lv.getDividerHeight() * (lv.getCount() - 1));
+//                        lv.setLayoutParams(params);
+
                         adapter.notifyDataSetChanged();
                     }
                 });
@@ -363,6 +380,7 @@ LoginSessionDB dbLogin;
                 }
 
                 lvR = (ListView) findViewById(R.id.sr2_lv2);
+                lvR.setFocusable(false);
 //                handler.post(new Runnable() {
 //                    @Override
 //                    public void run() {
@@ -375,6 +393,15 @@ LoginSessionDB dbLogin;
 //                lv.setAdapter(adapter);
                 final MyAdapterR adapterR = new MyAdapterR(getApplicationContext());
                 lvR.setAdapter(adapterR);
+                lvR.setOnTouchListener(new View.OnTouchListener() {
+                    // Setting on Touch Listener for handling the touch inside ScrollView
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        // Disallow the touch request for parent scroll on touch of child view
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        return false;
+                    }
+                });
                 lvR.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
                     @Override
@@ -389,18 +416,18 @@ LoginSessionDB dbLogin;
                             oldPostionR = position;
                             data.expand = true;
                         }
-
-                        int totalHeight = 0;
-                        for (int i = 0; i < adapterR.getCount(); i++) {
-                            View viewItem = adapterR.getView(i, null, lv);//这个很重要，那个展开的item的measureHeight比其他的大
-                            viewItem.measure(0, 0);
-                            totalHeight += viewItem.getMeasuredHeight();
-                        }
-
-                        ViewGroup.LayoutParams params = lvR.getLayoutParams();
-                        params.height = totalHeight
-                                + (lvR.getDividerHeight() * (lvR.getCount() - 1));
-                        lvR.setLayoutParams(params);
+//
+//                        int totalHeight = 0;
+//                        for (int i = 0; i < adapterR.getCount(); i++) {
+//                            View viewItem = adapterR.getView(i, null, lv);//这个很重要，那个展开的item的measureHeight比其他的大
+//                            viewItem.measure(0, 0);
+//                            totalHeight += viewItem.getMeasuredHeight();
+//                        }
+//
+//                        ViewGroup.LayoutParams params = lvR.getLayoutParams();
+//                        params.height = totalHeight
+//                                + (lvR.getDividerHeight() * (lvR.getCount() - 1));
+//                        lvR.setLayoutParams(params);
                         adapterR.notifyDataSetChanged();
                     }
                 });
@@ -593,6 +620,8 @@ LoginSessionDB dbLogin;
 //
 //                    TextView flightNoChosen = (TextView)view.findViewById(R.id.flightNo);
 //                    TextView depDChosen = (TextView)findViewById(R.id.departureDate);
+                    scrollView = (ScrollView)findViewById(R.id.scrollView_search);
+                    scrollView.fullScroll(ScrollView.FOCUS_DOWN);
                     int index = Integer.parseInt(v.getTag().toString());
                     flight = flights_Result.get(index);
                     flightSelected = true;

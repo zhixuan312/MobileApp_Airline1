@@ -209,7 +209,7 @@
             android:layout_height="wrap_content"
             android:background="#3cba54"
             android:text="UPDATE"
-            android:layout_below="@+id/pf_et_zp"/>
+            android:layout_below="@+id/pf_et_cn"/>
     </RelativeLayout>
 
     <TextView

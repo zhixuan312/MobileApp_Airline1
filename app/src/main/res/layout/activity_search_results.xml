@@ -33,13 +33,8 @@
             android:src="@drawable/airplane" />
     </RelativeLayout>
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/login_bar"
-        android:layout_centerHorizontal="true">
-
         <RelativeLayout
+            android:layout_below="@+id/login_bar"
             android:id="@+id/sr_ll"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -119,7 +114,7 @@
 
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="450dp"
+                android:layout_height="match_parent"
                 android:elevation="5dp"
                 android:layout_below="@+id/ll0"
                 android:layout_marginBottom="10dp"
@@ -129,7 +124,6 @@
                 android:id="@+id/sr_lv"
                 android:scrollbars="none" />
         </RelativeLayout>
-    </ScrollView>
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/main_float_menu"
