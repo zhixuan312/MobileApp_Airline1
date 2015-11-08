@@ -284,17 +284,17 @@ public class SearchResults extends Activity {
                             data.expand = true;
                         }
 
-                        int totalHeight = 0;
-                        for (int i = 0; i < adapter.getCount(); i++) {
-                            View viewItem = adapter.getView(i, null, lv);//这个很重要，那个展开的item的measureHeight比其他的大
-                            viewItem.measure(0, 0);
-                            totalHeight += viewItem.getMeasuredHeight();
-                        }
-
-                        ViewGroup.LayoutParams params = lv.getLayoutParams();
-                        params.height = totalHeight
-                                + (lv.getDividerHeight() * (lv.getCount() - 1));
-                        lv.setLayoutParams(params);
+//                        int totalHeight = 0;
+//                        for (int i = 0; i < adapter.getCount(); i++) {
+//                            View viewItem = adapter.getView(i, null, lv);//这个很重要，那个展开的item的measureHeight比其他的大
+//                            viewItem.measure(0, 0);
+//                            totalHeight += viewItem.getMeasuredHeight();
+//                        }
+//
+//                        ViewGroup.LayoutParams params = lv.getLayoutParams();
+//                        params.height = totalHeight
+//                                + (lv.getDividerHeight() * (lv.getCount() - 1));
+//                        lv.setLayoutParams(params);
                         adapter.notifyDataSetChanged();
                     }
                 });

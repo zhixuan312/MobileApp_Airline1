@@ -36,6 +36,7 @@
 
 
     <ScrollView
+        android:id="@+id/scrollView_search"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@+id/login_bar"
@@ -124,49 +125,96 @@
                 </RelativeLayout>
             </RelativeLayout>
 
-            <ListView
-                android:layout_marginTop="20dp"
-                android:id="@+id/sr2_lv1"
+            <RelativeLayout
+                android:id="@+id/relative1"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/ll0"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:background="#ffffff"
-                android:elevation="5dp"
-                android:scrollbars="none" />
+                android:background="#ffffff">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/ll0"
+                <RelativeLayout
+                    android:id="@+id/relativ1"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    >
 
-                android:background="@drawable/airplane_outbound"
-                android:elevation="6dp" />
+                    <TextView
+                        android:id="@+id/out"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Outbound" />
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/sr2_lv1"
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/airplane_outbound"
+                        android:elevation="6dp" />
+                </RelativeLayout>
 
-                android:background="@drawable/airplane_inbound"
-                android:elevation="6dp" />
+                <ListView
+                    android:id="@+id/sr2_lv1"
 
-            <ListView
-                android:id="@+id/sr2_lv2"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_below="@+id/sr2_lv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="390dp"
+                    android:layout_below="@id/relativ1"
+
+                    android:background="#ffffff"
+                    android:elevation="5dp"
+                    android:scrollbars="none" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
                 android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginTop="20dp"
-                android:background="#ffffff"
-                android:elevation="5dp"
-                android:scrollbars="none" />
+                android:layout_below="@+id/relative1"
+                android:background="#ffffff">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    android:id="@+id/relativ2">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                       android:layout_alignParentRight="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/airplane_inbound"
+                        android:elevation="6dp" />
+
+                    <TextView
+                        android:id="@+id/in"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Inbound" />
+
+                </RelativeLayout>
+                    <ListView
+                        android:id="@+id/sr2_lv2"
+                        android:layout_width="match_parent"
+                        android:layout_height="520dp"
+                        android:layout_below="@+id/relativ2"
+                        android:background="#ffffff"
+                        android:elevation="5dp"
+                        android:scrollbars="none" />
+
+            </RelativeLayout>
+
 
         </RelativeLayout>
     </ScrollView>
