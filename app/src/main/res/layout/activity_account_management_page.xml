@@ -67,7 +67,7 @@
             app:fab_shadowYOffset="3dp"
             app:fab_showShadow="true"
             app:fab_size="normal"
-            fab:fab_label="Account" />
+            fab:fab_label="Logout" />
 
         <!--<com.github.clans.fab.FloatingActionButton-->
             <!--android:id="@+id/login_float_account"-->

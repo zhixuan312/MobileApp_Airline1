@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="#ffffff"
     android:orientation="vertical">
 
     <LinearLayout
@@ -20,14 +21,16 @@
                 android:layout_height="0dp"
                 android:id="@+id/br_tv_rnC"
                 android:layout_weight="1"
-                android:text="Referece " />
+                android:text="Referece "
+                android:textColor="#424242"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:id="@+id/br_tv_itiC"
                 android:layout_weight="1"
-                android:text="itinerary" />
+                android:text="itinerary"
+                android:textColor="#424242"/>
 
 
         </LinearLayout>
@@ -40,30 +43,33 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:minHeight="100dp"
-        android:background="#fffeee"
+
         android:visibility="gone" >
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/br_tv_depC"
             android:text="Departs:"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textColor="#424242"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/br_tv_ariC"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textColor="#424242"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/br_tv_passportC"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textColor="#424242"/>
 
     </LinearLayout>
 
 </LinearLayout>
 
 
-   
+
 
 
