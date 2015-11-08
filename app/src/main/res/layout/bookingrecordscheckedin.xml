@@ -25,6 +25,7 @@
                 android:textColor="#424242"/>
 
             <TextView
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:id="@+id/br_tv_itiC"
@@ -44,6 +45,7 @@
         android:orientation="horizontal"
         android:minHeight="100dp"
 
+        android:layout_marginTop="15dp"
         android:visibility="visible" >
         <TextView
             android:layout_width="0dp"
